@@ -12,12 +12,14 @@ import org.semanticweb.owlapi.apibinding.OWLManager;
 import org.semanticweb.owlapi.io.OWLXMLOntologyFormat;
 import org.semanticweb.owlapi.io.StreamDocumentTarget;
 import org.semanticweb.owlapi.model.AddAxiom;
+import org.semanticweb.owlapi.model.AddImport;
 import org.semanticweb.owlapi.model.IRI;
 import org.semanticweb.owlapi.model.OWLAxiom;
 import org.semanticweb.owlapi.model.OWLClass;
 import org.semanticweb.owlapi.model.OWLClassExpression;
 import org.semanticweb.owlapi.model.OWLDataFactory;
 import org.semanticweb.owlapi.model.OWLDeclarationAxiom;
+import org.semanticweb.owlapi.model.OWLImportsDeclaration;
 import org.semanticweb.owlapi.model.OWLIndividual;
 import org.semanticweb.owlapi.model.OWLObjectProperty;
 import org.semanticweb.owlapi.model.OWLObjectPropertyAssertionAxiom;
@@ -122,12 +124,16 @@ public class ConvertFile {
 		System.out.println("** createOWLFile method **");
 		//Create empty ontology 
 		OWLOntology ontology = null;
-		File file = new File("owlfiletest.owl");
+		File file = new File("owlfiletest.owl"); //ontology file to write to
 		OWLOntologyManager manager = OWLManager.createOWLOntologyManager();
 		IRI ontologyIRI = IRI.create("http://neurolex.org/wiki/");
-
+		// Specify IRIs for ontology imports
+		IRI bfoIRI = IRI.create("http://purl.obolibrary.org/obo/bfo.owl");
+		IRI iaoIRI = IRI.create("http://purl.obolibrary.org/obo/iao.owl");
+			
 		try {
 			ontology = manager.createOntology(ontologyIRI);
+			OWLDataFactory factory = manager.getOWLDataFactory();
 			// Create the document IRI for our ontology
 			IRI documentIRI = IRI.create("/Users/whetzel/Documents/workspace/Tab2OWL/");
 			// Set up a mapping, which maps the ontology to the document IRI
@@ -135,7 +141,7 @@ public class ConvertFile {
 			manager.addIRIMapper(mapper);
 			System.out.println("Created ontology: " + ontology);
 			// Set version IRI, use the date the file contents were exported from NeuroLex
-			IRI versionIRI = IRI.create(ontologyIRI + "export06302014");
+			IRI versionIRI = IRI.create(ontologyIRI + "NeuroLexExport06302014");
 			OWLOntologyID newOntologyID = new OWLOntologyID(ontologyIRI, versionIRI);
 			// Create the change that will set our version IRI
 			SetOntologyID setOntologyID = new SetOntologyID(ontology, newOntologyID);
@@ -143,6 +149,17 @@ public class ConvertFile {
 			manager.applyChange(setOntologyID);
 			System.out.println("Ontology: " + ontology);
 
+			
+			// Need to add imports for BFO and IAO to ontology
+			OWLImportsDeclaration bfoImportDeclaraton =
+			   factory.getOWLImportsDeclaration(bfoIRI); 
+			manager.applyChange(new AddImport(ontology, bfoImportDeclaraton));
+			
+			OWLImportsDeclaration iaoImportDeclaraton =
+					   factory.getOWLImportsDeclaration(iaoIRI); 
+					manager.applyChange(new AddImport(ontology, iaoImportDeclaraton));
+			
+			
 			// Now save a local copy of the ontology. (
 			manager.saveOntology(ontology, IRI.create(file.toURI()));
 

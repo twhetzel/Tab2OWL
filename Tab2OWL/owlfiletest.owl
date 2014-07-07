@@ -1,0 +1,3515 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://neurolex.org/wiki/"
+     xml:base="http://neurolex.org/wiki/"
+     xmlns:obo="http://purl.obolibrary.org/obo/"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+    <owl:Ontology rdf:about="http://neurolex.org/wiki/">
+        <owl:versionIRI rdf:resource="http://neurolex.org/wiki/export06302014"/>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/BFO_0000087 -->
+
+    <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/BFO_0000087"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:AC_Couple -->
+
+    <owl:Class rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:AC_Couple">
+        <rdfs:subClassOf rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:Device_parameter"/>
+    </owl:Class>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:ADP_amplitude -->
+
+    <owl:Class rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:ADP_amplitude">
+        <rdfs:subClassOf rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:Action_potential_characteristic"/>
+    </owl:Class>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:ADP_duration -->
+
+    <owl:Class rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:ADP_duration">
+        <rdfs:subClassOf rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:Action_potential_characteristic"/>
+    </owl:Class>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Accelleration_stimulus_transduction -->
+
+    <owl:Class rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Accelleration_stimulus_transduction">
+        <rdfs:subClassOf rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:Solid_object-coupled_ciliary_displacement_stimulus_transduction"/>
+    </owl:Class>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Access_resistance -->
+
+    <owl:Class rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Access_resistance">
+        <rdfs:subClassOf rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:Cellular_physiology_characteristic"/>
+    </owl:Class>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Action_potential_characteristic -->
+
+    <owl:Class rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Action_potential_characteristic">
+        <rdfs:subClassOf rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:Cellular_physiology_characteristic"/>
+    </owl:Class>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Active_dendrite -->
+
+    <owl:Class rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Active_dendrite">
+        <rdfs:subClassOf rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:Cellular_morphology_characteristic"/>
+    </owl:Class>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Activity_patterns -->
+
+    <owl:Class rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Activity_patterns">
+        <rdfs:subClassOf rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:Electrophysiology_concept"/>
+    </owl:Class>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Adaptation_ratio -->
+
+    <owl:Class rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Adaptation_ratio">
+        <rdfs:subClassOf rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:Action_potential_characteristic"/>
+    </owl:Class>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Adequate_stimulus -->
+
+    <owl:Class rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Adequate_stimulus">
+        <rdfs:subClassOf rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:Electrophysiology_concept"/>
+    </owl:Class>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Adrenergic_transmission -->
+
+    <owl:Class rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Adrenergic_transmission">
+        <rdfs:subClassOf rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:Synaptic_transmission"/>
+    </owl:Class>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Aggregate_Object -->
+
+    <owl:Class rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Aggregate_Object"/>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Aggregate_field_theory -->
+
+    <owl:Class rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Aggregate_field_theory">
+        <rdfs:subClassOf rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:Electrophysiology_theory"/>
+    </owl:Class>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Algorithm -->
+
+    <owl:Class rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Algorithm"/>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Aminergic_transmission -->
+
+    <owl:Class rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Aminergic_transmission">
+        <rdfs:subClassOf rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:Synaptic_transmission"/>
+    </owl:Class>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Amperometric_electrode_recording_protocol -->
+
+    <owl:Class rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Amperometric_electrode_recording_protocol">
+        <rdfs:subClassOf rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:Micro-electrode_recording_protocol"/>
+    </owl:Class>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Assay -->
+
+    <owl:Class rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Assay"/>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Attenuation -->
+
+    <owl:Class rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Attenuation">
+        <rdfs:subClassOf rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:Synaptic_Plasticity"/>
+    </owl:Class>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Attractor_Neural_Network -->
+
+    <owl:Class rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Attractor_Neural_Network">
+        <rdfs:subClassOf rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:Computational_model"/>
+    </owl:Class>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Auditory_map -->
+
+    <owl:Class rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Auditory_map">
+        <rdfs:subClassOf rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:Topographic_map"/>
+    </owl:Class>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Augmentation -->
+
+    <owl:Class rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Augmentation">
+        <rdfs:subClassOf rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:Short-term_Synaptic_Plasticity"/>
+    </owl:Class>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Axoaxonic_synapse -->
+
+    <owl:Class rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Axoaxonic_synapse">
+        <rdfs:subClassOf rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:Synapse"/>
+    </owl:Class>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Axodendritic_synapse -->
+
+    <owl:Class rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Axodendritic_synapse">
+        <rdfs:subClassOf rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:Synapse"/>
+    </owl:Class>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Axon_Hillock -->
+
+    <owl:Class rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Axon_Hillock">
+        <rdfs:subClassOf rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:Regional_Part_Of_Axon_(sao280355188)"/>
+    </owl:Class>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Axon_transport -->
+
+    <owl:Class rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Axon_transport">
+        <rdfs:subClassOf rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:Electrophysiology_concept"/>
+    </owl:Class>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Axosomatic_synapse -->
+
+    <owl:Class rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Axosomatic_synapse">
+        <rdfs:subClassOf rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:Synapse"/>
+    </owl:Class>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Bicarbonate_stimulus_transduction -->
+
+    <owl:Class rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Bicarbonate_stimulus_transduction">
+        <rdfs:subClassOf rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:Molecule_flow_stimulus_transduction"/>
+    </owl:Class>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Biofeedback -->
+
+    <owl:Class rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Biofeedback">
+        <rdfs:subClassOf rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:Protocol"/>
+    </owl:Class>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Biological_process -->
+
+    <owl:Class rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Biological_process"/>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Cable_property -->
+
+    <owl:Class rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Cable_property">
+        <rdfs:subClassOf rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:Electrophysiology_concept"/>
+    </owl:Class>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Calcium_current -->
+
+    <owl:Class rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Calcium_current"/>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Calcium_dynamics -->
+
+    <owl:Class rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Calcium_dynamics">
+        <rdfs:subClassOf rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:Electrophysiology_concept"/>
+    </owl:Class>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Cell-attached_single-channel_recording_protocol -->
+
+    <owl:Class rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Cell-attached_single-channel_recording_protocol">
+        <rdfs:subClassOf rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:Ion_channel_recording_protocol"/>
+    </owl:Class>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Cell-detached_inside-out_single-channel_recording_protocol -->
+
+    <owl:Class rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Cell-detached_inside-out_single-channel_recording_protocol">
+        <rdfs:subClassOf rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:Cell-detached_single-channel_recording_protocol"/>
+    </owl:Class>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Cell-detached_single-channel_recording_protocol -->
+
+    <owl:Class rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Cell-detached_single-channel_recording_protocol">
+        <rdfs:subClassOf rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:Ion_channel_recording_protocol"/>
+    </owl:Class>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Cell_Capacitance -->
+
+    <owl:Class rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Cell_Capacitance">
+        <rdfs:subClassOf rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:Cellular_physiology_characteristic"/>
+    </owl:Class>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Cell_diameter -->
+
+    <owl:Class rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Cell_diameter">
+        <rdfs:subClassOf rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:Cellular_morphology_characteristic"/>
+    </owl:Class>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Cell_surface_area -->
+
+    <owl:Class rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Cell_surface_area">
+        <rdfs:subClassOf rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:Cellular_morphology_characteristic"/>
+    </owl:Class>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Cellular_Excitation -->
+
+    <owl:Class rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Cellular_Excitation">
+        <rdfs:subClassOf rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:Electrophysiology_concept"/>
+    </owl:Class>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Cellular_morphology_characteristic -->
+
+    <owl:Class rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Cellular_morphology_characteristic"/>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Cellular_physiology_characteristic -->
+
+    <owl:Class rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Cellular_physiology_characteristic">
+        <rdfs:subClassOf rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:Cellular_quality"/>
+    </owl:Class>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Cellular_quality -->
+
+    <owl:Class rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Cellular_quality"/>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Central_pattern_generator -->
+
+    <owl:Class rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Central_pattern_generator">
+        <rdfs:subClassOf rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:Biological_process"/>
+    </owl:Class>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Chemical_stimulus_transduction -->
+
+    <owl:Class rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Chemical_stimulus_transduction">
+        <rdfs:subClassOf rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:Sensory_stimulus_transduction"/>
+    </owl:Class>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Chemotropism -->
+
+    <owl:Class rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Chemotropism">
+        <rdfs:subClassOf rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:Neural_coding"/>
+    </owl:Class>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Cholinergic_transmission -->
+
+    <owl:Class rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Cholinergic_transmission">
+        <rdfs:subClassOf rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:Synaptic_transmission"/>
+    </owl:Class>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Ciliary_displacement_stimulus_transduction -->
+
+    <owl:Class rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Ciliary_displacement_stimulus_transduction">
+        <rdfs:subClassOf rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:Mechanical_stimulus_transduction"/>
+    </owl:Class>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Co-transmission -->
+
+    <owl:Class rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Co-transmission">
+        <rdfs:subClassOf rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:Synaptic_transmission"/>
+    </owl:Class>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Cognitive_Atlas_Concept -->
+
+    <owl:Class rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Cognitive_Atlas_Concept"/>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Coincidence_detection -->
+
+    <owl:Class rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Coincidence_detection">
+        <rdfs:subClassOf rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:Electrophysiology_concept"/>
+    </owl:Class>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Computational_model -->
+
+    <owl:Class rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Computational_model">
+        <rdfs:subClassOf rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:Algorithm"/>
+    </owl:Class>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Conductance -->
+
+    <owl:Class rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Conductance">
+        <rdfs:subClassOf rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:Quality_of_related_physical_entities"/>
+    </owl:Class>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Conduction_failure -->
+
+    <owl:Class rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Conduction_failure">
+        <rdfs:subClassOf rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:Nerve_conduction"/>
+    </owl:Class>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Connectional_specificity -->
+
+    <owl:Class rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Connectional_specificity">
+        <rdfs:subClassOf rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:Electrophysiology_concept"/>
+    </owl:Class>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Connectionist_model -->
+
+    <owl:Class rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Connectionist_model">
+        <rdfs:subClassOf rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:Computational_model"/>
+    </owl:Class>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Connectivity_matrix -->
+
+    <owl:Class rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Connectivity_matrix">
+        <rdfs:subClassOf rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:Electrophysiology_concept"/>
+    </owl:Class>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Convergence -->
+
+    <owl:Class rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Convergence">
+        <rdfs:subClassOf rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:Electrophysiology_concept"/>
+    </owl:Class>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Cuff-electrode_recording_protocol -->
+
+    <owl:Class rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Cuff-electrode_recording_protocol">
+        <rdfs:subClassOf rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:Macro-electrode_recording_protocol"/>
+    </owl:Class>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Current_clamp_voltage_recording_protocol -->
+
+    <owl:Class rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Current_clamp_voltage_recording_protocol">
+        <rdfs:subClassOf rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:Intracellular_electrode_recording_protocol"/>
+    </owl:Class>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Data_attribute -->
+
+    <owl:Class rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Data_attribute"/>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Decade -->
+
+    <owl:Class rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Decade">
+        <rdfs:subClassOf rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:Electrophysiology_concept"/>
+    </owl:Class>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Decerebrate_preparation -->
+
+    <owl:Class rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Decerebrate_preparation">
+        <rdfs:subClassOf rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:Specimen_preparation_protocol"/>
+    </owl:Class>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Decreased_threshold -->
+
+    <owl:Class rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Decreased_threshold">
+        <rdfs:subClassOf rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:Threshold"/>
+    </owl:Class>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Deep_brain_stimulation -->
+
+    <owl:Class rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Deep_brain_stimulation">
+        <rdfs:subClassOf rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:Electrophysiology_concept"/>
+    </owl:Class>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Defined_class -->
+
+    <owl:Class rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Defined_class"/>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Defined_neuron_class -->
+
+    <owl:Class rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Defined_neuron_class"/>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Dendritic_action_potential -->
+
+    <owl:Class rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Dendritic_action_potential">
+        <rdfs:subClassOf rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:Electrophysiology_concept"/>
+    </owl:Class>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Dendroaxonic_synapse -->
+
+    <owl:Class rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Dendroaxonic_synapse">
+        <rdfs:subClassOf rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:Synapse"/>
+    </owl:Class>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Depolarization -->
+
+    <owl:Class rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Depolarization">
+        <rdfs:subClassOf rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:Electrophysiology_concept"/>
+    </owl:Class>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Depolarization_block -->
+
+    <owl:Class rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Depolarization_block">
+        <rdfs:subClassOf rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:Electrophysiology_concept"/>
+    </owl:Class>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Desensitization -->
+
+    <owl:Class rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Desensitization">
+        <rdfs:subClassOf rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:Electrophysiology_concept"/>
+    </owl:Class>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Development -->
+
+    <owl:Class rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Development"/>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Device -->
+
+    <owl:Class rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Device"/>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Device_parameter -->
+
+    <owl:Class rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Device_parameter"/>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Direction_selectivity -->
+
+    <owl:Class rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Direction_selectivity">
+        <rdfs:subClassOf rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:Electrophysiology_concept"/>
+    </owl:Class>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Discontinuous_single_cell_voltage_clamp -->
+
+    <owl:Class rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Discontinuous_single_cell_voltage_clamp">
+        <rdfs:subClassOf rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:Electrical_recording_protocol"/>
+    </owl:Class>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Disease -->
+
+    <owl:Class rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Disease"/>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Distributed_processing -->
+
+    <owl:Class rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Distributed_processing">
+        <rdfs:subClassOf rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:Electrophysiology_concept"/>
+    </owl:Class>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Divergence -->
+
+    <owl:Class rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Divergence">
+        <rdfs:subClassOf rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:Electrophysiology_concept"/>
+    </owl:Class>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Dynamic_polarization -->
+
+    <owl:Class rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Dynamic_polarization">
+        <rdfs:subClassOf rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:Electrophysiology_theory"/>
+    </owl:Class>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Dysmetria -->
+
+    <owl:Class rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Dysmetria">
+        <rdfs:subClassOf rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:Electrophysiology_concept"/>
+    </owl:Class>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Electical_overshoot -->
+
+    <owl:Class rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Electical_overshoot">
+        <rdfs:subClassOf rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:Device_parameter"/>
+    </owl:Class>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Electrical_drift -->
+
+    <owl:Class rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Electrical_drift">
+        <rdfs:subClassOf rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:Device_parameter"/>
+    </owl:Class>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Electrical_offset -->
+
+    <owl:Class rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Electrical_offset">
+        <rdfs:subClassOf rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:Device_parameter"/>
+    </owl:Class>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Electrical_recording_assay -->
+
+    <owl:Class rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Electrical_recording_assay">
+        <rdfs:subClassOf rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:Assay"/>
+    </owl:Class>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Electrical_recording_protocol -->
+
+    <owl:Class rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Electrical_recording_protocol">
+        <rdfs:subClassOf rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:Protocol"/>
+    </owl:Class>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Electrical_saturation -->
+
+    <owl:Class rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Electrical_saturation">
+        <rdfs:subClassOf rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:Device_parameter"/>
+    </owl:Class>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Electrocardiography_recording_protocol -->
+
+    <owl:Class rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Electrocardiography_recording_protocol">
+        <rdfs:subClassOf rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:Field_electrode_recording_protocol"/>
+    </owl:Class>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Electroception_stimulus_transduction -->
+
+    <owl:Class rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Electroception_stimulus_transduction">
+        <rdfs:subClassOf rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:Sensory_stimulus_transduction"/>
+    </owl:Class>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Electroencephalography_recording_protocol -->
+
+    <owl:Class rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Electroencephalography_recording_protocol">
+        <rdfs:subClassOf rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:Field_electrode_recording_protocol"/>
+    </owl:Class>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Electrogenic_Pump -->
+
+    <owl:Class rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Electrogenic_Pump"/>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Electromotive_force -->
+
+    <owl:Class rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Electromotive_force">
+        <rdfs:subClassOf rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:Force"/>
+    </owl:Class>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Electromyography_surface_recording_protocol -->
+
+    <owl:Class rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Electromyography_surface_recording_protocol">
+        <rdfs:subClassOf rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:Macro-electrode_recording_protocol"/>
+    </owl:Class>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Electrophysiology_concept -->
+
+    <owl:Class rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Electrophysiology_concept"/>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Electrophysiology_theory -->
+
+    <owl:Class rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Electrophysiology_theory">
+        <rdfs:subClassOf rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:Electrophysiology_concept"/>
+    </owl:Class>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Electrosurgery -->
+
+    <owl:Class rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Electrosurgery">
+        <rdfs:subClassOf rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:Protocol"/>
+    </owl:Class>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Electrotonic_conduction -->
+
+    <owl:Class rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Electrotonic_conduction">
+        <rdfs:subClassOf rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:Nerve_conduction"/>
+    </owl:Class>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Electrotonus -->
+
+    <owl:Class rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Electrotonus">
+        <rdfs:subClassOf rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:Nerve_conduction"/>
+    </owl:Class>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Epilepsy -->
+
+    <owl:Class rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Epilepsy">
+        <rdfs:subClassOf rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:Nervous_system_disease"/>
+    </owl:Class>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Equivalent_circuit -->
+
+    <owl:Class rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Equivalent_circuit">
+        <rdfs:subClassOf rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:Computational_model"/>
+    </owl:Class>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Event_related_potential_recording_assay -->
+
+    <owl:Class rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Event_related_potential_recording_assay">
+        <rdfs:subClassOf rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:Electrical_recording_assay"/>
+    </owl:Class>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Excitatory -->
+
+    <owl:Class rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Excitatory">
+        <rdfs:subClassOf rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:Quality_of_related_physical_entities"/>
+    </owl:Class>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Extracellular_electrode_recording_protocol -->
+
+    <owl:Class rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Extracellular_electrode_recording_protocol">
+        <rdfs:subClassOf rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:Micro-electrode_recording_protocol"/>
+    </owl:Class>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Extracellular_field_potential -->
+
+    <owl:Class rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Extracellular_field_potential">
+        <rdfs:subClassOf rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:Electrical_recording_protocol"/>
+    </owl:Class>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:FI_slope -->
+
+    <owl:Class rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:FI_slope">
+        <rdfs:subClassOf rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:Electrophysiology_concept"/>
+    </owl:Class>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Facilitation -->
+
+    <owl:Class rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Facilitation">
+        <rdfs:subClassOf rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:Synaptic_Plasticity"/>
+    </owl:Class>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Fast_afterhyperpolarization_amplitude -->
+
+    <owl:Class rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Fast_afterhyperpolarization_amplitude">
+        <rdfs:subClassOf rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:Action_potential_characteristic"/>
+    </owl:Class>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Fast_afterhyperpolarization_duration -->
+
+    <owl:Class rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Fast_afterhyperpolarization_duration">
+        <rdfs:subClassOf rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:Action_potential_characteristic"/>
+    </owl:Class>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Feed-forward_inhibition -->
+
+    <owl:Class rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Feed-forward_inhibition">
+        <rdfs:subClassOf rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:Electrophysiology_concept"/>
+    </owl:Class>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Field_electrode_recording_protocol -->
+
+    <owl:Class rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Field_electrode_recording_protocol">
+        <rdfs:subClassOf rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:Macro-electrode_recording_protocol"/>
+    </owl:Class>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Firing_frequency -->
+
+    <owl:Class rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Firing_frequency">
+        <rdfs:subClassOf rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:Electrophysiology_concept"/>
+    </owl:Class>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:First_spike_latency -->
+
+    <owl:Class rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:First_spike_latency">
+        <rdfs:subClassOf rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:Action_potential_characteristic"/>
+    </owl:Class>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Fluid-coupled_ciliary_displacement_stimulus_transduction -->
+
+    <owl:Class rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Fluid-coupled_ciliary_displacement_stimulus_transduction">
+        <rdfs:subClassOf rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:Ciliary_displacement_stimulus_transduction"/>
+    </owl:Class>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Force -->
+
+    <owl:Class rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Force"/>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Frequency_code -->
+
+    <owl:Class rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Frequency_code">
+        <rdfs:subClassOf rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:Neural_coding"/>
+    </owl:Class>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:G-protein_gated_channel -->
+
+    <owl:Class rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:G-protein_gated_channel">
+        <rdfs:subClassOf rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:Ion_Channel"/>
+    </owl:Class>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:GABAergic_transmission -->
+
+    <owl:Class rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:GABAergic_transmission">
+        <rdfs:subClassOf rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:Synaptic_transmission"/>
+    </owl:Class>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Gating -->
+
+    <owl:Class rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Gating">
+        <rdfs:subClassOf rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:Electrophysiology_concept"/>
+    </owl:Class>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Glutamatergic_transmission -->
+
+    <owl:Class rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Glutamatergic_transmission">
+        <rdfs:subClassOf rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:Synaptic_transmission"/>
+    </owl:Class>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Grid_electrode_recording_protocol -->
+
+    <owl:Class rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Grid_electrode_recording_protocol">
+        <rdfs:subClassOf rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:Electrical_recording_protocol"/>
+    </owl:Class>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Gustatory_stimulus_transduction -->
+
+    <owl:Class rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Gustatory_stimulus_transduction">
+        <rdfs:subClassOf rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:Chemical_stimulus_transduction"/>
+    </owl:Class>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Hebb_synapse -->
+
+    <owl:Class rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Hebb_synapse">
+        <rdfs:subClassOf rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:Electrophysiology_theory"/>
+    </owl:Class>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Hydration_sphere -->
+
+    <owl:Class rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Hydration_sphere">
+        <rdfs:subClassOf rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:Electrophysiology_concept"/>
+    </owl:Class>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Hyperpolarization -->
+
+    <owl:Class rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Hyperpolarization">
+        <rdfs:subClassOf rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:Electrophysiology_concept"/>
+    </owl:Class>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:I_L_high_threshold -->
+
+    <owl:Class rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:I_L_high_threshold">
+        <rdfs:subClassOf rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:Calcium_current"/>
+    </owl:Class>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:I_N -->
+
+    <owl:Class rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:I_N">
+        <rdfs:subClassOf rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:Calcium_current"/>
+    </owl:Class>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Increased_threshold -->
+
+    <owl:Class rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Increased_threshold">
+        <rdfs:subClassOf rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:Threshold"/>
+    </owl:Class>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Influence_of_dendritic_geometry -->
+
+    <owl:Class rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Influence_of_dendritic_geometry">
+        <rdfs:subClassOf rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:Electrophysiology_concept"/>
+    </owl:Class>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Inhibition -->
+
+    <owl:Class rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Inhibition">
+        <rdfs:subClassOf rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:Cognitive_Atlas_Concept"/>
+    </owl:Class>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Inhibitory -->
+
+    <owl:Class rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Inhibitory">
+        <rdfs:subClassOf rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:Quality_of_related_physical_entities"/>
+    </owl:Class>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Input_Resistance -->
+
+    <owl:Class rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Input_Resistance">
+        <rdfs:subClassOf rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:Cellular_physiology_characteristic"/>
+    </owl:Class>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Integrative_zone -->
+
+    <owl:Class rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Integrative_zone">
+        <rdfs:subClassOf rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:Electrophysiology_concept"/>
+    </owl:Class>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Intracellular_electrode_recording_assay -->
+
+    <owl:Class rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Intracellular_electrode_recording_assay">
+        <rdfs:subClassOf rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:Micro-electrode_recording_assay"/>
+    </owl:Class>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Intracellular_electrode_recording_protocol -->
+
+    <owl:Class rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Intracellular_electrode_recording_protocol">
+        <rdfs:subClassOf rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:Micro-electrode_recording_protocol"/>
+    </owl:Class>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Ion-sensitive_electrode_recording_protocol -->
+
+    <owl:Class rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Ion-sensitive_electrode_recording_protocol">
+        <rdfs:subClassOf rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:Amperometric_electrode_recording_protocol"/>
+    </owl:Class>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Ion_Channel -->
+
+    <owl:Class rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Ion_Channel"/>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Ion_channel_kinetics -->
+
+    <owl:Class rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Ion_channel_kinetics">
+        <rdfs:subClassOf rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:Electrophysiology_concept"/>
+    </owl:Class>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Ion_channel_recording_protocol -->
+
+    <owl:Class rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Ion_channel_recording_protocol">
+        <rdfs:subClassOf rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:Micro-electrode_recording_protocol"/>
+    </owl:Class>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Junctional_fold -->
+
+    <owl:Class rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Junctional_fold">
+        <rdfs:subClassOf rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:Motor_endplate"/>
+    </owl:Class>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Label -->
+
+    <owl:Class rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Label">
+        <rdfs:subClassOf rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:SuperCategory"/>
+    </owl:Class>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Labeled_line_code -->
+
+    <owl:Class rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Labeled_line_code">
+        <rdfs:subClassOf rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:Neural_coding"/>
+    </owl:Class>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Lateral_inhibition -->
+
+    <owl:Class rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Lateral_inhibition">
+        <rdfs:subClassOf rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:Cognitive_Atlas_Concept"/>
+    </owl:Class>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Leakage_conductance -->
+
+    <owl:Class rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Leakage_conductance">
+        <rdfs:subClassOf rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:Nerve_conduction"/>
+    </owl:Class>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Learning -->
+
+    <owl:Class rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Learning"/>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Lesion -->
+
+    <owl:Class rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Lesion">
+        <rdfs:subClassOf rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:Specimen_preparation_protocol"/>
+    </owl:Class>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Light_stimulus_transduction -->
+
+    <owl:Class rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Light_stimulus_transduction">
+        <rdfs:subClassOf rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:Sensory_stimulus_transduction"/>
+    </owl:Class>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Local_Circuit_role -->
+
+    <owl:Class rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Local_Circuit_role">
+        <rdfs:subClassOf rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:Role"/>
+    </owl:Class>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Localization_theory -->
+
+    <owl:Class rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Localization_theory">
+        <rdfs:subClassOf rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:Electrophysiology_theory"/>
+    </owl:Class>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Long-QT -->
+
+    <owl:Class rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Long-QT">
+        <rdfs:subClassOf rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:Muscular_Disease"/>
+    </owl:Class>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Long-term_Synaptic_Plasticity -->
+
+    <owl:Class rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Long-term_Synaptic_Plasticity">
+        <rdfs:subClassOf rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:Synaptic_Plasticity"/>
+    </owl:Class>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Long_term_depression -->
+
+    <owl:Class rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Long_term_depression">
+        <rdfs:subClassOf rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:Regulation_of_synaptic_transmission"/>
+    </owl:Class>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Long_term_potentiation -->
+
+    <owl:Class rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Long_term_potentiation">
+        <rdfs:subClassOf rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:Long-term_Synaptic_Plasticity"/>
+    </owl:Class>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Macro-electrode_recording_protocol -->
+
+    <owl:Class rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Macro-electrode_recording_protocol">
+        <rdfs:subClassOf rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:Electrical_recording_protocol"/>
+    </owl:Class>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Magnetic_field_stimulus_transduction -->
+
+    <owl:Class rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Magnetic_field_stimulus_transduction">
+        <rdfs:subClassOf rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:Solid_object-coupled_ciliary_displacement_stimulus_transduction"/>
+    </owl:Class>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Map_reorganization -->
+
+    <owl:Class rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Map_reorganization">
+        <rdfs:subClassOf rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:Electrophysiology_concept"/>
+    </owl:Class>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Mathematical_expression -->
+
+    <owl:Class rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Mathematical_expression">
+        <rdfs:subClassOf rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:Algorithm"/>
+    </owl:Class>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Mechanical_stimulus_transduction -->
+
+    <owl:Class rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Mechanical_stimulus_transduction">
+        <rdfs:subClassOf rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:Sensory_stimulus_transduction"/>
+    </owl:Class>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Mechanically_gated_channel -->
+
+    <owl:Class rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Mechanically_gated_channel">
+        <rdfs:subClassOf rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:Ion_Channel"/>
+    </owl:Class>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Micro-electrode_recording_assay -->
+
+    <owl:Class rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Micro-electrode_recording_assay">
+        <rdfs:subClassOf rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:Electrical_recording_assay"/>
+    </owl:Class>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Micro-electrode_recording_protocol -->
+
+    <owl:Class rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Micro-electrode_recording_protocol">
+        <rdfs:subClassOf rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:Electrical_recording_protocol"/>
+    </owl:Class>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Microelectrode_array_assay -->
+
+    <owl:Class rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Microelectrode_array_assay">
+        <rdfs:subClassOf rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:Micro-electrode_recording_assay"/>
+    </owl:Class>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Molecule_flow_stimulus_transduction -->
+
+    <owl:Class rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Molecule_flow_stimulus_transduction">
+        <rdfs:subClassOf rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:Sensory_stimulus_transduction"/>
+    </owl:Class>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Motor_endplate -->
+
+    <owl:Class rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Motor_endplate"/>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Motor_map -->
+
+    <owl:Class rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Motor_map">
+        <rdfs:subClassOf rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:Topographic_map"/>
+    </owl:Class>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Motor_unit -->
+
+    <owl:Class rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Motor_unit">
+        <rdfs:subClassOf rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:Aggregate_Object"/>
+    </owl:Class>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Multiple-electrode_voltage_clamp_recording_protocol -->
+
+    <owl:Class rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Multiple-electrode_voltage_clamp_recording_protocol">
+        <rdfs:subClassOf rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:Voltage_clamp_current_recording_protocol"/>
+    </owl:Class>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Muscular_Disease -->
+
+    <owl:Class rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Muscular_Disease"/>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Nerve_conduction -->
+
+    <owl:Class rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Nerve_conduction"/>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Nervous_system_disease -->
+
+    <owl:Class rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Nervous_system_disease"/>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Neural_circuit -->
+
+    <owl:Class rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Neural_circuit">
+        <rdfs:subClassOf rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:Computational_model"/>
+    </owl:Class>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Neural_coding -->
+
+    <owl:Class rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Neural_coding">
+        <rdfs:subClassOf rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:Electrophysiology_concept"/>
+    </owl:Class>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Neural_encoding -->
+
+    <owl:Class rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Neural_encoding">
+        <rdfs:subClassOf rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:Cellular_physiology_characteristic"/>
+    </owl:Class>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Neuromodulation -->
+
+    <owl:Class rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Neuromodulation">
+        <rdfs:subClassOf rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:Electrophysiology_concept"/>
+    </owl:Class>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Neuronal_birthday -->
+
+    <owl:Class rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Neuronal_birthday">
+        <rdfs:subClassOf rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:Electrophysiology_concept"/>
+    </owl:Class>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Neuroplasticity -->
+
+    <owl:Class rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Neuroplasticity">
+        <rdfs:subClassOf rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:Electrophysiology_concept"/>
+    </owl:Class>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Noise_Sensitivity -->
+
+    <owl:Class rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Noise_Sensitivity">
+        <rdfs:subClassOf rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:Electrophysiology_concept"/>
+    </owl:Class>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Non-gated_channel -->
+
+    <owl:Class rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Non-gated_channel">
+        <rdfs:subClassOf rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:Ion_Channel"/>
+    </owl:Class>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Nonsynaptic_conduction -->
+
+    <owl:Class rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Nonsynaptic_conduction">
+        <rdfs:subClassOf rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:Nerve_conduction"/>
+    </owl:Class>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Octave -->
+
+    <owl:Class rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Octave">
+        <rdfs:subClassOf rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:Electrophysiology_concept"/>
+    </owl:Class>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Olfactory_stimulus_transduction -->
+
+    <owl:Class rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Olfactory_stimulus_transduction">
+        <rdfs:subClassOf rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:Chemical_stimulus_transduction"/>
+    </owl:Class>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:PH-sensitive_electrode_recording_protocol -->
+
+    <owl:Class rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:PH-sensitive_electrode_recording_protocol">
+        <rdfs:subClassOf rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:Ion-sensitive_electrode_recording_protocol"/>
+    </owl:Class>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Pain_sensation -->
+
+    <owl:Class rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Pain_sensation">
+        <rdfs:subClassOf rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:Somatosensation"/>
+    </owl:Class>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Parallel_processing -->
+
+    <owl:Class rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Parallel_processing">
+        <rdfs:subClassOf rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:Electrophysiology_concept"/>
+    </owl:Class>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Parameter_Fitting -->
+
+    <owl:Class rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Parameter_Fitting">
+        <rdfs:subClassOf rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:Neural_coding"/>
+    </owl:Class>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Parameter_sensitivity -->
+
+    <owl:Class rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Parameter_sensitivity">
+        <rdfs:subClassOf rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:Electrophysiology_concept"/>
+    </owl:Class>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Pass_band -->
+
+    <owl:Class rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Pass_band">
+        <rdfs:subClassOf rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:Device_parameter"/>
+    </owl:Class>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Patch_clamp_technique -->
+
+    <owl:Class rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Patch_clamp_technique">
+        <rdfs:subClassOf rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:Electrical_recording_protocol"/>
+    </owl:Class>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Pathophysiology -->
+
+    <owl:Class rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Pathophysiology">
+        <rdfs:subClassOf rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:Specimen_preparation"/>
+    </owl:Class>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Pathway -->
+
+    <owl:Class rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Pathway"/>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Pattern_Recognition -->
+
+    <owl:Class rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Pattern_Recognition">
+        <rdfs:subClassOf rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:Recognition_memory_function"/>
+    </owl:Class>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Peptidergic_transmission -->
+
+    <owl:Class rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Peptidergic_transmission">
+        <rdfs:subClassOf rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:Synaptic_transmission"/>
+    </owl:Class>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Perceptual_Categories -->
+
+    <owl:Class rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Perceptual_Categories">
+        <rdfs:subClassOf rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:Sensory_perception"/>
+    </owl:Class>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Phase_shift -->
+
+    <owl:Class rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Phase_shift">
+        <rdfs:subClassOf rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:Device_parameter"/>
+    </owl:Class>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Physiology_Instrument -->
+
+    <owl:Class rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Physiology_Instrument">
+        <rdfs:subClassOf rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:Device"/>
+    </owl:Class>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Place_cell -->
+
+    <owl:Class rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Place_cell">
+        <rdfs:subClassOf rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:Defined_neuron_class"/>
+    </owl:Class>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Population_code -->
+
+    <owl:Class rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Population_code">
+        <rdfs:subClassOf rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:Neural_coding"/>
+    </owl:Class>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Population_spike -->
+
+    <owl:Class rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Population_spike">
+        <rdfs:subClassOf rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:Electrophysiology_concept"/>
+    </owl:Class>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Post-Tetanic_Potentiation -->
+
+    <owl:Class rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Post-Tetanic_Potentiation">
+        <rdfs:subClassOf rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:Synaptic_Plasticity"/>
+    </owl:Class>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Postsynaptic_inhibition -->
+
+    <owl:Class rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Postsynaptic_inhibition">
+        <rdfs:subClassOf rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:Electrophysiology_concept"/>
+    </owl:Class>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Pressure_stimulus_transduction -->
+
+    <owl:Class rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Pressure_stimulus_transduction">
+        <rdfs:subClassOf rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:Mechanical_stimulus_transduction"/>
+    </owl:Class>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Presynaptic_facilitation -->
+
+    <owl:Class rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Presynaptic_facilitation">
+        <rdfs:subClassOf rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:Facilitation"/>
+    </owl:Class>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Presynaptic_inhibition -->
+
+    <owl:Class rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Presynaptic_inhibition">
+        <rdfs:subClassOf rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:Synaptic_Plasticity"/>
+    </owl:Class>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Protocol -->
+
+    <owl:Class rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Protocol"/>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Pruning -->
+
+    <owl:Class rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Pruning">
+        <rdfs:subClassOf rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:Development"/>
+    </owl:Class>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Quality_of_a_single_physical_entity -->
+
+    <owl:Class rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Quality_of_a_single_physical_entity"/>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Quality_of_related_physical_entities -->
+
+    <owl:Class rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Quality_of_related_physical_entities"/>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Quantal_transmission -->
+
+    <owl:Class rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Quantal_transmission">
+        <rdfs:subClassOf rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:Synaptic_transmission"/>
+    </owl:Class>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Recapitulation -->
+
+    <owl:Class rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Recapitulation">
+        <rdfs:subClassOf rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:Electrophysiology_concept"/>
+    </owl:Class>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Receptive_field -->
+
+    <owl:Class rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Receptive_field">
+        <rdfs:subClassOf rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:Electrophysiology_concept"/>
+    </owl:Class>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Recognition_memory_function -->
+
+    <owl:Class rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Recognition_memory_function"/>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Reconstituted_bilayer_electrical_recording_protocol -->
+
+    <owl:Class rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Reconstituted_bilayer_electrical_recording_protocol">
+        <rdfs:subClassOf rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:Electrical_recording_protocol"/>
+    </owl:Class>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Reconstituted_bilayer_single-channel_patch_recording_protocol -->
+
+    <owl:Class rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Reconstituted_bilayer_single-channel_patch_recording_protocol">
+        <rdfs:subClassOf rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:Ion_channel_recording_protocol"/>
+    </owl:Class>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Refractory_state -->
+
+    <owl:Class rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Refractory_state">
+        <rdfs:subClassOf rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:Action_potential_characteristic"/>
+    </owl:Class>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Regulation_of_synaptic_transmission -->
+
+    <owl:Class rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Regulation_of_synaptic_transmission">
+        <rdfs:subClassOf rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:Electrophysiology_concept"/>
+    </owl:Class>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Reinforcement_Learning -->
+
+    <owl:Class rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Reinforcement_Learning">
+        <rdfs:subClassOf rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:Learning"/>
+    </owl:Class>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Reward-modulated_STDP -->
+
+    <owl:Class rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Reward-modulated_STDP">
+        <rdfs:subClassOf rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:Synaptic_Plasticity"/>
+    </owl:Class>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Rheobase -->
+
+    <owl:Class rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Rheobase">
+        <rdfs:subClassOf rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:Action_potential_characteristic"/>
+    </owl:Class>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Role -->
+
+    <owl:Class rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Role"/>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:STDP -->
+
+    <owl:Class rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:STDP">
+        <rdfs:subClassOf rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:Synaptic_Plasticity"/>
+    </owl:Class>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Sag_ratio -->
+
+    <owl:Class rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Sag_ratio">
+        <rdfs:subClassOf rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:Data_attribute"/>
+    </owl:Class>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Saltatory_conduction -->
+
+    <owl:Class rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Saltatory_conduction">
+        <rdfs:subClassOf rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:Nerve_conduction"/>
+    </owl:Class>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Sampling_rate -->
+
+    <owl:Class rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Sampling_rate">
+        <rdfs:subClassOf rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:Device_parameter"/>
+    </owl:Class>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Sensory_perception -->
+
+    <owl:Class rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Sensory_perception"/>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Sensory_stimulus_transduction -->
+
+    <owl:Class rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Sensory_stimulus_transduction">
+        <rdfs:subClassOf rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:Stimulus_transduction"/>
+    </owl:Class>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Sensory_threshold -->
+
+    <owl:Class rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Sensory_threshold">
+        <rdfs:subClassOf rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:Threshold"/>
+    </owl:Class>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Short-term_Synaptic_Plasticity -->
+
+    <owl:Class rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Short-term_Synaptic_Plasticity">
+        <rdfs:subClassOf rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:Synaptic_Plasticity"/>
+    </owl:Class>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Signaling_pathway -->
+
+    <owl:Class rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Signaling_pathway">
+        <rdfs:subClassOf rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:Pathway"/>
+    </owl:Class>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Single-electrode_voltage_clamp_recording_protocol -->
+
+    <owl:Class rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Single-electrode_voltage_clamp_recording_protocol">
+        <rdfs:subClassOf rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:Voltage_clamp_current_recording_protocol"/>
+    </owl:Class>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Single_electrode_extracellular_recording_protocol -->
+
+    <owl:Class rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Single_electrode_extracellular_recording_protocol">
+        <rdfs:subClassOf rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:Extracellular_electrode_recording_protocol"/>
+    </owl:Class>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Size_principle -->
+
+    <owl:Class rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Size_principle">
+        <rdfs:subClassOf rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:Electrophysiology_concept"/>
+    </owl:Class>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Slice_preparation_protocol -->
+
+    <owl:Class rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Slice_preparation_protocol">
+        <rdfs:subClassOf rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:Specimen_preparation_protocol"/>
+    </owl:Class>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Slow_afterhyperpolarization_amplitude -->
+
+    <owl:Class rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Slow_afterhyperpolarization_amplitude">
+        <rdfs:subClassOf rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:Action_potential_characteristic"/>
+    </owl:Class>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Slow_afterhyperpolarization_duration -->
+
+    <owl:Class rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Slow_afterhyperpolarization_duration">
+        <rdfs:subClassOf rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:Action_potential_characteristic"/>
+    </owl:Class>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Sodium_pump -->
+
+    <owl:Class rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Sodium_pump">
+        <rdfs:subClassOf rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:Electrogenic_Pump"/>
+    </owl:Class>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Solid_object-coupled_ciliary_displacement_stimulus_transduction -->
+
+    <owl:Class rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Solid_object-coupled_ciliary_displacement_stimulus_transduction">
+        <rdfs:subClassOf rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:Ciliary_displacement_stimulus_transduction"/>
+    </owl:Class>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Somatomotor_map -->
+
+    <owl:Class rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Somatomotor_map">
+        <rdfs:subClassOf rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:Topographic_map"/>
+    </owl:Class>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Somatosensation -->
+
+    <owl:Class rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Somatosensation"/>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Somatosensory_map -->
+
+    <owl:Class rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Somatosensory_map">
+        <rdfs:subClassOf rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:Topographic_map"/>
+    </owl:Class>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Spatial_summation -->
+
+    <owl:Class rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Spatial_summation">
+        <rdfs:subClassOf rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:Summation"/>
+    </owl:Class>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Spatio-temporal_Activity_Patterns -->
+
+    <owl:Class rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Spatio-temporal_Activity_Patterns">
+        <rdfs:subClassOf rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:Activity_patterns"/>
+    </owl:Class>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Specimen_preparation -->
+
+    <owl:Class rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Specimen_preparation"/>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Specimen_preparation_protocol -->
+
+    <owl:Class rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Specimen_preparation_protocol"/>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Spike_Frequency_Adaptation -->
+
+    <owl:Class rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Spike_Frequency_Adaptation">
+        <rdfs:subClassOf rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:Action_potential_characteristic"/>
+    </owl:Class>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Spike_Train -->
+
+    <owl:Class rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Spike_Train">
+        <rdfs:subClassOf rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:Aggregate_Object"/>
+    </owl:Class>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Spike_half-width -->
+
+    <owl:Class rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Spike_half-width">
+        <rdfs:subClassOf rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:Action_potential_characteristic"/>
+    </owl:Class>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Spike_overshoot -->
+
+    <owl:Class rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Spike_overshoot">
+        <rdfs:subClassOf rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:Action_potential_characteristic"/>
+    </owl:Class>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Spike_peak -->
+
+    <owl:Class rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Spike_peak">
+        <rdfs:subClassOf rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:Action_potential_characteristic"/>
+    </owl:Class>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Spike_threshold -->
+
+    <owl:Class rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Spike_threshold">
+        <rdfs:subClassOf rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:Action_potential_characteristic"/>
+    </owl:Class>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Spike_width -->
+
+    <owl:Class rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Spike_width">
+        <rdfs:subClassOf rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:Action_potential_characteristic"/>
+    </owl:Class>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Spontaneous_firing_rate -->
+
+    <owl:Class rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Spontaneous_firing_rate">
+        <rdfs:subClassOf rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:Cellular_physiology_characteristic"/>
+    </owl:Class>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Stimulus_transduction -->
+
+    <owl:Class rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Stimulus_transduction">
+        <rdfs:subClassOf rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:Electrophysiology_concept"/>
+    </owl:Class>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Stop_band -->
+
+    <owl:Class rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Stop_band">
+        <rdfs:subClassOf rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:Device_parameter"/>
+    </owl:Class>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Stuttering -->
+
+    <owl:Class rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Stuttering">
+        <rdfs:subClassOf rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:Action_potential_characteristic"/>
+    </owl:Class>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Summation -->
+
+    <owl:Class rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Summation">
+        <rdfs:subClassOf rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:Synaptic_Plasticity"/>
+    </owl:Class>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:SuperCategory -->
+
+    <owl:Class rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:SuperCategory"/>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Surgical_protocol -->
+
+    <owl:Class rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Surgical_protocol">
+        <rdfs:subClassOf rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:Protocol"/>
+    </owl:Class>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Synapse -->
+
+    <owl:Class rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Synapse"/>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Synaptic_Integration -->
+
+    <owl:Class rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Synaptic_Integration">
+        <rdfs:subClassOf rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:Electrophysiology_concept"/>
+    </owl:Class>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Synaptic_Plasticity -->
+
+    <owl:Class rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Synaptic_Plasticity">
+        <rdfs:subClassOf rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:Electrophysiology_concept"/>
+    </owl:Class>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Synaptic_depression -->
+
+    <owl:Class rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Synaptic_depression">
+        <rdfs:subClassOf rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:Synaptic_Plasticity"/>
+    </owl:Class>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Synaptic_modulation_of_active_current -->
+
+    <owl:Class rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Synaptic_modulation_of_active_current">
+        <rdfs:subClassOf rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:Synaptic_Plasticity"/>
+    </owl:Class>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Synaptic_transmission -->
+
+    <owl:Class rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Synaptic_transmission">
+        <rdfs:subClassOf rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:Electrophysiology_concept"/>
+    </owl:Class>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Synchronization -->
+
+    <owl:Class rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Synchronization">
+        <rdfs:subClassOf rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:Electrophysiology_concept"/>
+    </owl:Class>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Temperature_stimulus_transduction -->
+
+    <owl:Class rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Temperature_stimulus_transduction">
+        <rdfs:subClassOf rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:Sensory_stimulus_transduction"/>
+    </owl:Class>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Temporal_Pattern_Generation -->
+
+    <owl:Class rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Temporal_Pattern_Generation">
+        <rdfs:subClassOf rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:Electrophysiology_concept"/>
+    </owl:Class>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Temporal_summation -->
+
+    <owl:Class rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Temporal_summation">
+        <rdfs:subClassOf rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:Summation"/>
+    </owl:Class>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Tetanus -->
+
+    <owl:Class rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Tetanus">
+        <rdfs:subClassOf rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:Electrophysiology_concept"/>
+    </owl:Class>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Therapeutic -->
+
+    <owl:Class rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Therapeutic">
+        <rdfs:subClassOf rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:Defined_class"/>
+    </owl:Class>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Threshold -->
+
+    <owl:Class rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Threshold">
+        <rdfs:subClassOf rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:Quality_of_a_single_physical_entity"/>
+    </owl:Class>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Threshold_stimulus -->
+
+    <owl:Class rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Threshold_stimulus">
+        <rdfs:subClassOf rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:Electrophysiology_concept"/>
+    </owl:Class>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Timothy_Syndrome -->
+
+    <owl:Class rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Timothy_Syndrome">
+        <rdfs:subClassOf rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:Disease"/>
+    </owl:Class>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Topographic_map -->
+
+    <owl:Class rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Topographic_map">
+        <rdfs:subClassOf rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:Electrophysiology_concept"/>
+    </owl:Class>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Touch_stimulus_transduction -->
+
+    <owl:Class rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Touch_stimulus_transduction">
+        <rdfs:subClassOf rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:Mechanical_stimulus_transduction"/>
+    </owl:Class>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Transmitter_gated_channel -->
+
+    <owl:Class rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Transmitter_gated_channel">
+        <rdfs:subClassOf rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:Ion_Channel"/>
+    </owl:Class>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Tuning_curve -->
+
+    <owl:Class rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Tuning_curve">
+        <rdfs:subClassOf rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:Electrophysiology_concept"/>
+    </owl:Class>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Two_electrode_voltage_clamp -->
+
+    <owl:Class rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Two_electrode_voltage_clamp">
+        <rdfs:subClassOf rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:Electrical_recording_protocol"/>
+    </owl:Class>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Unsupervised_Learning -->
+
+    <owl:Class rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Unsupervised_Learning">
+        <rdfs:subClassOf rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:Learning"/>
+    </owl:Class>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Visual_map -->
+
+    <owl:Class rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Visual_map">
+        <rdfs:subClassOf rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:Topographic_map"/>
+    </owl:Class>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Voltage_clamp_current_recording_protocol -->
+
+    <owl:Class rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Voltage_clamp_current_recording_protocol">
+        <rdfs:subClassOf rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:Intracellular_electrode_recording_protocol"/>
+    </owl:Class>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Voltage_gated_channel -->
+
+    <owl:Class rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Voltage_gated_channel">
+        <rdfs:subClassOf rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:Ion_Channel"/>
+    </owl:Class>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Whole-cell_voltage_clamp_recording_protocol -->
+
+    <owl:Class rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Whole-cell_voltage_clamp_recording_protocol">
+        <rdfs:subClassOf rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:Single-electrode_voltage_clamp_recording_protocol"/>
+    </owl:Class>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Winner-take-all -->
+
+    <owl:Class rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Winner-take-all">
+        <rdfs:subClassOf rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:Neural_coding"/>
+    </owl:Class>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:3_dB_Frequency -->
+
+    <owl:Class rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:3_dB_Frequency">
+        <rdfs:subClassOf rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:Device_parameter"/>
+    </owl:Class>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Regional_Part_Of_Axon_(sao280355188) -->
+
+    <owl:Class rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Regional_Part_Of_Axon_(sao280355188)"/>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:T(10-90) -->
+
+    <owl:Class rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:T(10-90)">
+        <rdfs:subClassOf rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:Device_parameter"/>
+    </owl:Class>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:AC_Couple -->
+
+    <owl:NamedIndividual rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:AC_Couple">
+        <obo:BFO_0000087 rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:Electrophysiology_concept"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:ADP_amplitude -->
+
+    <owl:NamedIndividual rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:ADP_amplitude">
+        <obo:BFO_0000087 rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:Electrophysiology_concept"/>
+        <obo:BFO_0000087 rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:NeuroElectro_Term"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:ADP_duration -->
+
+    <owl:NamedIndividual rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:ADP_duration">
+        <obo:BFO_0000087 rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:Electrophysiology_concept"/>
+        <obo:BFO_0000087 rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:NeuroElectro_Term"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Access_resistance -->
+
+    <owl:NamedIndividual rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Access_resistance">
+        <obo:BFO_0000087 rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:Electrophysiology_concept"/>
+        <obo:BFO_0000087 rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:NeuroElectro_Term"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Action_potential_characteristic -->
+
+    <owl:NamedIndividual rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Action_potential_characteristic">
+        <obo:BFO_0000087 rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:Electrophysiology_concept"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Active_dendrite -->
+
+    <owl:NamedIndividual rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Active_dendrite">
+        <obo:BFO_0000087 rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:Electrophysiology_concept"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Adaptation_ratio -->
+
+    <owl:NamedIndividual rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Adaptation_ratio">
+        <obo:BFO_0000087 rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:Electrophysiology_concept"/>
+        <obo:BFO_0000087 rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:NeuroElectro_Term"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Amperometric_electrode_recording_protocol -->
+
+    <owl:NamedIndividual rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Amperometric_electrode_recording_protocol">
+        <obo:BFO_0000087 rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:Electrophysiology_concept"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Attenuation -->
+
+    <owl:NamedIndividual rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Attenuation">
+        <obo:BFO_0000087 rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:Electrophysiology_concept"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Attractor_Neural_Network -->
+
+    <owl:NamedIndividual rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Attractor_Neural_Network">
+        <obo:BFO_0000087 rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:Electrophysiology_concept"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Augmentation -->
+
+    <owl:NamedIndividual rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Augmentation">
+        <obo:BFO_0000087 rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:Electrophysiology_concept"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Axoaxonic_synapse -->
+
+    <owl:NamedIndividual rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Axoaxonic_synapse">
+        <obo:BFO_0000087 rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:Electrophysiology_concept"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Axodendritic_synapse -->
+
+    <owl:NamedIndividual rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Axodendritic_synapse">
+        <obo:BFO_0000087 rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:Electrophysiology_concept"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Axon_Hillock -->
+
+    <owl:NamedIndividual rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Axon_Hillock">
+        <obo:BFO_0000087 rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:Electrophysiology_concept"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Axosomatic_synapse -->
+
+    <owl:NamedIndividual rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Axosomatic_synapse">
+        <obo:BFO_0000087 rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:Electrophysiology_concept"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Biofeedback -->
+
+    <owl:NamedIndividual rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Biofeedback">
+        <obo:BFO_0000087 rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:Electrophysiology_concept"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Cell-attached_single-channel_recording_protocol -->
+
+    <owl:NamedIndividual rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Cell-attached_single-channel_recording_protocol">
+        <obo:BFO_0000087 rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:Electrophysiology_concept"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Cell-detached_inside-out_single-channel_recording_protocol -->
+
+    <owl:NamedIndividual rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Cell-detached_inside-out_single-channel_recording_protocol">
+        <obo:BFO_0000087 rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:Electrophysiology_concept"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Cell-detached_single-channel_recording_protocol -->
+
+    <owl:NamedIndividual rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Cell-detached_single-channel_recording_protocol">
+        <obo:BFO_0000087 rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:Electrophysiology_concept"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Cell_Capacitance -->
+
+    <owl:NamedIndividual rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Cell_Capacitance">
+        <obo:BFO_0000087 rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:Electrophysiology_concept"/>
+        <obo:BFO_0000087 rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:NeuroElectro_Term"/>
+        <obo:BFO_0000087 rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:Passive_membrane_property"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Cell_diameter -->
+
+    <owl:NamedIndividual rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Cell_diameter">
+        <obo:BFO_0000087 rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:Electrophysiology_concept"/>
+        <obo:BFO_0000087 rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:NeuroElectro_Term"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Cell_surface_area -->
+
+    <owl:NamedIndividual rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Cell_surface_area">
+        <obo:BFO_0000087 rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:Electrophysiology_concept"/>
+        <obo:BFO_0000087 rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:NeuroElectro_Term"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Cellular_physiology_characteristic -->
+
+    <owl:NamedIndividual rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Cellular_physiology_characteristic">
+        <obo:BFO_0000087 rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:Electrophysiology_concept"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Central_pattern_generator -->
+
+    <owl:NamedIndividual rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Central_pattern_generator">
+        <obo:BFO_0000087 rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:Electrophysiology_concept"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Computational_model -->
+
+    <owl:NamedIndividual rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Computational_model">
+        <obo:BFO_0000087 rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:Electrophysiology_concept"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Conductance -->
+
+    <owl:NamedIndividual rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Conductance">
+        <obo:BFO_0000087 rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:Electrophysiology_concept"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Conduction_failure -->
+
+    <owl:NamedIndividual rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Conduction_failure">
+        <obo:BFO_0000087 rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:Electrophysiology_concept"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Connectionist_model -->
+
+    <owl:NamedIndividual rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Connectionist_model">
+        <obo:BFO_0000087 rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:Electrophysiology_concept"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Cuff-electrode_recording_protocol -->
+
+    <owl:NamedIndividual rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Cuff-electrode_recording_protocol">
+        <obo:BFO_0000087 rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:Electrophysiology_concept"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Current_clamp_voltage_recording_protocol -->
+
+    <owl:NamedIndividual rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Current_clamp_voltage_recording_protocol">
+        <obo:BFO_0000087 rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:Electrophysiology_concept"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Decerebrate_preparation -->
+
+    <owl:NamedIndividual rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Decerebrate_preparation">
+        <obo:BFO_0000087 rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:Electrophysiology_concept"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Decreased_threshold -->
+
+    <owl:NamedIndividual rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Decreased_threshold">
+        <obo:BFO_0000087 rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:Electrophysiology_concept"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Dendroaxonic_synapse -->
+
+    <owl:NamedIndividual rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Dendroaxonic_synapse">
+        <obo:BFO_0000087 rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:Electrophysiology_concept"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Discontinuous_single_cell_voltage_clamp -->
+
+    <owl:NamedIndividual rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Discontinuous_single_cell_voltage_clamp">
+        <obo:BFO_0000087 rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:Electrophysiology_concept"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Electical_overshoot -->
+
+    <owl:NamedIndividual rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Electical_overshoot">
+        <obo:BFO_0000087 rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:Electrophysiology_concept"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Electrical_drift -->
+
+    <owl:NamedIndividual rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Electrical_drift">
+        <obo:BFO_0000087 rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:Electrophysiology_concept"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Electrical_offset -->
+
+    <owl:NamedIndividual rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Electrical_offset">
+        <obo:BFO_0000087 rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:Electrophysiology_concept"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Electrical_recording_assay -->
+
+    <owl:NamedIndividual rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Electrical_recording_assay">
+        <obo:BFO_0000087 rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:Electrophysiology_concept"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Electrical_recording_protocol -->
+
+    <owl:NamedIndividual rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Electrical_recording_protocol">
+        <obo:BFO_0000087 rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:Electrophysiology_concept"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Electrical_saturation -->
+
+    <owl:NamedIndividual rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Electrical_saturation">
+        <obo:BFO_0000087 rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:Electrophysiology_concept"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Electrocardiography_recording_protocol -->
+
+    <owl:NamedIndividual rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Electrocardiography_recording_protocol">
+        <obo:BFO_0000087 rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:Electrophysiology_concept"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Electroencephalography_recording_protocol -->
+
+    <owl:NamedIndividual rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Electroencephalography_recording_protocol">
+        <obo:BFO_0000087 rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:Electrophysiology_concept"/>
+        <obo:BFO_0000087 rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:Neuroimaging"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Electromotive_force -->
+
+    <owl:NamedIndividual rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Electromotive_force">
+        <obo:BFO_0000087 rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:Electrophysiology_concept"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Electromyography_surface_recording_protocol -->
+
+    <owl:NamedIndividual rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Electromyography_surface_recording_protocol">
+        <obo:BFO_0000087 rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:Electrophysiology_concept"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Electrophysiology_concept -->
+
+    <owl:NamedIndividual rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Electrophysiology_concept"/>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Electrosurgery -->
+
+    <owl:NamedIndividual rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Electrosurgery">
+        <obo:BFO_0000087 rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:Electrophysiology_concept"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Electrotonic_conduction -->
+
+    <owl:NamedIndividual rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Electrotonic_conduction">
+        <obo:BFO_0000087 rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:Electrophysiology_concept"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Electrotonus -->
+
+    <owl:NamedIndividual rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Electrotonus">
+        <obo:BFO_0000087 rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:Electrophysiology_concept"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Epilepsy -->
+
+    <owl:NamedIndividual rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Epilepsy">
+        <obo:BFO_0000087 rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:Electrophysiology_concept"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Equivalent_circuit -->
+
+    <owl:NamedIndividual rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Equivalent_circuit">
+        <obo:BFO_0000087 rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:Electrophysiology_concept"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Event_related_potential_recording_assay -->
+
+    <owl:NamedIndividual rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Event_related_potential_recording_assay">
+        <obo:BFO_0000087 rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:Electrophysiology_concept"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Excitatory -->
+
+    <owl:NamedIndividual rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Excitatory">
+        <obo:BFO_0000087 rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:Electrophysiology_concept"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Extracellular_electrode_recording_protocol -->
+
+    <owl:NamedIndividual rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Extracellular_electrode_recording_protocol">
+        <obo:BFO_0000087 rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:Electrophysiology_concept"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Extracellular_field_potential -->
+
+    <owl:NamedIndividual rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Extracellular_field_potential">
+        <obo:BFO_0000087 rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:Electrophysiology_concept"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:FI_slope -->
+
+    <owl:NamedIndividual rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:FI_slope">
+        <obo:BFO_0000087 rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:NeuroElectro_Term"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Facilitation -->
+
+    <owl:NamedIndividual rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Facilitation">
+        <obo:BFO_0000087 rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:Electrophysiology_concept"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Fast_afterhyperpolarization_amplitude -->
+
+    <owl:NamedIndividual rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Fast_afterhyperpolarization_amplitude">
+        <obo:BFO_0000087 rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:Electrophysiology_concept"/>
+        <obo:BFO_0000087 rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:NeuroElectro_Term"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Fast_afterhyperpolarization_duration -->
+
+    <owl:NamedIndividual rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Fast_afterhyperpolarization_duration">
+        <obo:BFO_0000087 rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:Electrophysiology_concept"/>
+        <obo:BFO_0000087 rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:NeuroElectro_Term"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Field_electrode_recording_protocol -->
+
+    <owl:NamedIndividual rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Field_electrode_recording_protocol">
+        <obo:BFO_0000087 rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:Electrophysiology_concept"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Firing_frequency -->
+
+    <owl:NamedIndividual rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Firing_frequency">
+        <obo:BFO_0000087 rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:NeuroElectro_Term"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:First_spike_latency -->
+
+    <owl:NamedIndividual rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:First_spike_latency">
+        <obo:BFO_0000087 rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:Electrophysiology_concept"/>
+        <obo:BFO_0000087 rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:NeuroElectro_Term"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:G-protein_gated_channel -->
+
+    <owl:NamedIndividual rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:G-protein_gated_channel">
+        <obo:BFO_0000087 rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:Electrophysiology_concept"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Grid_electrode_recording_protocol -->
+
+    <owl:NamedIndividual rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Grid_electrode_recording_protocol">
+        <obo:BFO_0000087 rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:Electrophysiology_concept"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Has_role -->
+
+    <owl:NamedIndividual rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Has_role"/>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:I_L_high_threshold -->
+
+    <owl:NamedIndividual rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:I_L_high_threshold">
+        <obo:BFO_0000087 rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:Electrophysiology_concept"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:I_N -->
+
+    <owl:NamedIndividual rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:I_N">
+        <obo:BFO_0000087 rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:Electrophysiology_concept"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Increased_threshold -->
+
+    <owl:NamedIndividual rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Increased_threshold">
+        <obo:BFO_0000087 rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:Electrophysiology_concept"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Inhibition -->
+
+    <owl:NamedIndividual rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Inhibition">
+        <obo:BFO_0000087 rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:Electrophysiology_concept"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Inhibitory -->
+
+    <owl:NamedIndividual rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Inhibitory">
+        <obo:BFO_0000087 rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:Electrophysiology_concept"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Input_Resistance -->
+
+    <owl:NamedIndividual rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Input_Resistance">
+        <obo:BFO_0000087 rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:Electrophysiology_concept"/>
+        <obo:BFO_0000087 rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:NeuroElectro_Term"/>
+        <obo:BFO_0000087 rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:Passive_membrane_property"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Instrument_role -->
+
+    <owl:NamedIndividual rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Instrument_role"/>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Intracellular_electrode_recording_assay -->
+
+    <owl:NamedIndividual rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Intracellular_electrode_recording_assay">
+        <obo:BFO_0000087 rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:Electrophysiology_concept"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Intracellular_electrode_recording_protocol -->
+
+    <owl:NamedIndividual rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Intracellular_electrode_recording_protocol">
+        <obo:BFO_0000087 rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:Electrophysiology_concept"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Ion-sensitive_electrode_recording_protocol -->
+
+    <owl:NamedIndividual rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Ion-sensitive_electrode_recording_protocol">
+        <obo:BFO_0000087 rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:Electrophysiology_concept"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Ion_channel_recording_protocol -->
+
+    <owl:NamedIndividual rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Ion_channel_recording_protocol">
+        <obo:BFO_0000087 rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:Electrophysiology_concept"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Junctional_fold -->
+
+    <owl:NamedIndividual rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Junctional_fold">
+        <obo:BFO_0000087 rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:Electrophysiology_concept"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Label -->
+
+    <owl:NamedIndividual rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Label">
+        <obo:BFO_0000087 rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:Has_role"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Lateral_inhibition -->
+
+    <owl:NamedIndividual rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Lateral_inhibition">
+        <obo:BFO_0000087 rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:Electrophysiology_concept"/>
+        <obo:BFO_0000087 rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:Local_Circuit_role"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Leakage_conductance -->
+
+    <owl:NamedIndividual rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Leakage_conductance">
+        <obo:BFO_0000087 rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:Electrophysiology_concept"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Learning -->
+
+    <owl:NamedIndividual rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Learning"/>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Lesion -->
+
+    <owl:NamedIndividual rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Lesion">
+        <obo:BFO_0000087 rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:Electrophysiology_concept"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Local_Circuit_role -->
+
+    <owl:NamedIndividual rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Local_Circuit_role">
+        <obo:BFO_0000087 rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:Electrophysiology_concept"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Localization_theory -->
+
+    <owl:NamedIndividual rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Localization_theory">
+        <obo:BFO_0000087 rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:Electrophysiology_concept"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Long-QT -->
+
+    <owl:NamedIndividual rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Long-QT">
+        <obo:BFO_0000087 rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:Electrophysiology_concept"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Macro-electrode_recording_protocol -->
+
+    <owl:NamedIndividual rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Macro-electrode_recording_protocol">
+        <obo:BFO_0000087 rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:Electrophysiology_concept"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Mathematical_expression -->
+
+    <owl:NamedIndividual rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Mathematical_expression">
+        <obo:BFO_0000087 rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:Electrophysiology_concept"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Mechanically_gated_channel -->
+
+    <owl:NamedIndividual rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Mechanically_gated_channel">
+        <obo:BFO_0000087 rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:Electrophysiology_concept"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Micro-electrode_recording_assay -->
+
+    <owl:NamedIndividual rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Micro-electrode_recording_assay">
+        <obo:BFO_0000087 rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:Electrophysiology_concept"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Micro-electrode_recording_protocol -->
+
+    <owl:NamedIndividual rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Micro-electrode_recording_protocol">
+        <obo:BFO_0000087 rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:Electrophysiology_concept"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Microelectrode_array_assay -->
+
+    <owl:NamedIndividual rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Microelectrode_array_assay">
+        <obo:BFO_0000087 rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:Electrophysiology_concept"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Motor_unit -->
+
+    <owl:NamedIndividual rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Motor_unit">
+        <obo:BFO_0000087 rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:Electrophysiology_concept"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Multiple-electrode_voltage_clamp_recording_protocol -->
+
+    <owl:NamedIndividual rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Multiple-electrode_voltage_clamp_recording_protocol">
+        <obo:BFO_0000087 rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:Electrophysiology_concept"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Neural_circuit -->
+
+    <owl:NamedIndividual rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Neural_circuit">
+        <obo:BFO_0000087 rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:Electrophysiology_concept"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Neural_encoding -->
+
+    <owl:NamedIndividual rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Neural_encoding">
+        <obo:BFO_0000087 rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:Electrophysiology_concept"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:NeuroElectro_Term -->
+
+    <owl:NamedIndividual rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:NeuroElectro_Term"/>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Neuroimaging -->
+
+    <owl:NamedIndividual rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Neuroimaging"/>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Non-gated_channel -->
+
+    <owl:NamedIndividual rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Non-gated_channel">
+        <obo:BFO_0000087 rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:Electrophysiology_concept"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Nonsynaptic_conduction -->
+
+    <owl:NamedIndividual rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Nonsynaptic_conduction">
+        <obo:BFO_0000087 rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:Electrophysiology_concept"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:PH-sensitive_electrode_recording_protocol -->
+
+    <owl:NamedIndividual rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:PH-sensitive_electrode_recording_protocol">
+        <obo:BFO_0000087 rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:Electrophysiology_concept"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Pain_sensation -->
+
+    <owl:NamedIndividual rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Pain_sensation">
+        <obo:BFO_0000087 rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:Electrophysiology_concept"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Parameter_Fitting -->
+
+    <owl:NamedIndividual rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Parameter_Fitting">
+        <obo:BFO_0000087 rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:Electrophysiology_concept"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Pass_band -->
+
+    <owl:NamedIndividual rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Pass_band">
+        <obo:BFO_0000087 rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:Electrophysiology_concept"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Passive_membrane_property -->
+
+    <owl:NamedIndividual rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Passive_membrane_property"/>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Patch_clamp_technique -->
+
+    <owl:NamedIndividual rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Patch_clamp_technique">
+        <obo:BFO_0000087 rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:Electrophysiology_concept"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Pathophysiology -->
+
+    <owl:NamedIndividual rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Pathophysiology">
+        <obo:BFO_0000087 rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:Electrophysiology_concept"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Pattern_Recognition -->
+
+    <owl:NamedIndividual rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Pattern_Recognition">
+        <obo:BFO_0000087 rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:Electrophysiology_concept"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Perceptual_Categories -->
+
+    <owl:NamedIndividual rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Perceptual_Categories">
+        <obo:BFO_0000087 rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:Electrophysiology_concept"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Phase_shift -->
+
+    <owl:NamedIndividual rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Phase_shift">
+        <obo:BFO_0000087 rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:Electrophysiology_concept"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Physiology_Instrument -->
+
+    <owl:NamedIndividual rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Physiology_Instrument">
+        <obo:BFO_0000087 rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:Electrophysiology_concept"/>
+        <obo:BFO_0000087 rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:Instrument_role"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Place_cell -->
+
+    <owl:NamedIndividual rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Place_cell">
+        <obo:BFO_0000087 rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:Electrophysiology_concept"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Presynaptic_inhibition -->
+
+    <owl:NamedIndividual rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Presynaptic_inhibition">
+        <obo:BFO_0000087 rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:Electrophysiology_concept"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Pruning -->
+
+    <owl:NamedIndividual rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Pruning">
+        <obo:BFO_0000087 rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:Electrophysiology_concept"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Quantal_transmission -->
+
+    <owl:NamedIndividual rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Quantal_transmission">
+        <obo:BFO_0000087 rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:Electrophysiology_concept"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Reconstituted_bilayer_electrical_recording_protocol -->
+
+    <owl:NamedIndividual rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Reconstituted_bilayer_electrical_recording_protocol">
+        <obo:BFO_0000087 rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:Electrophysiology_concept"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Reconstituted_bilayer_single-channel_patch_recording_protocol -->
+
+    <owl:NamedIndividual rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Reconstituted_bilayer_single-channel_patch_recording_protocol">
+        <obo:BFO_0000087 rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:Electrophysiology_concept"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Refractory_state -->
+
+    <owl:NamedIndividual rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Refractory_state">
+        <obo:BFO_0000087 rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:Electrophysiology_concept"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Reinforcement_Learning -->
+
+    <owl:NamedIndividual rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Reinforcement_Learning">
+        <obo:BFO_0000087 rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:Electrophysiology_concept"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Rheobase -->
+
+    <owl:NamedIndividual rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Rheobase">
+        <obo:BFO_0000087 rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:Electrophysiology_concept"/>
+        <obo:BFO_0000087 rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:NeuroElectro_Term"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Sag_ratio -->
+
+    <owl:NamedIndividual rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Sag_ratio">
+        <obo:BFO_0000087 rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:Electrophysiology_concept"/>
+        <obo:BFO_0000087 rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:NeuroElectro_Term"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Saltatory_conduction -->
+
+    <owl:NamedIndividual rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Saltatory_conduction">
+        <obo:BFO_0000087 rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:Electrophysiology_concept"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Sampling_rate -->
+
+    <owl:NamedIndividual rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Sampling_rate">
+        <obo:BFO_0000087 rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:Electrophysiology_concept"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Sensory_threshold -->
+
+    <owl:NamedIndividual rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Sensory_threshold">
+        <obo:BFO_0000087 rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:Electrophysiology_concept"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Signaling_pathway -->
+
+    <owl:NamedIndividual rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Signaling_pathway">
+        <obo:BFO_0000087 rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:Electrophysiology_concept"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Single-electrode_voltage_clamp_recording_protocol -->
+
+    <owl:NamedIndividual rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Single-electrode_voltage_clamp_recording_protocol">
+        <obo:BFO_0000087 rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:Electrophysiology_concept"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Single_electrode_extracellular_recording_protocol -->
+
+    <owl:NamedIndividual rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Single_electrode_extracellular_recording_protocol">
+        <obo:BFO_0000087 rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:Electrophysiology_concept"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Slice_preparation_protocol -->
+
+    <owl:NamedIndividual rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Slice_preparation_protocol">
+        <obo:BFO_0000087 rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:Electrophysiology_concept"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Slow_afterhyperpolarization_amplitude -->
+
+    <owl:NamedIndividual rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Slow_afterhyperpolarization_amplitude">
+        <obo:BFO_0000087 rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:Electrophysiology_concept"/>
+        <obo:BFO_0000087 rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:NeuroElectro_Term"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Slow_afterhyperpolarization_duration -->
+
+    <owl:NamedIndividual rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Slow_afterhyperpolarization_duration">
+        <obo:BFO_0000087 rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:Electrophysiology_concept"/>
+        <obo:BFO_0000087 rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:NeuroElectro_Term"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Sodium_pump -->
+
+    <owl:NamedIndividual rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Sodium_pump">
+        <obo:BFO_0000087 rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:Electrophysiology_concept"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Somatosensory_map -->
+
+    <owl:NamedIndividual rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Somatosensory_map">
+        <obo:BFO_0000087 rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:Electrophysiology_concept"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Spatio-temporal_Activity_Patterns -->
+
+    <owl:NamedIndividual rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Spatio-temporal_Activity_Patterns">
+        <obo:BFO_0000087 rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:Electrophysiology_concept"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Spike_Frequency_Adaptation -->
+
+    <owl:NamedIndividual rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Spike_Frequency_Adaptation">
+        <obo:BFO_0000087 rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:Electrophysiology_concept"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Spike_Train -->
+
+    <owl:NamedIndividual rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Spike_Train">
+        <obo:BFO_0000087 rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:Electrophysiology_concept"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Spike_half-width -->
+
+    <owl:NamedIndividual rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Spike_half-width">
+        <obo:BFO_0000087 rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:Electrophysiology_concept"/>
+        <obo:BFO_0000087 rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:NeuroElectro_Term"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Spike_overshoot -->
+
+    <owl:NamedIndividual rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Spike_overshoot">
+        <obo:BFO_0000087 rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:Electrophysiology_concept"/>
+        <obo:BFO_0000087 rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:NeuroElectro_Term"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Spike_peak -->
+
+    <owl:NamedIndividual rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Spike_peak">
+        <obo:BFO_0000087 rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:Electrophysiology_concept"/>
+        <obo:BFO_0000087 rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:NeuroElectro_Term"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Spike_threshold -->
+
+    <owl:NamedIndividual rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Spike_threshold">
+        <obo:BFO_0000087 rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:Electrophysiology_concept"/>
+        <obo:BFO_0000087 rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:NeuroElectro_Term"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Spike_width -->
+
+    <owl:NamedIndividual rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Spike_width">
+        <obo:BFO_0000087 rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:Electrophysiology_concept"/>
+        <obo:BFO_0000087 rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:NeuroElectro_Term"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Spontaneous_firing_rate -->
+
+    <owl:NamedIndividual rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Spontaneous_firing_rate">
+        <obo:BFO_0000087 rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:Electrophysiology_concept"/>
+        <obo:BFO_0000087 rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:NeuroElectro_Term"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Stop_band -->
+
+    <owl:NamedIndividual rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Stop_band">
+        <obo:BFO_0000087 rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:Electrophysiology_concept"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Stuttering -->
+
+    <owl:NamedIndividual rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Stuttering">
+        <obo:BFO_0000087 rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:Electrophysiology_concept"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Summation -->
+
+    <owl:NamedIndividual rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Summation">
+        <obo:BFO_0000087 rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:Electrophysiology_concept"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Surgical_protocol -->
+
+    <owl:NamedIndividual rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Surgical_protocol">
+        <obo:BFO_0000087 rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:Electrophysiology_concept"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Therapeutic -->
+
+    <owl:NamedIndividual rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Therapeutic">
+        <obo:BFO_0000087 rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:Electrophysiology_concept"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Threshold -->
+
+    <owl:NamedIndividual rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Threshold">
+        <obo:BFO_0000087 rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:Electrophysiology_concept"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Timothy_Syndrome -->
+
+    <owl:NamedIndividual rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Timothy_Syndrome">
+        <obo:BFO_0000087 rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:Electrophysiology_concept"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Transmitter_gated_channel -->
+
+    <owl:NamedIndividual rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Transmitter_gated_channel">
+        <obo:BFO_0000087 rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:Electrophysiology_concept"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Two_electrode_voltage_clamp -->
+
+    <owl:NamedIndividual rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Two_electrode_voltage_clamp">
+        <obo:BFO_0000087 rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:Electrophysiology_concept"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Unsupervised_Learning -->
+
+    <owl:NamedIndividual rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Unsupervised_Learning">
+        <obo:BFO_0000087 rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:Electrophysiology_concept"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Voltage_clamp_current_recording_protocol -->
+
+    <owl:NamedIndividual rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Voltage_clamp_current_recording_protocol">
+        <obo:BFO_0000087 rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:Electrophysiology_concept"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Voltage_gated_channel -->
+
+    <owl:NamedIndividual rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Voltage_gated_channel">
+        <obo:BFO_0000087 rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:Electrophysiology_concept"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Whole-cell_voltage_clamp_recording_protocol -->
+
+    <owl:NamedIndividual rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Whole-cell_voltage_clamp_recording_protocol">
+        <obo:BFO_0000087 rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:Electrophysiology_concept"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:Winner-take-all -->
+
+    <owl:NamedIndividual rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:Winner-take-all">
+        <obo:BFO_0000087 rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:Electrophysiology_concept"/>
+        <obo:BFO_0000087 rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:Learning"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:3_dB_Frequency -->
+
+    <owl:NamedIndividual rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:3_dB_Frequency">
+        <obo:BFO_0000087 rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:Electrophysiology_concept"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://neurolex.org/wiki/Special:ExportRDF/Category:T(10-90) -->
+
+    <owl:NamedIndividual rdf:about="http://neurolex.org/wiki/Special:ExportRDF/Category:T(10-90)">
+        <obo:BFO_0000087 rdf:resource="http://neurolex.org/wiki/Special:ExportRDF/Category:Electrophysiology_concept"/>
+    </owl:NamedIndividual>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 3.4.5-SNAPSHOT) http://owlapi.sourceforge.net -->
+

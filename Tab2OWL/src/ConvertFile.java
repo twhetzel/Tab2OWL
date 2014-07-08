@@ -169,7 +169,7 @@ public class ConvertFile {
 					factory.getOWLImportsDeclaration(iaoIRI); 
 			manager.applyChange(new AddImport(ontology, iaoImportDeclaraton));
 
-			// Now save a local copy of the ontology. (
+			// Now save a local copy of the ontology 
 			manager.saveOntology(ontology, IRI.create(file.toURI()));
 
 		} catch (OWLOntologyCreationException e) {

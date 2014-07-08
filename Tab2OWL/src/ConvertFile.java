@@ -142,7 +142,6 @@ public class ConvertFile {
 			ontology = manager.createOntology(ontologyIRI);
 			OWLDataFactory factory = manager.getOWLDataFactory();
 			// Create the document IRI for our ontology
-			//IRI documentIRI = IRI.create("/Users/whetzel/Documents/workspace/Tab2OWL/");
 			IRI documentIRI = IRI.create("/Users/whetzel/git/tab2owl/Tab2OWL/");  //Local Git repo
 			
 			// Set up a mapping, which maps the ontology to the document IRI
@@ -216,47 +215,6 @@ public class ConvertFile {
 			AddAxiom addAxiom = new AddAxiom(ontology, axiom);
 			// We now use the manager to apply the change
 			manager.applyChange(addAxiom);
-
-
-			/**
-			 * Add class restrictions and annotations
-			 */
-			/* THIS WORKS - TRYING ANOTHER OPTION 
-			// Try to add Has Role (object property) as a restriction on a Class
-			String IAO = "http://purl.obolibrary.org/obo/";  
-			// Create Object Property
-			OWLObjectProperty hasRoleProperty = factory.getOWLObjectProperty(IRI.create(IAO
-					+ "BFO_0000087"));
-			System.err.println("hasRoleProperty: "+hasRoleProperty);
-
-	        // Obtain a reference values for Has Role, values[3]
-	        String hasRoleObject = entry.getValue().get(3).toString();
-	        System.err.println("HasRoleObject: "+hasRoleObject);
-	        String newHasRoleObject = hasRoleObject.replace(":Category:","");
-	        newHasRoleObject = newHasRoleObject.replaceAll("\"", "");
-	        System.err.println("HasRoleObject-MOD: "+newHasRoleObject);
-
-	        if (!newHasRoleObject.equals("NO VALUE")) {
-				System.err.println("VALUE FOUND: "+newHasRoleObject);
-				//NOTE: newHasRoleObject may have more than 1 object value
-				String[] hasRoleObjectValues = newHasRoleObject.split(",");
-				// Add each hasRoleObect value as a property restriction
-				for (String s : hasRoleObjectValues ) {
-					s = s.replaceAll(" ", "_");
-					System.err.println("hasRoleObjectValues: "+s);
-
-					OWLClass roleObject = factory.getOWLClass(IRI.create(prefix + s));
-					OWLClassExpression hasPartSomeRole = factory.getOWLObjectSomeValuesFrom(hasRoleProperty,
-							roleObject); 
-					OWLSubClassOfAxiom ax = factory.getOWLSubClassOfAxiom(clsAMethodA, hasPartSomeRole);	
-					System.out.println("RoleObject: "+roleObject+"\nAxiom: "+ax);
-
-					// Add the axiom to our ontology 
-					AddAxiom addAx = new AddAxiom(ontology, ax);
-					manager.applyChange(addAx);
-				}
-	        }
-			 */
 
 			// We can add a declaration axiom to the ontology, that essentially adds
 			// the class to the signature of our ontology. 

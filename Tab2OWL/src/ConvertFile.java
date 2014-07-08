@@ -55,7 +55,7 @@ public class ConvertFile {
 		File owlFile = createOWLFile();
 		buildClassTree(termsAndProperties, owlFile);
 		addClassRestrictions(termsAndProperties, owlFile);
-		//addAnnotations(termsAndProperties, owlFile);
+		addAnnotations(termsAndProperties, owlFile);
 	}
 
 

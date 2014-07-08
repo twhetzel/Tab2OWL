@@ -4,7 +4,9 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Hashtable;
 import java.util.Iterator;
+import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 
@@ -36,6 +38,25 @@ import org.semanticweb.owlapi.model.SetOntologyID;
 import org.semanticweb.owlapi.util.DefaultPrefixManager;
 import org.semanticweb.owlapi.util.SimpleIRIMapper;
 
+import org.wikiutils.*;
+
+import org.wikipedia.*;
+import org.wikipedia.tools.*;
+import java.util.*;
+import info.bliki.api.query.*;
+import info.bliki.api.*;
+
+import java.util.*;
+import java.net.*;
+import java.io.*;
+
+import java.io.*;
+import java.net.*;
+import java.util.*;
+import java.util.logging.*;
+
+import javax.security.auth.login.*;
+
 
 public class ConvertFile {
 
@@ -51,11 +72,18 @@ public class ConvertFile {
 		 * to stand-alone OWL file 
 		 * 
 		 */
+
 		Map<String, ArrayList> termsAndProperties = processTermFile();	
+
+		// Create Hashtable for label->ID for classes
+		Hashtable<String,String> classIDHashtable = new Hashtable<String,String>();
+		classIDHashtable = createClassIDLabelHash(termsAndProperties);
+
 		File owlFile = createOWLFile();
-		buildClassTree(termsAndProperties, owlFile);
-		addClassRestrictions(termsAndProperties, owlFile);
-		addAnnotations(termsAndProperties, owlFile);
+		buildClassTree(termsAndProperties, owlFile, classIDHashtable);
+
+		//addClassRestrictions(termsAndProperties, owlFile);
+		//addAnnotations(termsAndProperties, owlFile);
 	}
 
 
@@ -66,58 +94,78 @@ public class ConvertFile {
 	 */
 	private static Map<String, ArrayList> processTermFile() {
 		System.out.println("\n** processTermFile method **");
+		int lineCount = 0;
 		BufferedReader br = null;
 		Map<String, ArrayList> terms = new HashMap<String, ArrayList>();
 		ArrayList<String> list = new ArrayList<String>();
+
 
 		try {
 			String sCurrentLine;
 			br = new BufferedReader(new FileReader("/Users/whetzel/Documents/UCSD/NeuroLex/NeuroLex-ElectrophysiologyCategories.txt"));
 
 			while ((sCurrentLine = br.readLine()) != null) {
-				//System.out.println("**NEW-LINE: "+sCurrentLine);
-				// Parse file columns
-				String[] values = sCurrentLine.split("\t", -1); // Do not truncate line on empty values
+				lineCount++;
+				if (lineCount > 1 ) {
+					//System.out.println("**NEW-LINE: "+sCurrentLine);
+					// Parse file columns
+					String[] values = sCurrentLine.split("\t", -1); // Do not truncate line on empty values
 
-				// Handle null values in spreadsheet
-				for (int index = 0; index < values.length; index++) {		
-					if (values[index].length() > 0) { // Check that the array index contains a value
-						//System.out.print("\'"+values[index]+"\'"+"\n");
-						list.add(values[index]);
-					}
-					else {
-						values[index] = "NO VALUE";
-						//System.out.print("NULL-"+values[index]+"\t");
-						list.add(values[index]);
-					}
-					// Create copy to keep values, but not references
-					ArrayList<String> copy = new ArrayList<String>();
-					copy.addAll(list);
-					// Put values in a HashMap keyed on the ID, value[5] OR label, value[1]
-					terms.put(values[1], copy );
+					// Handle null values in spreadsheet
+					for (int index = 0; index < values.length; index++) {		
+						if (values[index].length() > 0) { // Check that the array index contains a value
+							//System.out.print("\'"+values[index]+"\'"+"\n");
+							list.add(values[index]);
+						}
+						else {
+							values[index] = "NO VALUE"; // use this later to decide whether to add a class restriction/annotation to a class
+							//System.out.print("NULL-"+values[index]+"\t");
+							list.add(values[index]);
+						}
+						// Create a copy of the ArrayList to keep values, but not references so it can be cleared before reading the next line 
+						ArrayList<String> copy = new ArrayList<String>();
+						copy.addAll(list);
+						// Put values in a HashMap keyed on the ID, value[5] OR label, value[1]
+						terms.put(values[1], copy );
 
-				}		
-				//System.out.println("ARR-SIZE: "+list.size());
-				//System.out.println("MAP: "+values[1]+"\tLIST: "+list);
+					}		
+					//System.out.println("ARR-SIZE: "+list.size());
+					//System.out.println("MAP: "+values[1]+"\tLIST: "+list);
 
-				// Clear initial ArrayList to prepare for next line in file
-				list.clear();
+					// Clear initial ArrayList to prepare for next line in file
+					list.clear();
 
-				//System.out.println("TERMS:"+terms); //Values are null because they were cleared
-				//System.out.println();
+					//System.out.println("TERMS:"+terms); //Values are null because they were cleared
+					//System.out.println();
+				}
+				else {
+					//System.out.println("Skipping header line....");
+				}
 			}
-		} catch (IOException e) {
-			e.printStackTrace();
-		} finally {
-			try {
-				if (br != null)br.close();
-			} catch (IOException ex) {
-				ex.printStackTrace();
+			} catch (IOException e) {
+				e.printStackTrace();
+			} finally {
+				try {
+					if (br != null)br.close();
+				} catch (IOException ex) {
+					ex.printStackTrace();
+				}
 			}
-		}
 		return terms;
 	}
 
+
+	private static Hashtable createClassIDLabelHash(Map<String, ArrayList> termsAndProperties) {
+		// Populate hashtable from termsAndProperies using the label (values[1]) as the key and ID (values[5]) as the value
+		Hashtable<String,String> hashtable = new Hashtable<String,String>();
+
+		for (Entry<String, ArrayList> entry : termsAndProperties.entrySet()) {
+			String key = entry.getKey(); //Label
+			String value = entry.getValue().get(5).toString(); //ID
+			hashtable.put(key, value);
+		}
+		return hashtable;
+	}
 
 
 	/**
@@ -133,7 +181,8 @@ public class ConvertFile {
 		OWLOntology ontology = null;
 		File file = new File("owlfiletest.owl"); //ontology file to write to
 		OWLOntologyManager manager = OWLManager.createOWLOntologyManager();
-		IRI ontologyIRI = IRI.create("http://neurolex.org/wiki/");
+		//IRI ontologyIRI = IRI.create("http://neurolex.org/wiki/");
+		IRI ontologyIRI = IRI.create("http://uri.neuinfo.org/nif/nifstd/");
 		// Specify IRIs for ontology imports
 		IRI bfoIRI = IRI.create("http://purl.obolibrary.org/obo/bfo.owl");
 		IRI iaoIRI = IRI.create("http://purl.obolibrary.org/obo/iao.owl");
@@ -143,12 +192,12 @@ public class ConvertFile {
 			OWLDataFactory factory = manager.getOWLDataFactory();
 			// Create the document IRI for our ontology
 			IRI documentIRI = IRI.create("/Users/whetzel/git/tab2owl/Tab2OWL/");  //Local Git repo
-			
+
 			// Set up a mapping, which maps the ontology to the document IRI
 			SimpleIRIMapper mapper = new SimpleIRIMapper(ontologyIRI, documentIRI);
 			manager.addIRIMapper(mapper);
 			System.out.println("Created ontology: " + ontology);
-			
+
 			// Set version IRI, use the date the file contents were exported from NeuroLex
 			IRI versionIRI = IRI.create(ontologyIRI + "NeuroLexExport06302014");
 			OWLOntologyID newOntologyID = new OWLOntologyID(ontologyIRI, versionIRI);
@@ -178,39 +227,65 @@ public class ConvertFile {
 		return file;
 	}
 
-	
+
 	/**
 	 * 
 	 * @param termsAndProperties
 	 * @param owlFile
+	 * @param classIDHashtable 
 	 * @throws OWLOntologyCreationException 
 	 * @throws OWLOntologyStorageException 
 	 */
 	private static void buildClassTree(Map<String, ArrayList> termsAndProperties,
-			File owlFile) throws OWLOntologyCreationException, OWLOntologyStorageException {
+			File owlFile, Hashtable<String, String> classIDHashtable) throws OWLOntologyCreationException, OWLOntologyStorageException {
 		System.out.println("\n** buildClassTree method **");
-		
+
 		// Open ontology file
 		OWLOntologyManager manager = OWLManager.createOWLOntologyManager();
 		OWLOntology ontology = manager.loadOntologyFromOntologyDocument(owlFile);
 		OWLDataFactory factory = manager.getOWLDataFactory();
-		
+
 		// Populate ontology with class hierarchy from termsAndProperties 
 		for (Entry<String, ArrayList> entry : termsAndProperties.entrySet()) {
 			String key = entry.getKey();	
-			//System.out.println("K:"+key+"\tV:"+entry.getValue());
+			System.out.println("\nK:"+key+"\tV:"+entry.getValue());
 
-			String prefix = "http://neurolex.org/wiki/Special:ExportRDF/Category:";
-			String newKey = key.replaceAll(" ", "_");
-			IRI iri = IRI.create(prefix+newKey);
+			//String prefix = "http://neurolex.org/wiki/Special:ExportRDF/Category:";
+			String prefix = "http://uri.neuinfo.org/nif/nifstd/";
+			//String newKey = key.replaceAll(" ", "_"); // Remove since using ID in IRI 
+
+			//Use classIDHashtable to get ID instead of label to create Class IRI
+			String id = classIDHashtable.get(key);
+			System.out.println("** ID: "+id
+					+"\n** Label: "+key);
+
+			IRI iri = IRI.create(prefix+id);
 			// Now we create the Class, NOTE: this does not add the Class to the ontology, but creates the Class object
 			OWLClass clsAMethodA = factory.getOWLClass(iri);
 
-			// Add parent to Class, value[2] from termsAndProperties Map object
+			// Add Parent to Class, value[2] from termsAndProperties Map object
 			String parent = entry.getValue().get(2).toString();
-			//System.err.println("PARENT: "+parent);
-			String newParent = parent.replaceAll(" ", "_");
-			OWLClass clsB = factory.getOWLClass(IRI.create(prefix + newParent));
+			// Get ID for parent from hashtable
+			String parentId = classIDHashtable.get(parent);
+			System.out.println("** ParentID: "+parentId
+					+"\n** Parent Label: "+parent);
+
+			if (parentId == null) {
+				String newParent = parent.replaceAll(" ", "_");
+				newParent = "Category:"+newParent;
+				System.out.println("Null ID Found. Use \""+newParent+"\" to query NeuroLex for ID.");
+				// Use WikiAPI to get ID for Parent
+				String parentIDFromWiki = getParentIdFromWikiAPI(newParent);
+				// Add Id back to hashtable
+				System.out.println("** ParentIDFromWiki: "+parentIDFromWiki);
+
+				// Update null value in hashtable
+				//classIDHashtable.remove(parent);  // Remove key and value first 
+				classIDHashtable.put(parent, parentIDFromWiki);  //Then add key and value back to hashtable 
+			}
+
+
+			OWLClass clsB = factory.getOWLClass(IRI.create(prefix + parentId));
 			OWLAxiom axiom = factory.getOWLSubClassOfAxiom(clsAMethodA, clsB);
 			AddAxiom addAxiom = new AddAxiom(ontology, axiom);
 			// We now use the manager to apply the change
@@ -230,6 +305,53 @@ public class ConvertFile {
 
 
 	/**
+	 * Use Wiki API to get additional content
+	 */
+	private static String getParentIdFromWikiAPI(String newParent) {
+		//Tester test = new Tester();
+		//System.out.println("** Query term: "+newParent);
+		String content = getPageContent(newParent);  //test.getPageContent(newParent); 
+		//System.out.println(content);
+
+		// Print only line with Term ID (|Id=)
+		String[] contentLines = content.split("\\r?\\n");
+
+		String termIDPattern = "|Id=";
+		String parentId = null;
+		for (String line : contentLines) {
+			//System.out.println("Line: "+line);
+			if (line.contains(termIDPattern)) {
+				//System.out.println("TermId: "+line);
+				String [] idLine = line.split("=");
+				parentId = idLine[1];
+				System.out.println("** TermID: "+parentId);
+			}
+		}
+		return parentId;
+	}
+
+	public static String getPageContent(String title) {
+		String content = null;
+		String[] listOfTitleStrings = { title }; 
+		//System.out.println("Page Title for Query: "+listOfTitleStrings[0]);
+		String host =  "http://neurolex.org/w/api.php";
+
+		User user = new User("Whetzel", "neurolex", host);  
+		List<Page> listOfPages =  user.queryContent(listOfTitleStrings);  //user.queryCategories(listOfTitleStrings);
+
+		for (Page page : listOfPages) {
+			//System.out.println("PageTitle: "+page.getTitle());
+			content = page.getCurrentContent();
+			//System.out.println("------------------"+content+"-----------------");
+			if(content != null)
+				break;
+		}
+		return content;
+	}
+
+
+
+	/**
 	 * 
 	 * @param termsAndProperties
 	 * @param owlFile
@@ -239,7 +361,7 @@ public class ConvertFile {
 	private static void addClassRestrictions(
 			Map<String, ArrayList> termsAndProperties, File owlFile) throws OWLOntologyCreationException, OWLOntologyStorageException {
 		System.out.println("\n** addClassRestrictions method **");
-		
+
 		// Open ontology file
 		OWLOntologyManager manager = OWLManager.createOWLOntologyManager();
 		OWLOntology ontology = manager.loadOntologyFromOntologyDocument(owlFile);
@@ -260,20 +382,20 @@ public class ConvertFile {
 		// Has Role -> http://purl.obolibrary.org/obo/BFO_0000087 (object property)
 		// Is Part Of -> http://purl.obolibrary.org/obo/BFO_0000050 (object property, transitive Has Part), see Brain in Uberon for example usage 
 		// Has Part -> http://purl.obolibrary.org/obo/BFO_0000051 (object property, transitive Is Part Of)
-	
 
-		// Iterate through termsAndProperties
+
+		// Iterate through termsAndProperties AND get parent from hashtable 
 		for (Entry<String, ArrayList> entry : termsAndProperties.entrySet()) {
 			String key = entry.getKey();	
 			System.out.println("\nK:"+key+"\tV:"+entry.getValue());
 
-			PrefixManager pm = new DefaultPrefixManager(
-					"http://neurolex.org/wiki/Special:ExportRDF/Category:");
+			//PrefixManager pm = new DefaultPrefixManager("http://neurolex.org/wiki/Special:ExportRDF/Category:");
+			PrefixManager pm = new DefaultPrefixManager("http://uri.neuinfo.org/nif/nifstd/");
 			String newKey = key.replaceAll(" ", "_");
 			OWLClass clsAMethodB = factory.getOWLClass(newKey, pm);
 			System.err.println("classAMethodB: "+clsAMethodB);
 
-			
+
 			/*
 			 * Add hasRoleProperty to Class
 			 */
@@ -305,7 +427,7 @@ public class ConvertFile {
 				}
 				System.out.println();
 			}
-			
+
 
 			/*
 			 * Add isPartOfProperty to Class
@@ -339,7 +461,7 @@ public class ConvertFile {
 				System.out.println();
 			}
 
-			
+
 			// Save ontology 
 			manager.saveOntology(ontology);
 		}
@@ -350,7 +472,7 @@ public class ConvertFile {
 	private static void addAnnotations(
 			Map<String, ArrayList> termsAndProperties, File owlFile) throws OWLOntologyCreationException, OWLOntologyStorageException {
 		System.out.println("** addAnnotations method **");
-		
+
 		// Declare property IRIs
 		// Term Label -> rdfs:label
 		// Definition -> http://purl.obolibrary.org/obo/IAO_0000115
@@ -380,25 +502,25 @@ public class ConvertFile {
 			 */
 			String IAO = "http://purl.obolibrary.org/obo/";  
 			// Create Annotation Properties
-			 OWLAnnotationProperty definitionProperty = factory.getOWLAnnotationProperty((IRI.create(IAO
+			OWLAnnotationProperty definitionProperty = factory.getOWLAnnotationProperty((IRI.create(IAO
 					+ "IAO_0000115")));
 			OWLAnnotationProperty synonymProperty = factory.getOWLAnnotationProperty((IRI.create(IAO
 					+ "IAO_0000118")));
 			OWLAnnotationProperty citationProperty = factory.getOWLAnnotationProperty((IRI.create(IAO
 					+ "IAO_0000301")));
 			//System.err.println("Annotation Properties (D,S,C): \n"+definitionProperty+"\n"+synonymProperty+"\n"+citationProperty);
-			
-			
+
+
 			// Get values for Label from text file, values[1]
 			String label = entry.getValue().get(1).toString();
 			if (!label.equals("NO VALUE")) {
 				System.err.println("VALUE FOUND: "+label);
-		        OWLAnnotation labelAnnotation = factory.getOWLAnnotation(factory.getRDFSLabel(),factory.getOWLLiteral(label));
-		        OWLAxiom labelAxiom = factory.getOWLAnnotationAssertionAxiom(clsAMethodB.getIRI(), labelAnnotation);
-		        manager.applyChange(new AddAxiom(ontology, labelAxiom));
+				OWLAnnotation labelAnnotation = factory.getOWLAnnotation(factory.getRDFSLabel(),factory.getOWLLiteral(label));
+				OWLAxiom labelAxiom = factory.getOWLAnnotationAssertionAxiom(clsAMethodB.getIRI(), labelAnnotation);
+				manager.applyChange(new AddAxiom(ontology, labelAxiom));
 			}
-			
-			
+
+
 			// Get values for Synonym from text file, values[6] 
 			String synonym = entry.getValue().get(6).toString();
 			synonym = synonym.replaceAll("\"", "");
@@ -431,9 +553,9 @@ public class ConvertFile {
 			System.err.println("Definition: "+definition);	
 			if (!definition.equals("NO VALUE")) {
 				System.err.println("VALUE FOUND: "+definition);
-		        OWLAnnotation definitionAnnotation = factory.getOWLAnnotation(definitionProperty,factory.getOWLLiteral(definition));
-		        OWLAxiom definitionAxiom = factory.getOWLAnnotationAssertionAxiom(clsAMethodB.getIRI(), definitionAnnotation);
-		        manager.applyChange(new AddAxiom(ontology, definitionAxiom));
+				OWLAnnotation definitionAnnotation = factory.getOWLAnnotation(definitionProperty,factory.getOWLLiteral(definition));
+				OWLAxiom definitionAxiom = factory.getOWLAnnotationAssertionAxiom(clsAMethodB.getIRI(), definitionAnnotation);
+				manager.applyChange(new AddAxiom(ontology, definitionAxiom));
 			}
 		}
 
@@ -441,8 +563,8 @@ public class ConvertFile {
 		manager.saveOntology(ontology);
 	}
 
-	
-	
+
+
 }
 
 

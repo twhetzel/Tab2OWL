@@ -53,11 +53,9 @@ public class ConvertFile {
 		 */
 		Map<String, ArrayList> termsAndProperties = processTermFile();	
 		File owlFile = createOWLFile();
-		System.out.println("** Returned OWLFile: "+owlFile.getAbsolutePath());
 		buildClassTree(termsAndProperties, owlFile);
-		
 		addClassRestrictions(termsAndProperties, owlFile);
-		addAnnotations(termsAndProperties, owlFile);
+		//addAnnotations(termsAndProperties, owlFile);
 	}
 
 
@@ -67,7 +65,7 @@ public class ConvertFile {
 	 * @return
 	 */
 	private static Map<String, ArrayList> processTermFile() {
-		System.out.println("** processTermFile method **");
+		System.out.println("\n** processTermFile method **");
 		BufferedReader br = null;
 		Map<String, ArrayList> terms = new HashMap<String, ArrayList>();
 		ArrayList<String> list = new ArrayList<String>();
@@ -130,7 +128,7 @@ public class ConvertFile {
 	 * @throws IOException 
 	 */
 	private static File createOWLFile() throws OWLOntologyStorageException, IOException {
-		System.out.println("** createOWLFile method **");
+		System.out.println("\n** createOWLFile method **");
 		//Create empty ontology 
 		OWLOntology ontology = null;
 		File file = new File("owlfiletest.owl"); //ontology file to write to
@@ -162,15 +160,15 @@ public class ConvertFile {
 			System.out.println("Ontology: " + ontology);
 
 
-			// Need to add imports for BFO and IAO to ontology
-			/*OWLImportsDeclaration bfoImportDeclaraton =
+			// Add import for BFO ontology
+			OWLImportsDeclaration bfoImportDeclaraton =
 					factory.getOWLImportsDeclaration(bfoIRI); 
 			manager.applyChange(new AddImport(ontology, bfoImportDeclaraton));
 
+			// Add import for IAO ontology
 			OWLImportsDeclaration iaoImportDeclaraton =
 					factory.getOWLImportsDeclaration(iaoIRI); 
 			manager.applyChange(new AddImport(ontology, iaoImportDeclaraton));
-*/
 
 			// Now save a local copy of the ontology. (
 			manager.saveOntology(ontology, IRI.create(file.toURI()));
@@ -181,6 +179,7 @@ public class ConvertFile {
 		return file;
 	}
 
+	
 	/**
 	 * 
 	 * @param termsAndProperties
@@ -190,20 +189,12 @@ public class ConvertFile {
 	 */
 	private static void buildClassTree(Map<String, ArrayList> termsAndProperties,
 			File owlFile) throws OWLOntologyCreationException, OWLOntologyStorageException {
-		System.out.println("** \nbuildClassTree method **");
-		System.out.println("** Passed to Method OWLFILE: "+owlFile.getAbsolutePath());
+		System.out.println("\n** buildClassTree method **");
 		
 		// Open ontology file
 		OWLOntologyManager manager = OWLManager.createOWLOntologyManager();
-		System.out.println("Created Manager: "+manager);
-		
 		OWLOntology ontology = manager.loadOntologyFromOntologyDocument(owlFile);
-		//OWLOntology ontology = manager.makeLoadImportRequest(arg0, arg1);
-		System.out.println("Loaded ontology: "+ontology);
-		
 		OWLDataFactory factory = manager.getOWLDataFactory();
-		System.out.println("Created factory: " + factory);
-
 		
 		// Populate ontology with class hierarchy from termsAndProperties 
 		for (Entry<String, ArrayList> entry : termsAndProperties.entrySet()) {
@@ -289,45 +280,48 @@ public class ConvertFile {
 	 */
 	private static void addClassRestrictions(
 			Map<String, ArrayList> termsAndProperties, File owlFile) throws OWLOntologyCreationException, OWLOntologyStorageException {
-		System.out.println("** addClassRestrictions method **");
+		System.out.println("\n** addClassRestrictions method **");
 		
-		// Declare property IRIs
-		// Has Role -> http://purl.obolibrary.org/obo/BFO_0000087 (object property)
-		// Is Part Of -> http://purl.obolibrary.org/obo/BFO_0000050 (object property, transitive Has Part), see Brain in Uberon for example usage 
-		// Has Part -> http://purl.obolibrary.org/obo/BFO_0000051 (object property, transitive Is Part Of)
-
-
 		// Open ontology file
 		OWLOntologyManager manager = OWLManager.createOWLOntologyManager();
 		OWLOntology ontology = manager.loadOntologyFromOntologyDocument(owlFile);
 		OWLDataFactory factory = manager.getOWLDataFactory();
 		//System.out.println("Loaded ontology: " + ontology);
 
+		/*
+		 * Declare Object Properties
+		 */
+		String BFO = "http://purl.obolibrary.org/obo/";  
+		// Create Object Property
+		OWLObjectProperty hasRoleProperty = factory.getOWLObjectProperty(IRI.create(BFO
+				+ "BFO_0000087"));
+		OWLObjectProperty isPartOfProperty = factory.getOWLObjectProperty(IRI.create(BFO
+				+ "BFO_0000050"));
+		//System.err.println("hasRoleProperty: "+hasRoleProperty);
+
+		// Has Role -> http://purl.obolibrary.org/obo/BFO_0000087 (object property)
+		// Is Part Of -> http://purl.obolibrary.org/obo/BFO_0000050 (object property, transitive Has Part), see Brain in Uberon for example usage 
+		// Has Part -> http://purl.obolibrary.org/obo/BFO_0000051 (object property, transitive Is Part Of)
+	
+
 		// Iterate through termsAndProperties
 		for (Entry<String, ArrayList> entry : termsAndProperties.entrySet()) {
 			String key = entry.getKey();	
-			//System.out.println("K:"+key+"\tV:"+entry.getValue());
+			System.out.println("\nK:"+key+"\tV:"+entry.getValue());
 
 			PrefixManager pm = new DefaultPrefixManager(
 					"http://neurolex.org/wiki/Special:ExportRDF/Category:");
-			//String prefix = "http://neurolex.org/wiki/Special:ExportRDF/Category:";
 			String newKey = key.replaceAll(" ", "_");
 			OWLClass clsAMethodB = factory.getOWLClass(newKey, pm);
-			//System.err.println("classAMethodB: "+clsAMethodB);
+			System.err.println("classAMethodB: "+clsAMethodB);
 
-			/**
-			 * Add class restrictions and annotations
+			
+			/*
+			 * Add hasRoleProperty to Class
 			 */
-			// Try to add Has Role (object property) as a restriction on a Class
-			String BFO = "http://purl.obolibrary.org/obo/";  
-			// Create Object Property
-			OWLObjectProperty hasRoleProperty = factory.getOWLObjectProperty(IRI.create(BFO
-					+ "BFO_0000087"));
-			//System.err.println("hasRoleProperty: "+hasRoleProperty);
-
-			// Obtain a reference values for Has Role, values[3]
+			// Obtain a reference to values for Has Role, values[3]
 			String hasRoleObject = entry.getValue().get(3).toString();
-			//System.err.println("HasRoleObject: "+hasRoleObject);
+			System.err.println("HasRoleObject: "+hasRoleObject);
 			String newHasRoleObject = hasRoleObject.replace(":Category:","");
 			newHasRoleObject = newHasRoleObject.replaceAll("\"", "");
 			//System.err.println("HasRoleObject-MOD: "+newHasRoleObject);
@@ -339,20 +333,55 @@ public class ConvertFile {
 				// Add each hasRoleObect value as a property restriction
 				for (String s : hasRoleObjectValues ) {
 					s = s.replaceAll(" ", "_");
-					//System.err.println("hasRoleObjectValues: "+s);
+					System.err.println("hasRoleObjectValues: "+s);
 
 					OWLClass roleObject = factory.getOWLClass(s, pm); 
 					OWLClassExpression hasPartSomeRole = factory.getOWLObjectSomeValuesFrom(hasRoleProperty,
 							roleObject); 
 					OWLSubClassOfAxiom ax = factory.getOWLSubClassOfAxiom(clsAMethodB, hasPartSomeRole);	
-					//System.err.println("RoleObject: "+roleObject+"\nAxiom: "+ax);
+					System.err.println("RoleObject: "+roleObject+"\nAxiom: "+ax);
 
 					// Add the axiom to our ontology 
 					AddAxiom addAx = new AddAxiom(ontology, ax);
 					manager.applyChange(addAx);
 				}
+				System.out.println();
+			}
+			
+
+			/*
+			 * Add isPartOfProperty to Class
+			 */
+			// Obtain a reference to values for Has Role, values[4]
+			String isPartOfPropertyObject = entry.getValue().get(4).toString();
+			System.err.println("IsPartOfPropertyObject: "+isPartOfPropertyObject);
+			String newIsPartOfPropertyObject = isPartOfPropertyObject.replace(":Category:","");
+			newIsPartOfPropertyObject = newIsPartOfPropertyObject.replaceAll("\"", "");
+			//System.err.println("newIsPartOfPropertyObject-MOD: "+newIsPartOfPropertyObject);
+
+			if (!newIsPartOfPropertyObject.equals("NO VALUE")) {
+				//System.err.println("VALUE FOUND: "+newIsPartOfPropertyObject);
+				//NOTE: newIsPartOfPropertyObject may have more than 1 object value
+				String[] isPartOfPropertyObjectValues = newIsPartOfPropertyObject.split(",");
+				// Add each hasRoleObect value as a property restriction
+				for (String s : isPartOfPropertyObjectValues ) {
+					s = s.replaceAll(" ", "_");
+					System.err.println("isPartOfPropertyObjectValues: "+s);
+
+					OWLClass propertyObject = factory.getOWLClass(s, pm); 
+					OWLClassExpression isPartOfSomeRole = factory.getOWLObjectSomeValuesFrom(isPartOfProperty,
+							propertyObject); 
+					OWLSubClassOfAxiom ax = factory.getOWLSubClassOfAxiom(clsAMethodB, isPartOfSomeRole);	
+					System.err.println("RoleObject: "+propertyObject+"\nAxiom: "+ax);
+
+					// Add the axiom to our ontology 
+					AddAxiom addAx = new AddAxiom(ontology, ax);
+					manager.applyChange(addAx);
+				}
+				System.out.println();
 			}
 
+			
 			// Save ontology 
 			manager.saveOntology(ontology);
 		}

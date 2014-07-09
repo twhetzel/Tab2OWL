@@ -79,13 +79,12 @@ public class ConvertFile {
 		Hashtable<String,String> classIDHashtable = new Hashtable<String,String>();
 		classIDHashtable = createClassIDLabelHash(termsAndProperties);
 
-		//File owlFile = createOWLFile();
-		//buildClassTree(termsAndProperties, owlFile, classIDHashtable);
+		File owlFile = createOWLFile();
+		buildClassTree(termsAndProperties, owlFile, classIDHashtable);
 
-		//addClassRestrictions(termsAndProperties, owlFile, classIDHashtable);
-		//addAnnotations(termsAndProperties, owlFile, classIDHashtable);
+		addClassRestrictions(termsAndProperties, owlFile, classIDHashtable);
+		addAnnotations(termsAndProperties, owlFile, classIDHashtable);
 	}
-
 
 
 	/**
@@ -154,6 +153,7 @@ public class ConvertFile {
 		return terms;
 	}
 
+	
 	/**
 	 * Build Hashtable of term labels (key) and term Ids (value) 
 	 * in order to swap out label for Id in term IRI 
@@ -162,6 +162,7 @@ public class ConvertFile {
 		System.out.println("\n** createClassIDLabelHash method **");
 		// Populate hashtable from termsAndProperies using the label (values[1]) as the key and ID (values[5]) as the value
 		Hashtable<String,String> hashtable = new Hashtable<String,String>();
+		int count = 0;
 
 		for (Entry<String, ArrayList> entry : termsAndProperties.entrySet()) {
 			String key = entry.getKey(); //Label
@@ -170,7 +171,10 @@ public class ConvertFile {
 		}
 
 		// Loop through termsAndProperties to find root terms based on
-		// that every Parent label should exist as a key in the hashtable
+		// that every Parent label should exist as a key in the hashtable 
+		
+		Map<String, ArrayList> termsAndPropertiesRootTerms = new HashMap<String,ArrayList>();
+		
 		System.out.println("** Find Root terms ");
 		for (Entry<String, ArrayList> entry : termsAndProperties.entrySet()) {
 			String key = entry.getKey(); // Label
@@ -179,6 +183,7 @@ public class ConvertFile {
 
 			//Check if hashtable contains parentLabel as a key, if not use Wiki API to get it
 			if (!hashtable.containsKey(parentLabel)) {
+				count++;
 				// Format parent label for use in query to Wiki 
 				String newParentLabel = parentLabel.replaceAll(" ", "_");
 				newParentLabel = "Category:"+parentLabel;
@@ -188,10 +193,19 @@ public class ConvertFile {
 				// Trim whitespace from value
 				parentIDFromWiki = parentIDFromWiki.trim();
 				//System.out.println("** ParentIDFromWiki: "+parentIDFromWiki);
-				System.out.println("ParentLabel: "+parentLabel+" ParentID: "+parentIDFromWiki);
+				System.out.println("ParentLabel: "+parentLabel+" ParentID: "+parentIDFromWiki+" RootTermCount: "+count);
 				hashtable.put(parentLabel, parentIDFromWiki);
+				
+				// Also, try adding parent Term Label and Id to termsAndProperties Map
+				ArrayList<String> parentMetadata = new ArrayList<String>(Arrays.asList("NO VALUE",parentLabel,"NO VALUE"
+							,"NO VALUE","NO VALUE",parentIDFromWiki,"NO VALUE","NO VALUE","NO VALUE")); 
+				System.out.println("PID: "+parentMetadata.get(5));
+				termsAndPropertiesRootTerms.put(parentLabel, parentMetadata);   
 			}	
 		}
+		// Add contents of "RootTerms" HashMap to all terms HashMap
+		termsAndProperties.putAll(termsAndPropertiesRootTerms);
+		
 		return hashtable;
 	}
 
@@ -638,6 +652,7 @@ public class ConvertFile {
 				OWLAxiom definitionAxiom = factory.getOWLAnnotationAssertionAxiom(clsAMethodB.getIRI(), definitionAnnotation);
 				manager.applyChange(new AddAxiom(ontology, definitionAxiom));
 			}
+			System.out.println();
 		}
 
 		// Save ontology 

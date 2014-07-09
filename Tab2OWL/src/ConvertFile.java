@@ -353,17 +353,16 @@ public class ConvertFile {
 			parentId = parentIdValues[1];
 		}
 		else {
-		String termIDPattern = "|Id=";
-		for (String line : contentLines) {
-			System.out.println("Line: "+line);
-			
-			if (line.contains(termIDPattern)) {
-				System.out.println("TermId: "+line);
-				String [] idLine = line.split("=");
-				parentId = idLine[1];
-				System.out.println("** TermID: "+parentId);
+			String termIDPattern = "|Id=";
+			for (String line : contentLines) {
+				//System.out.println("Line: "+line);
+				if (line.contains(termIDPattern)) {
+					System.out.println("TermId: "+line);
+					String [] idLine = line.split("=");
+					parentId = idLine[1];
+					System.out.println("** TermID: "+parentId);
+				}
 			}
-		}
 		}
 		return parentId;
 	}

@@ -83,7 +83,7 @@ public class ConvertFile {
 		buildClassTree(termsAndProperties, owlFile, classIDHashtable);
 
 		addClassRestrictions(termsAndProperties, owlFile, classIDHashtable);
-		//addAnnotations(termsAndProperties, owlFile);
+		addAnnotations(termsAndProperties, owlFile, classIDHashtable);
 	}
 
 
@@ -344,7 +344,7 @@ public class ConvertFile {
 
 		// Print only line with Term ID (|Id=)
 		String[] contentLines = content.split("\\r?\\n");
-		System.out.println("ContentLines:\""+contentLines[0]+"\"");
+		//System.out.println("ContentLines:\""+contentLines[0]+"\"");
 
 		String parentId = null;
 		// Account for pages with no content 
@@ -357,7 +357,7 @@ public class ConvertFile {
 			for (String line : contentLines) {
 				//System.out.println("Line: "+line);
 				if (line.contains(termIDPattern)) {
-					System.out.println("TermId: "+line);
+					//System.out.println("TermId: "+line);
 					String [] idLine = line.split("=");
 					parentId = idLine[1];
 					System.out.println("** TermID: "+parentId);
@@ -378,16 +378,16 @@ public class ConvertFile {
 		List<Page> listOfPages =  user.queryContent(listOfTitleStrings);  //user.queryCategories(listOfTitleStrings);
 
 		for (Page page : listOfPages) {
-			System.out.println("PageTitle: "+page.getTitle());
+			//System.out.println("PageTitle: "+page.getTitle());
 			content = page.getCurrentContent();
-			System.out.println("------------------"+content+"-----------------");
+			//System.out.println("------------------"+content+"-----------------");
 			if(content != null)
 				break;
 			// Account for pages that do not exist .. this doesn't seem to be called?
 			else  {
-				System.out.println("Content1: "+content);
+				//System.out.println("Content1: "+content);
 				content = "|Id="+page.getTitle();
-				System.out.println("Content2: "+content);
+				//System.out.println("Content2: "+content);
 			}
 		}
 		return content;
@@ -443,7 +443,7 @@ public class ConvertFile {
 			 */
 			// Obtain a reference to values for Has Role, values[3]
 			String hasRoleObject = entry.getValue().get(3).toString();
-			System.err.println("HasRoleObject: "+hasRoleObject);
+			//System.err.println("HasRoleObject: "+hasRoleObject);
 			String newHasRoleObject = hasRoleObject.replace(":Category:","");
 			newHasRoleObject = newHasRoleObject.replaceAll("\"", "");
 			System.err.println("HasRoleObject: "+newHasRoleObject);
@@ -491,10 +491,10 @@ public class ConvertFile {
 			 */
 			// Obtain a reference to values for Has Role, values[4]
 			String isPartOfPropertyObject = entry.getValue().get(4).toString();
-			System.err.println("IsPartOfPropertyObject: "+isPartOfPropertyObject);
+			//System.err.println("IsPartOfPropertyObject: "+isPartOfPropertyObject);
 			String newIsPartOfPropertyObject = isPartOfPropertyObject.replace(":Category:","");
 			newIsPartOfPropertyObject = newIsPartOfPropertyObject.replaceAll("\"", "");
-			//System.err.println("newIsPartOfPropertyObject-MOD: "+newIsPartOfPropertyObject);
+			System.err.println("newIsPartOfPropertyObject-MOD: "+newIsPartOfPropertyObject);
 
 			if (!newIsPartOfPropertyObject.equals("NO VALUE")) {
 				//System.err.println("VALUE FOUND: "+newIsPartOfPropertyObject);
@@ -542,8 +542,8 @@ public class ConvertFile {
 
 
 	private static void addAnnotations(
-			Map<String, ArrayList> termsAndProperties, File owlFile) throws OWLOntologyCreationException, OWLOntologyStorageException {
-		System.out.println("** addAnnotations method **");
+			Map<String, ArrayList> termsAndProperties, File owlFile, Hashtable<String, String> classIDHashtable) throws OWLOntologyCreationException, OWLOntologyStorageException {
+		System.out.println("\n** addAnnotations method **");
 
 		// Declare property IRIs
 		// Term Label -> rdfs:label
@@ -562,13 +562,20 @@ public class ConvertFile {
 			String key = entry.getKey();	
 			System.out.println("K:"+key+"\tV:"+entry.getValue());
 
-			PrefixManager pm = new DefaultPrefixManager(
-					"http://neurolex.org/wiki/Special:ExportRDF/Category:");
+			// Use classIDHashtable to get ID for term IRI 
+			//PrefixManager pm = new DefaultPrefixManager("http://neurolex.org/wiki/Special:ExportRDF/Category:");
 			//String prefix = "http://neurolex.org/wiki/Special:ExportRDF/Category:";
-			String newKey = key.replaceAll(" ", "_");
-			OWLClass clsAMethodB = factory.getOWLClass(newKey, pm);
+			PrefixManager pm = new DefaultPrefixManager("http://uri.neuinfo.org/nif/nifstd/");
+			//String newKey = key.replaceAll(" ", "_");
+			// Get ID from hashtable
+			String classId = classIDHashtable.get(key);
+			OWLClass clsAMethodB = factory.getOWLClass(classId, pm);
 			System.err.println("classAMethodB: "+clsAMethodB);
+			//String newKey = key.replaceAll(" ", "_");
+			//OWLClass clsAMethodB = factory.getOWLClass(newKey, pm);
+			//System.err.println("classAMethodB: "+clsAMethodB);
 
+			
 			/**
 			 * Add annotations -> Label, Definition, Synonym, Defining Citation
 			 */
@@ -586,9 +593,10 @@ public class ConvertFile {
 			// Get values for Label from text file, values[1]
 			String label = entry.getValue().get(1).toString();
 			if (!label.equals("NO VALUE")) {
-				System.err.println("VALUE FOUND: "+label);
+				System.err.println("Label Values: "+label);
 				OWLAnnotation labelAnnotation = factory.getOWLAnnotation(factory.getRDFSLabel(),factory.getOWLLiteral(label));
 				OWLAxiom labelAxiom = factory.getOWLAnnotationAssertionAxiom(clsAMethodB.getIRI(), labelAnnotation);
+				System.err.println("Label Axiom: "+labelAxiom);
 				manager.applyChange(new AddAxiom(ontology, labelAxiom));
 			}
 
@@ -596,10 +604,10 @@ public class ConvertFile {
 			// Get values for Synonym from text file, values[6] 
 			String synonym = entry.getValue().get(6).toString();
 			synonym = synonym.replaceAll("\"", "");
-			System.err.println("Synonym: "+synonym);
+			//System.err.println("Synonym: "+synonym);
 			if (!synonym.equals("NO VALUE")) {
 				String[] synonymValues = synonym.split(",");
-				System.err.println("VALUE FOUND: "+synonymValues);
+				System.err.println("Synonym Values: "+synonymValues);
 				for (String syn : synonymValues ) {
 					OWLAnnotation synonymAnnotation = factory.getOWLAnnotation(synonymProperty,factory.getOWLLiteral(syn));
 					OWLAxiom synonymAxiom = factory.getOWLAnnotationAssertionAxiom(clsAMethodB.getIRI(), synonymAnnotation);
@@ -608,23 +616,24 @@ public class ConvertFile {
 				}
 			}
 
+			
 			// Get values for Defining Citation from text file, values[7] 
 			String citation = entry.getValue().get(7).toString();
-			System.err.println("Citation: "+citation);
+			//System.err.println("Citation: "+citation);
 			if (!citation.equals("NO VALUE")) {
-				System.err.println("VALUE FOUND: "+citation);
-
+				System.err.println("Citation Values: "+citation);
 				OWLAnnotation citationAnnotation = factory.getOWLAnnotation(citationProperty,factory.getOWLLiteral(citation));
 				OWLAxiom citationAxiom = factory.getOWLAnnotationAssertionAxiom(clsAMethodB.getIRI(), citationAnnotation);
 				System.err.println("Synonym Axiom: "+citationAxiom);
 				manager.applyChange(new AddAxiom(ontology, citationAxiom)); 
 			}
 
+			
 			// Get values for Definition from text file, values[8]
 			String definition = entry.getValue().get(8).toString();
-			System.err.println("Definition: "+definition);	
+			//System.err.println("Definition: "+definition);	
 			if (!definition.equals("NO VALUE")) {
-				System.err.println("VALUE FOUND: "+definition);
+				System.err.println("Definition Values: "+definition);
 				OWLAnnotation definitionAnnotation = factory.getOWLAnnotation(definitionProperty,factory.getOWLLiteral(definition));
 				OWLAxiom definitionAxiom = factory.getOWLAnnotationAssertionAxiom(clsAMethodB.getIRI(), definitionAnnotation);
 				manager.applyChange(new AddAxiom(ontology, definitionAxiom));

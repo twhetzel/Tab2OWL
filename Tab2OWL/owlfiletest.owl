@@ -83,14 +83,8 @@
 
     <owl:Class rdf:about="http://uri.neuinfo.org/nif/nifstd/NEMO_2878000">
         <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Biological process</rdfs:label>
-        <rdfs:subClassOf rdf:resource="http://uri.neuinfo.org/nif/nifstd/NO_VALUE"/>
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
     </owl:Class>
-    
-
-
-    <!-- http://uri.neuinfo.org/nif/nifstd/NO_VALUE -->
-
-    <owl:Class rdf:about="http://uri.neuinfo.org/nif/nifstd/NO_VALUE"/>
     
 
 
@@ -98,7 +92,7 @@
 
     <owl:Class rdf:about="http://uri.neuinfo.org/nif/nifstd/OBI_0000272">
         <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Protocol</rdfs:label>
-        <rdfs:subClassOf rdf:resource="http://uri.neuinfo.org/nif/nifstd/NO_VALUE"/>
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
     </owl:Class>
     
 
@@ -157,7 +151,7 @@
 
     <owl:Class rdf:about="http://uri.neuinfo.org/nif/nifstd/PATO_0001035">
         <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Force</rdfs:label>
-        <rdfs:subClassOf rdf:resource="http://uri.neuinfo.org/nif/nifstd/NO_VALUE"/>
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
     </owl:Class>
     
 
@@ -166,7 +160,7 @@
 
     <owl:Class rdf:about="http://uri.neuinfo.org/nif/nifstd/PATO_0001237">
         <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Quality of a single physical entity</rdfs:label>
-        <rdfs:subClassOf rdf:resource="http://uri.neuinfo.org/nif/nifstd/NO_VALUE"/>
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
     </owl:Class>
     
 
@@ -175,7 +169,7 @@
 
     <owl:Class rdf:about="http://uri.neuinfo.org/nif/nifstd/PATO_0001238">
         <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Quality of related physical entities</rdfs:label>
-        <rdfs:subClassOf rdf:resource="http://uri.neuinfo.org/nif/nifstd/NO_VALUE"/>
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
     </owl:Class>
     
 
@@ -184,7 +178,7 @@
 
     <owl:Class rdf:about="http://uri.neuinfo.org/nif/nifstd/PATO_0001396">
         <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Cellular quality</rdfs:label>
-        <rdfs:subClassOf rdf:resource="http://uri.neuinfo.org/nif/nifstd/NO_VALUE"/>
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
     </owl:Class>
     
 
@@ -193,7 +187,7 @@
 
     <owl:Class rdf:about="http://uri.neuinfo.org/nif/nifstd/PATO_0001758">
         <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Nerve conduction</rdfs:label>
-        <rdfs:subClassOf rdf:resource="http://uri.neuinfo.org/nif/nifstd/NO_VALUE"/>
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
     </owl:Class>
     
 
@@ -208,7 +202,7 @@
 
     <owl:Class rdf:about="http://uri.neuinfo.org/nif/nifstd/Pathway">
         <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Pathway</rdfs:label>
-        <rdfs:subClassOf rdf:resource="http://uri.neuinfo.org/nif/nifstd/NO_VALUE"/>
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
     </owl:Class>
     
 
@@ -217,7 +211,7 @@
 
     <owl:Class rdf:about="http://uri.neuinfo.org/nif/nifstd/Role">
         <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Role</rdfs:label>
-        <rdfs:subClassOf rdf:resource="http://uri.neuinfo.org/nif/nifstd/NO_VALUE"/>
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
     </owl:Class>
     
 
@@ -242,7 +236,7 @@
 
     <owl:Class rdf:about="http://uri.neuinfo.org/nif/nifstd/birnlex_11009">
         <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Algorithm</rdfs:label>
-        <rdfs:subClassOf rdf:resource="http://uri.neuinfo.org/nif/nifstd/NO_VALUE"/>
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
     </owl:Class>
     
 
@@ -251,7 +245,7 @@
 
     <owl:Class rdf:about="http://uri.neuinfo.org/nif/nifstd/birnlex_11013">
         <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Disease</rdfs:label>
-        <rdfs:subClassOf rdf:resource="http://uri.neuinfo.org/nif/nifstd/NO_VALUE"/>
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
     </owl:Class>
     
 
@@ -260,7 +254,7 @@
 
     <owl:Class rdf:about="http://uri.neuinfo.org/nif/nifstd/birnlex_11034">
         <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Device</rdfs:label>
-        <rdfs:subClassOf rdf:resource="http://uri.neuinfo.org/nif/nifstd/NO_VALUE"/>
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
     </owl:Class>
     
 
@@ -287,7 +281,7 @@
 
     <owl:Class rdf:about="http://uri.neuinfo.org/nif/nifstd/birnlex_12779">
         <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Muscular Disease</rdfs:label>
-        <rdfs:subClassOf rdf:resource="http://uri.neuinfo.org/nif/nifstd/NO_VALUE"/>
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
     </owl:Class>
     
 
@@ -296,7 +290,7 @@
 
     <owl:Class rdf:about="http://uri.neuinfo.org/nif/nifstd/birnlex_12796">
         <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Nervous system disease</rdfs:label>
-        <rdfs:subClassOf rdf:resource="http://uri.neuinfo.org/nif/nifstd/NO_VALUE"/>
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
     </owl:Class>
     
 
@@ -515,7 +509,7 @@
 
     <owl:Class rdf:about="http://uri.neuinfo.org/nif/nifstd/birnlex_1822">
         <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Somatosensation</rdfs:label>
-        <rdfs:subClassOf rdf:resource="http://uri.neuinfo.org/nif/nifstd/NO_VALUE"/>
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
     </owl:Class>
     
 
@@ -524,7 +518,7 @@
 
     <owl:Class rdf:about="http://uri.neuinfo.org/nif/nifstd/birnlex_1825">
         <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Sensory perception</rdfs:label>
-        <rdfs:subClassOf rdf:resource="http://uri.neuinfo.org/nif/nifstd/NO_VALUE"/>
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
     </owl:Class>
     
 
@@ -533,7 +527,7 @@
 
     <owl:Class rdf:about="http://uri.neuinfo.org/nif/nifstd/birnlex_1883">
         <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Recognition memory function</rdfs:label>
-        <rdfs:subClassOf rdf:resource="http://uri.neuinfo.org/nif/nifstd/NO_VALUE"/>
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
     </owl:Class>
     
 
@@ -542,7 +536,7 @@
 
     <owl:Class rdf:about="http://uri.neuinfo.org/nif/nifstd/birnlex_2123">
         <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Specimen preparation protocol</rdfs:label>
-        <rdfs:subClassOf rdf:resource="http://uri.neuinfo.org/nif/nifstd/NO_VALUE"/>
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
     </owl:Class>
     
 
@@ -551,7 +545,7 @@
 
     <owl:Class rdf:about="http://uri.neuinfo.org/nif/nifstd/birnlex_2180">
         <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Specimen preparation</rdfs:label>
-        <rdfs:subClassOf rdf:resource="http://uri.neuinfo.org/nif/nifstd/NO_VALUE"/>
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
     </owl:Class>
     
 
@@ -915,13 +909,13 @@
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000087"/>
-                <owl:someValuesFrom rdf:resource="http://uri.neuinfo.org/nif/nifstd/oen_0001312"/>
+                <owl:someValuesFrom rdf:resource="http://uri.neuinfo.org/nif/nifstd/nlx_151314"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000087"/>
-                <owl:someValuesFrom rdf:resource="http://uri.neuinfo.org/nif/nifstd/nlx_151314"/>
+                <owl:someValuesFrom rdf:resource="http://uri.neuinfo.org/nif/nifstd/oen_0001312"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <obo:IAO_0000118 rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Electroencephalography</obo:IAO_0000118>
@@ -964,7 +958,7 @@
 
     <owl:Class rdf:about="http://uri.neuinfo.org/nif/nifstd/nifext_8057">
         <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Calcium current</rdfs:label>
-        <rdfs:subClassOf rdf:resource="http://uri.neuinfo.org/nif/nifstd/NO_VALUE"/>
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
     </owl:Class>
     
 
@@ -1031,7 +1025,7 @@
 
     <owl:Class rdf:about="http://uri.neuinfo.org/nif/nifstd/nlx_145311">
         <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Cognitive Atlas Concept</rdfs:label>
-        <rdfs:subClassOf rdf:resource="http://uri.neuinfo.org/nif/nifstd/NO_VALUE"/>
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
     </owl:Class>
     
 
@@ -1046,7 +1040,7 @@
 
     <owl:Class rdf:about="http://uri.neuinfo.org/nif/nifstd/nlx_151698">
         <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Data attribute</rdfs:label>
-        <rdfs:subClassOf rdf:resource="http://uri.neuinfo.org/nif/nifstd/NO_VALUE"/>
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
     </owl:Class>
     
 
@@ -1059,13 +1053,13 @@
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000087"/>
-                <owl:someValuesFrom rdf:resource="http://uri.neuinfo.org/nif/nifstd/oen_0001312"/>
+                <owl:someValuesFrom rdf:resource="http://uri.neuinfo.org/nif/nifstd/nlx_60039"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000087"/>
-                <owl:someValuesFrom rdf:resource="http://uri.neuinfo.org/nif/nifstd/nlx_60039"/>
+                <owl:someValuesFrom rdf:resource="http://uri.neuinfo.org/nif/nifstd/oen_0001312"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <obo:IAO_0000115 rdf:datatype="http://www.w3.org/2001/XMLSchema#string">&quot;A device or instrument that is used to measure attributes of living cells, tissues or organisms while the cells, tissues or organism is alive.&quot;</obo:IAO_0000115>
@@ -1077,7 +1071,7 @@
 
     <owl:Class rdf:about="http://uri.neuinfo.org/nif/nifstd/nlx_151921">
         <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Assay</rdfs:label>
-        <rdfs:subClassOf rdf:resource="http://uri.neuinfo.org/nif/nifstd/NO_VALUE"/>
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
     </owl:Class>
     
 
@@ -1122,7 +1116,7 @@
 
     <owl:Class rdf:about="http://uri.neuinfo.org/nif/nifstd/nlx_155510">
         <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Device parameter</rdfs:label>
-        <rdfs:subClassOf rdf:resource="http://uri.neuinfo.org/nif/nifstd/NO_VALUE"/>
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
     </owl:Class>
     
 
@@ -1131,7 +1125,7 @@
 
     <owl:Class rdf:about="http://uri.neuinfo.org/nif/nifstd/nlx_155517">
         <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Cellular morphology characteristic</rdfs:label>
-        <rdfs:subClassOf rdf:resource="http://uri.neuinfo.org/nif/nifstd/NO_VALUE"/>
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
     </owl:Class>
     
 
@@ -1171,7 +1165,7 @@
 
     <owl:Class rdf:about="http://uri.neuinfo.org/nif/nifstd/nlx_35730">
         <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Development</rdfs:label>
-        <rdfs:subClassOf rdf:resource="http://uri.neuinfo.org/nif/nifstd/NO_VALUE"/>
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
     </owl:Class>
     
 
@@ -1228,7 +1222,7 @@
 
     <owl:Class rdf:about="http://uri.neuinfo.org/nif/nifstd/nlx_55759">
         <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Defined neuron class</rdfs:label>
-        <rdfs:subClassOf rdf:resource="http://uri.neuinfo.org/nif/nifstd/NO_VALUE"/>
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
     </owl:Class>
     
 
@@ -1237,7 +1231,7 @@
 
     <owl:Class rdf:about="http://uri.neuinfo.org/nif/nifstd/nlx_56487">
         <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Defined class</rdfs:label>
-        <rdfs:subClassOf rdf:resource="http://uri.neuinfo.org/nif/nifstd/NO_VALUE"/>
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
     </owl:Class>
     
 
@@ -1268,7 +1262,7 @@
 
     <owl:Class rdf:about="http://uri.neuinfo.org/nif/nifstd/nlx_79070">
         <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Electrogenic Pump</rdfs:label>
-        <rdfs:subClassOf rdf:resource="http://uri.neuinfo.org/nif/nifstd/NO_VALUE"/>
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
     </owl:Class>
     
 
@@ -1283,7 +1277,7 @@
 
     <owl:Class rdf:about="http://uri.neuinfo.org/nif/nifstd/nlx_func_090801">
         <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Learning</rdfs:label>
-        <rdfs:subClassOf rdf:resource="http://uri.neuinfo.org/nif/nifstd/NO_VALUE"/>
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
     </owl:Class>
     
 
@@ -1448,13 +1442,13 @@
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000087"/>
-                <owl:someValuesFrom rdf:resource="http://uri.neuinfo.org/nif/nifstd/oen_0001312"/>
+                <owl:someValuesFrom rdf:resource="http://uri.neuinfo.org/nif/nifstd/nlx_152518"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000087"/>
-                <owl:someValuesFrom rdf:resource="http://uri.neuinfo.org/nif/nifstd/nlx_152518"/>
+                <owl:someValuesFrom rdf:resource="http://uri.neuinfo.org/nif/nifstd/oen_0001312"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <obo:IAO_0000118 rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ADP duration</obo:IAO_0000118>
@@ -1528,13 +1522,13 @@
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000087"/>
-                <owl:someValuesFrom rdf:resource="http://uri.neuinfo.org/nif/nifstd/nlx_152518"/>
+                <owl:someValuesFrom rdf:resource="http://uri.neuinfo.org/nif/nifstd/oen_0001312"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000087"/>
-                <owl:someValuesFrom rdf:resource="http://uri.neuinfo.org/nif/nifstd/oen_0001312"/>
+                <owl:someValuesFrom rdf:resource="http://uri.neuinfo.org/nif/nifstd/nlx_152518"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <obo:IAO_0000115 rdf:datatype="http://www.w3.org/2001/XMLSchema#string">&quot;Duration from first AP onset to minimum voltage, explictly refered to as slow&quot;</obo:IAO_0000115>
@@ -1554,13 +1548,13 @@
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000087"/>
-                <owl:someValuesFrom rdf:resource="http://uri.neuinfo.org/nif/nifstd/oen_0001312"/>
+                <owl:someValuesFrom rdf:resource="http://uri.neuinfo.org/nif/nifstd/nlx_152518"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000087"/>
-                <owl:someValuesFrom rdf:resource="http://uri.neuinfo.org/nif/nifstd/nlx_152518"/>
+                <owl:someValuesFrom rdf:resource="http://uri.neuinfo.org/nif/nifstd/oen_0001312"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <obo:IAO_0000115 rdf:datatype="http://www.w3.org/2001/XMLSchema#string">&quot;Amplitude from first AP onset to minimum voltage, explictly refered to as slow&quot;</obo:IAO_0000115>
@@ -1581,13 +1575,13 @@
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000087"/>
-                <owl:someValuesFrom rdf:resource="http://uri.neuinfo.org/nif/nifstd/nlx_152518"/>
+                <owl:someValuesFrom rdf:resource="http://uri.neuinfo.org/nif/nifstd/oen_0001312"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000087"/>
-                <owl:someValuesFrom rdf:resource="http://uri.neuinfo.org/nif/nifstd/oen_0001312"/>
+                <owl:someValuesFrom rdf:resource="http://uri.neuinfo.org/nif/nifstd/nlx_152518"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <obo:IAO_0000115 rdf:datatype="http://www.w3.org/2001/XMLSchema#string">&quot;Duration from first AP onset to minimum voltage, explictly refered to as fast&quot;</obo:IAO_0000115>
@@ -1607,13 +1601,13 @@
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000087"/>
-                <owl:someValuesFrom rdf:resource="http://uri.neuinfo.org/nif/nifstd/nlx_152518"/>
+                <owl:someValuesFrom rdf:resource="http://uri.neuinfo.org/nif/nifstd/oen_0001312"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000087"/>
-                <owl:someValuesFrom rdf:resource="http://uri.neuinfo.org/nif/nifstd/oen_0001312"/>
+                <owl:someValuesFrom rdf:resource="http://uri.neuinfo.org/nif/nifstd/nlx_152518"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <obo:IAO_0000115 rdf:datatype="http://www.w3.org/2001/XMLSchema#string">&quot;Amplitude from first AP onset to minimum voltage, explictly refered to as fast&quot;</obo:IAO_0000115>
@@ -1699,13 +1693,13 @@
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000087"/>
-                <owl:someValuesFrom rdf:resource="http://uri.neuinfo.org/nif/nifstd/nlx_152518"/>
+                <owl:someValuesFrom rdf:resource="http://uri.neuinfo.org/nif/nifstd/oen_0001312"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000087"/>
-                <owl:someValuesFrom rdf:resource="http://uri.neuinfo.org/nif/nifstd/oen_0001312"/>
+                <owl:someValuesFrom rdf:resource="http://uri.neuinfo.org/nif/nifstd/nlx_152518"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <obo:IAO_0000118 rdf:datatype="http://www.w3.org/2001/XMLSchema#string">AP overshoot</obo:IAO_0000118>
@@ -1797,13 +1791,13 @@
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000087"/>
-                <owl:someValuesFrom rdf:resource="http://uri.neuinfo.org/nif/nifstd/oen_0001312"/>
+                <owl:someValuesFrom rdf:resource="http://uri.neuinfo.org/nif/nifstd/nlx_152518"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000087"/>
-                <owl:someValuesFrom rdf:resource="http://uri.neuinfo.org/nif/nifstd/nlx_152518"/>
+                <owl:someValuesFrom rdf:resource="http://uri.neuinfo.org/nif/nifstd/oen_0001312"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <obo:IAO_0000118 rdf:datatype="http://www.w3.org/2001/XMLSchema#string">AP rheobase</obo:IAO_0000118>
@@ -1869,7 +1863,7 @@
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000087"/>
-                <owl:someValuesFrom rdf:resource="http://uri.neuinfo.org/nif/nifstd/nlx_152518"/>
+                <owl:someValuesFrom rdf:resource="http://uri.neuinfo.org/nif/nifstd/Passive_membrane_property"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
@@ -1881,7 +1875,7 @@
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000087"/>
-                <owl:someValuesFrom rdf:resource="http://uri.neuinfo.org/nif/nifstd/Passive_membrane_property"/>
+                <owl:someValuesFrom rdf:resource="http://uri.neuinfo.org/nif/nifstd/nlx_152518"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <obo:IAO_0000115 rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Input resistance at steady-state (steady-state of voltage response to current injection)</obo:IAO_0000115>
@@ -1903,6 +1897,12 @@
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000087"/>
+                <owl:someValuesFrom rdf:resource="http://uri.neuinfo.org/nif/nifstd/oen_0001312"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000087"/>
                 <owl:someValuesFrom rdf:resource="http://uri.neuinfo.org/nif/nifstd/nlx_152518"/>
             </owl:Restriction>
         </rdfs:subClassOf>
@@ -1910,12 +1910,6 @@
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000087"/>
                 <owl:someValuesFrom rdf:resource="http://uri.neuinfo.org/nif/nifstd/Passive_membrane_property"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000087"/>
-                <owl:someValuesFrom rdf:resource="http://uri.neuinfo.org/nif/nifstd/oen_0001312"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <obo:IAO_0000115 rdf:datatype="http://www.w3.org/2001/XMLSchema#string">&quot;Neuron capacitance, typically measured by dividing membrane time constant by membrane resistance&quot;</obo:IAO_0000115>
@@ -3015,7 +3009,7 @@
 
     <owl:Class rdf:about="http://uri.neuinfo.org/nif/nifstd/oen_0001142">
         <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Motor endplate</rdfs:label>
-        <rdfs:subClassOf rdf:resource="http://uri.neuinfo.org/nif/nifstd/NO_VALUE"/>
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
     </owl:Class>
     
 
@@ -3468,7 +3462,7 @@
 
     <owl:Class rdf:about="http://uri.neuinfo.org/nif/nifstd/oen_0001181">
         <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Ion Channel</rdfs:label>
-        <rdfs:subClassOf rdf:resource="http://uri.neuinfo.org/nif/nifstd/NO_VALUE"/>
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
     </owl:Class>
     
 
@@ -4056,7 +4050,7 @@
 
     <owl:Class rdf:about="http://uri.neuinfo.org/nif/nifstd/oen_0001312">
         <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Electrophysiology concept</rdfs:label>
-        <rdfs:subClassOf rdf:resource="http://uri.neuinfo.org/nif/nifstd/NO_VALUE"/>
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
     </owl:Class>
     
 
@@ -4079,13 +4073,13 @@
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000087"/>
-                <owl:someValuesFrom rdf:resource="http://uri.neuinfo.org/nif/nifstd/nlx_152518"/>
+                <owl:someValuesFrom rdf:resource="http://uri.neuinfo.org/nif/nifstd/oen_0001312"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000087"/>
-                <owl:someValuesFrom rdf:resource="http://uri.neuinfo.org/nif/nifstd/oen_0001312"/>
+                <owl:someValuesFrom rdf:resource="http://uri.neuinfo.org/nif/nifstd/nlx_152518"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <obo:IAO_0000115 rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Membrane potential required to initiate an action potential.</obo:IAO_0000115>
@@ -4098,7 +4092,7 @@
 
     <owl:Class rdf:about="http://uri.neuinfo.org/nif/nifstd/sao280355188">
         <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Regional Part Of Axon (sao280355188)</rdfs:label>
-        <rdfs:subClassOf rdf:resource="http://uri.neuinfo.org/nif/nifstd/NO_VALUE"/>
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
     </owl:Class>
     
 
@@ -4108,7 +4102,7 @@
     <owl:Class rdf:about="http://uri.neuinfo.org/nif/nifstd/sao3826089237">
         <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Aggregate Object</rdfs:label>
         <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Aggregate_Object</rdfs:label>
-        <rdfs:subClassOf rdf:resource="http://uri.neuinfo.org/nif/nifstd/NO_VALUE"/>
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
     </owl:Class>
     
 
@@ -4117,7 +4111,7 @@
 
     <owl:Class rdf:about="http://uri.neuinfo.org/nif/nifstd/sao914572699">
         <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Synapse</rdfs:label>
-        <rdfs:subClassOf rdf:resource="http://uri.neuinfo.org/nif/nifstd/NO_VALUE"/>
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
     </owl:Class>
 </rdf:RDF>
 

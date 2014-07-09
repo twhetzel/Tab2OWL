@@ -197,7 +197,9 @@ public class ConvertFile {
 				hashtable.put(parentLabel, parentIDFromWiki);
 				
 				// Also, try adding parent Term Label and Id to termsAndProperties Map
-				ArrayList<String> parentMetadata = new ArrayList<String>(Arrays.asList("NO VALUE",parentLabel,"NO VALUE"
+				String thingIRI = "http://www.w3.org/2002/07/owl#Thing";
+				String thing = "Thing";
+				ArrayList<String> parentMetadata = new ArrayList<String>(Arrays.asList("NO VALUE",parentLabel,thing
 							,"NO VALUE","NO VALUE",parentIDFromWiki,"NO VALUE","NO VALUE","NO VALUE")); 
 				System.out.println("PID: "+parentMetadata.get(5));
 				termsAndPropertiesRootTerms.put(parentLabel, parentMetadata);   
@@ -294,6 +296,7 @@ public class ConvertFile {
 
 			//String prefix = "http://neurolex.org/wiki/Special:ExportRDF/Category:";  // Prefix if using Term Label 
 			String prefix = "http://uri.neuinfo.org/nif/nifstd/";
+			String thingPrefix ="http://www.w3.org/2002/07/owl#";
 			//String newKey = key.replaceAll(" ", "_"); // Remove since using ID in IRI 
 
 			//Use classIDHashtable to get ID instead of label to create Class IRI
@@ -326,8 +329,18 @@ public class ConvertFile {
 				// Update null value in hashtable
 				classIDHashtable.put(parent, parentId);  //Then add key and value back to hashtable 
 			}
-
-			OWLClass clsB = factory.getOWLClass(IRI.create(prefix + parentId));
+			
+			OWLClass clsB;
+			// Check if Parent is owl:Thing
+			String thing = "Thing";
+			if (parentId.equals(thing)) {
+				System.out.println("Parent is owl:Thing");
+				clsB = factory.getOWLClass(IRI.create(thingPrefix + parentId));
+			}
+			else {
+				clsB = factory.getOWLClass(IRI.create(prefix + parentId));
+			}
+			
 			OWLAxiom axiom = factory.getOWLSubClassOfAxiom(clsAMethodA, clsB);
 			AddAxiom addAxiom = new AddAxiom(ontology, axiom);
 			System.out.println(addAxiom);
@@ -584,7 +597,7 @@ public class ConvertFile {
 			// Get ID from hashtable
 			String classId = classIDHashtable.get(key);
 			OWLClass clsAMethodB = factory.getOWLClass(classId, pm);
-			System.err.println("classAMethodB: "+clsAMethodB);
+			System.out.println("classAMethodB: "+clsAMethodB);
 			//String newKey = key.replaceAll(" ", "_");
 			//OWLClass clsAMethodB = factory.getOWLClass(newKey, pm);
 			//System.err.println("classAMethodB: "+clsAMethodB);
@@ -607,10 +620,10 @@ public class ConvertFile {
 			// Get values for Label from text file, values[1]
 			String label = entry.getValue().get(1).toString();
 			if (!label.equals("NO VALUE")) {
-				System.err.println("Label Values: "+label);
+				System.out.println("Label Values: "+label);
 				OWLAnnotation labelAnnotation = factory.getOWLAnnotation(factory.getRDFSLabel(),factory.getOWLLiteral(label));
 				OWLAxiom labelAxiom = factory.getOWLAnnotationAssertionAxiom(clsAMethodB.getIRI(), labelAnnotation);
-				System.err.println("Label Axiom: "+labelAxiom);
+				System.out.println("Label Axiom: "+labelAxiom);
 				manager.applyChange(new AddAxiom(ontology, labelAxiom));
 			}
 
@@ -621,11 +634,11 @@ public class ConvertFile {
 			//System.err.println("Synonym: "+synonym);
 			if (!synonym.equals("NO VALUE")) {
 				String[] synonymValues = synonym.split(",");
-				System.err.println("Synonym Values: "+synonymValues);
+				System.out.println("Synonym Values: "+synonymValues);
 				for (String syn : synonymValues ) {
 					OWLAnnotation synonymAnnotation = factory.getOWLAnnotation(synonymProperty,factory.getOWLLiteral(syn));
 					OWLAxiom synonymAxiom = factory.getOWLAnnotationAssertionAxiom(clsAMethodB.getIRI(), synonymAnnotation);
-					System.err.println("Synonym Axiom: "+synonymAxiom);
+					System.out.println("Synonym Axiom: "+synonymAxiom);
 					manager.applyChange(new AddAxiom(ontology, synonymAxiom)); 
 				}
 			}
@@ -635,10 +648,10 @@ public class ConvertFile {
 			String citation = entry.getValue().get(7).toString();
 			//System.err.println("Citation: "+citation);
 			if (!citation.equals("NO VALUE")) {
-				System.err.println("Citation Values: "+citation);
+				System.out.println("Citation Values: "+citation);
 				OWLAnnotation citationAnnotation = factory.getOWLAnnotation(citationProperty,factory.getOWLLiteral(citation));
 				OWLAxiom citationAxiom = factory.getOWLAnnotationAssertionAxiom(clsAMethodB.getIRI(), citationAnnotation);
-				System.err.println("Synonym Axiom: "+citationAxiom);
+				System.out.println("Synonym Axiom: "+citationAxiom);
 				manager.applyChange(new AddAxiom(ontology, citationAxiom)); 
 			}
 
@@ -647,7 +660,7 @@ public class ConvertFile {
 			String definition = entry.getValue().get(8).toString();
 			//System.err.println("Definition: "+definition);	
 			if (!definition.equals("NO VALUE")) {
-				System.err.println("Definition Values: "+definition);
+				System.out.println("Definition Values: "+definition);
 				OWLAnnotation definitionAnnotation = factory.getOWLAnnotation(definitionProperty,factory.getOWLLiteral(definition));
 				OWLAxiom definitionAxiom = factory.getOWLAnnotationAssertionAxiom(clsAMethodB.getIRI(), definitionAnnotation);
 				manager.applyChange(new AddAxiom(ontology, definitionAxiom));

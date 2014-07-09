@@ -16,6 +16,23 @@
     <!-- 
     ///////////////////////////////////////////////////////////////////////////////////////
     //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/BFO_0000050 -->
+
+    <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/BFO_0000050"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
     // Classes
     //
     ///////////////////////////////////////////////////////////////////////////////////////
@@ -29,6 +46,12 @@
     <owl:Class rdf:about="http://uri.neuinfo.org/nif/nifstd/GO_0050804">
         <rdfs:subClassOf rdf:resource="http://uri.neuinfo.org/nif/nifstd/oen_0001312"/>
     </owl:Class>
+    
+
+
+    <!-- http://uri.neuinfo.org/nif/nifstd/Motor_system -->
+
+    <owl:Class rdf:about="http://uri.neuinfo.org/nif/nifstd/Motor_system"/>
     
 
 
@@ -48,6 +71,12 @@
 
     <owl:Class rdf:about="http://uri.neuinfo.org/nif/nifstd/PATO_0000152">
         <rdfs:subClassOf rdf:resource="http://uri.neuinfo.org/nif/nifstd/PATO_0001237"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000087"/>
+                <owl:someValuesFrom rdf:resource="http://uri.neuinfo.org/nif/nifstd/oen_0001312"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
     </owl:Class>
     
 
@@ -64,6 +93,12 @@
 
     <owl:Class rdf:about="http://uri.neuinfo.org/nif/nifstd/PATO_0000708">
         <rdfs:subClassOf rdf:resource="http://uri.neuinfo.org/nif/nifstd/PATO_0000152"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000087"/>
+                <owl:someValuesFrom rdf:resource="http://uri.neuinfo.org/nif/nifstd/oen_0001312"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
     </owl:Class>
     
 
@@ -95,6 +130,12 @@
     <!-- http://uri.neuinfo.org/nif/nifstd/PATO_0001758 -->
 
     <owl:Class rdf:about="http://uri.neuinfo.org/nif/nifstd/PATO_0001758"/>
+    
+
+
+    <!-- http://uri.neuinfo.org/nif/nifstd/Passive_membrane_property -->
+
+    <owl:Class rdf:about="http://uri.neuinfo.org/nif/nifstd/Passive_membrane_property"/>
     
 
 
@@ -132,6 +173,12 @@
 
     <owl:Class rdf:about="http://uri.neuinfo.org/nif/nifstd/birnlex_12718">
         <rdfs:subClassOf rdf:resource="http://uri.neuinfo.org/nif/nifstd/birnlex_12796"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000087"/>
+                <owl:someValuesFrom rdf:resource="http://uri.neuinfo.org/nif/nifstd/oen_0001312"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
     </owl:Class>
     
 
@@ -334,6 +381,12 @@
 
     <owl:Class rdf:about="http://uri.neuinfo.org/nif/nifstd/birnlex_2270">
         <rdfs:subClassOf rdf:resource="http://uri.neuinfo.org/nif/nifstd/birnlex_2269"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000087"/>
+                <owl:someValuesFrom rdf:resource="http://uri.neuinfo.org/nif/nifstd/oen_0001312"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
     </owl:Class>
     
 
@@ -350,6 +403,12 @@
 
     <owl:Class rdf:about="http://uri.neuinfo.org/nif/nifstd/birnlex_2272">
         <rdfs:subClassOf rdf:resource="http://uri.neuinfo.org/nif/nifstd/birnlex_2270"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000087"/>
+                <owl:someValuesFrom rdf:resource="http://uri.neuinfo.org/nif/nifstd/oen_0001312"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
     </owl:Class>
     
 
@@ -358,6 +417,12 @@
 
     <owl:Class rdf:about="http://uri.neuinfo.org/nif/nifstd/birnlex_2273">
         <rdfs:subClassOf rdf:resource="http://uri.neuinfo.org/nif/nifstd/birnlex_2270"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000087"/>
+                <owl:someValuesFrom rdf:resource="http://uri.neuinfo.org/nif/nifstd/oen_0001312"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
     </owl:Class>
     
 
@@ -374,6 +439,12 @@
 
     <owl:Class rdf:about="http://uri.neuinfo.org/nif/nifstd/birnlex_2275">
         <rdfs:subClassOf rdf:resource="http://uri.neuinfo.org/nif/nifstd/birnlex_2270"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000087"/>
+                <owl:someValuesFrom rdf:resource="http://uri.neuinfo.org/nif/nifstd/oen_0001312"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
     </owl:Class>
     
 
@@ -382,6 +453,12 @@
 
     <owl:Class rdf:about="http://uri.neuinfo.org/nif/nifstd/birnlex_2276">
         <rdfs:subClassOf rdf:resource="http://uri.neuinfo.org/nif/nifstd/birnlex_2272"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000087"/>
+                <owl:someValuesFrom rdf:resource="http://uri.neuinfo.org/nif/nifstd/oen_0001312"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
     </owl:Class>
     
 
@@ -390,6 +467,12 @@
 
     <owl:Class rdf:about="http://uri.neuinfo.org/nif/nifstd/birnlex_2277">
         <rdfs:subClassOf rdf:resource="http://uri.neuinfo.org/nif/nifstd/birnlex_2269"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000087"/>
+                <owl:someValuesFrom rdf:resource="http://uri.neuinfo.org/nif/nifstd/oen_0001312"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
     </owl:Class>
     
 
@@ -398,6 +481,12 @@
 
     <owl:Class rdf:about="http://uri.neuinfo.org/nif/nifstd/birnlex_2278">
         <rdfs:subClassOf rdf:resource="http://uri.neuinfo.org/nif/nifstd/birnlex_2273"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000087"/>
+                <owl:someValuesFrom rdf:resource="http://uri.neuinfo.org/nif/nifstd/oen_0001312"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
     </owl:Class>
     
 
@@ -422,6 +511,12 @@
 
     <owl:Class rdf:about="http://uri.neuinfo.org/nif/nifstd/birnlex_2281">
         <rdfs:subClassOf rdf:resource="http://uri.neuinfo.org/nif/nifstd/birnlex_2280"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000087"/>
+                <owl:someValuesFrom rdf:resource="http://uri.neuinfo.org/nif/nifstd/oen_0001312"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
     </owl:Class>
     
 
@@ -430,6 +525,12 @@
 
     <owl:Class rdf:about="http://uri.neuinfo.org/nif/nifstd/birnlex_2282">
         <rdfs:subClassOf rdf:resource="http://uri.neuinfo.org/nif/nifstd/birnlex_2279"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000087"/>
+                <owl:someValuesFrom rdf:resource="http://uri.neuinfo.org/nif/nifstd/oen_0001312"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
     </owl:Class>
     
 
@@ -446,6 +547,12 @@
 
     <owl:Class rdf:about="http://uri.neuinfo.org/nif/nifstd/birnlex_2284">
         <rdfs:subClassOf rdf:resource="http://uri.neuinfo.org/nif/nifstd/birnlex_2274"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000087"/>
+                <owl:someValuesFrom rdf:resource="http://uri.neuinfo.org/nif/nifstd/oen_0001312"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
     </owl:Class>
     
 
@@ -462,6 +569,12 @@
 
     <owl:Class rdf:about="http://uri.neuinfo.org/nif/nifstd/birnlex_2287">
         <rdfs:subClassOf rdf:resource="http://uri.neuinfo.org/nif/nifstd/birnlex_2274"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000087"/>
+                <owl:someValuesFrom rdf:resource="http://uri.neuinfo.org/nif/nifstd/oen_0001312"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
     </owl:Class>
     
 
@@ -470,6 +583,12 @@
 
     <owl:Class rdf:about="http://uri.neuinfo.org/nif/nifstd/birnlex_2288">
         <rdfs:subClassOf rdf:resource="http://uri.neuinfo.org/nif/nifstd/birnlex_2269"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000087"/>
+                <owl:someValuesFrom rdf:resource="http://uri.neuinfo.org/nif/nifstd/oen_0001312"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
     </owl:Class>
     
 
@@ -478,6 +597,12 @@
 
     <owl:Class rdf:about="http://uri.neuinfo.org/nif/nifstd/birnlex_2289">
         <rdfs:subClassOf rdf:resource="http://uri.neuinfo.org/nif/nifstd/birnlex_2275"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000087"/>
+                <owl:someValuesFrom rdf:resource="http://uri.neuinfo.org/nif/nifstd/oen_0001312"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
     </owl:Class>
     
 
@@ -486,6 +611,12 @@
 
     <owl:Class rdf:about="http://uri.neuinfo.org/nif/nifstd/birnlex_2290">
         <rdfs:subClassOf rdf:resource="http://uri.neuinfo.org/nif/nifstd/birnlex_2289"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000087"/>
+                <owl:someValuesFrom rdf:resource="http://uri.neuinfo.org/nif/nifstd/oen_0001312"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
     </owl:Class>
     
 
@@ -494,6 +625,12 @@
 
     <owl:Class rdf:about="http://uri.neuinfo.org/nif/nifstd/birnlex_2291">
         <rdfs:subClassOf rdf:resource="http://uri.neuinfo.org/nif/nifstd/birnlex_2271"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000087"/>
+                <owl:someValuesFrom rdf:resource="http://uri.neuinfo.org/nif/nifstd/oen_0001312"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
     </owl:Class>
     
 
@@ -526,6 +663,12 @@
 
     <owl:Class rdf:about="http://uri.neuinfo.org/nif/nifstd/birnlex_2300">
         <rdfs:subClassOf rdf:resource="http://uri.neuinfo.org/nif/nifstd/birnlex_11009"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000087"/>
+                <owl:someValuesFrom rdf:resource="http://uri.neuinfo.org/nif/nifstd/oen_0001312"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
     </owl:Class>
     
 
@@ -540,6 +683,12 @@
 
     <owl:Class rdf:about="http://uri.neuinfo.org/nif/nifstd/nlx_090802">
         <rdfs:subClassOf rdf:resource="http://uri.neuinfo.org/nif/nifstd/birnlex_2123"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000087"/>
+                <owl:someValuesFrom rdf:resource="http://uri.neuinfo.org/nif/nifstd/oen_0001312"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
     </owl:Class>
     
 
@@ -564,6 +713,12 @@
 
     <owl:Class rdf:about="http://uri.neuinfo.org/nif/nifstd/nlx_137453">
         <rdfs:subClassOf rdf:resource="http://uri.neuinfo.org/nif/nifstd/birnlex_2300"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000087"/>
+                <owl:someValuesFrom rdf:resource="http://uri.neuinfo.org/nif/nifstd/oen_0001312"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
     </owl:Class>
     
 
@@ -584,6 +739,18 @@
 
     <owl:Class rdf:about="http://uri.neuinfo.org/nif/nifstd/nlx_151760">
         <rdfs:subClassOf rdf:resource="http://uri.neuinfo.org/nif/nifstd/birnlex_11034"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000087"/>
+                <owl:someValuesFrom rdf:resource="http://uri.neuinfo.org/nif/nifstd/nlx_60039"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000087"/>
+                <owl:someValuesFrom rdf:resource="http://uri.neuinfo.org/nif/nifstd/oen_0001312"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
     </owl:Class>
     
 
@@ -594,10 +761,22 @@
     
 
 
+    <!-- http://uri.neuinfo.org/nif/nifstd/nlx_152518 -->
+
+    <owl:Class rdf:about="http://uri.neuinfo.org/nif/nifstd/nlx_152518"/>
+    
+
+
     <!-- http://uri.neuinfo.org/nif/nifstd/nlx_152523 -->
 
     <owl:Class rdf:about="http://uri.neuinfo.org/nif/nifstd/nlx_152523">
         <rdfs:subClassOf rdf:resource="http://uri.neuinfo.org/nif/nifstd/nlx_155521"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000087"/>
+                <owl:someValuesFrom rdf:resource="http://uri.neuinfo.org/nif/nifstd/oen_0001312"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
     </owl:Class>
     
 
@@ -606,6 +785,12 @@
 
     <owl:Class rdf:about="http://uri.neuinfo.org/nif/nifstd/nlx_152781">
         <rdfs:subClassOf rdf:resource="http://uri.neuinfo.org/nif/nifstd/OBI_0000272"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000087"/>
+                <owl:someValuesFrom rdf:resource="http://uri.neuinfo.org/nif/nifstd/oen_0001312"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
     </owl:Class>
     
 
@@ -634,6 +819,12 @@
 
     <owl:Class rdf:about="http://uri.neuinfo.org/nif/nifstd/nlx_32915">
         <rdfs:subClassOf rdf:resource="http://uri.neuinfo.org/nif/nifstd/OBI_0000272"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000087"/>
+                <owl:someValuesFrom rdf:resource="http://uri.neuinfo.org/nif/nifstd/oen_0001312"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
     </owl:Class>
     
 
@@ -648,6 +839,12 @@
 
     <owl:Class rdf:about="http://uri.neuinfo.org/nif/nifstd/nlx_46637">
         <rdfs:subClassOf rdf:resource="http://uri.neuinfo.org/nif/nifstd/nlx_inv_090908"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000087"/>
+                <owl:someValuesFrom rdf:resource="http://uri.neuinfo.org/nif/nifstd/oen_0001312"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
     </owl:Class>
     
 
@@ -664,6 +861,12 @@
 
     <owl:Class rdf:about="http://uri.neuinfo.org/nif/nifstd/nlx_49488">
         <rdfs:subClassOf rdf:resource="http://uri.neuinfo.org/nif/nifstd/nlx_inv_090909"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000087"/>
+                <owl:someValuesFrom rdf:resource="http://uri.neuinfo.org/nif/nifstd/oen_0001312"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
     </owl:Class>
     
 
@@ -680,10 +883,22 @@
     
 
 
+    <!-- http://uri.neuinfo.org/nif/nifstd/nlx_60039 -->
+
+    <owl:Class rdf:about="http://uri.neuinfo.org/nif/nifstd/nlx_60039"/>
+    
+
+
     <!-- http://uri.neuinfo.org/nif/nifstd/nlx_64003 -->
 
     <owl:Class rdf:about="http://uri.neuinfo.org/nif/nifstd/nlx_64003">
         <rdfs:subClassOf rdf:resource="http://uri.neuinfo.org/nif/nifstd/sao3826089237"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000087"/>
+                <owl:someValuesFrom rdf:resource="http://uri.neuinfo.org/nif/nifstd/oen_0001312"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
     </owl:Class>
     
 
@@ -712,6 +927,12 @@
 
     <owl:Class rdf:about="http://uri.neuinfo.org/nif/nifstd/nlx_inv_090909">
         <rdfs:subClassOf rdf:resource="http://uri.neuinfo.org/nif/nifstd/nlx_inv_090908"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000087"/>
+                <owl:someValuesFrom rdf:resource="http://uri.neuinfo.org/nif/nifstd/oen_0001312"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
     </owl:Class>
     
 
@@ -720,6 +941,12 @@
 
     <owl:Class rdf:about="http://uri.neuinfo.org/nif/nifstd/nlx_inv_090910">
         <rdfs:subClassOf rdf:resource="http://uri.neuinfo.org/nif/nifstd/nlx_inv_090909"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000087"/>
+                <owl:someValuesFrom rdf:resource="http://uri.neuinfo.org/nif/nifstd/oen_0001312"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
     </owl:Class>
     
 
@@ -736,6 +963,12 @@
 
     <owl:Class rdf:about="http://uri.neuinfo.org/nif/nifstd/nlx_inv_20090501">
         <rdfs:subClassOf rdf:resource="http://uri.neuinfo.org/nif/nifstd/birnlex_2271"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000087"/>
+                <owl:someValuesFrom rdf:resource="http://uri.neuinfo.org/nif/nifstd/oen_0001312"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
     </owl:Class>
     
 
@@ -744,6 +977,18 @@
 
     <owl:Class rdf:about="http://uri.neuinfo.org/nif/nifstd/oen_0001000">
         <rdfs:subClassOf rdf:resource="http://uri.neuinfo.org/nif/nifstd/nlx_152523"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000087"/>
+                <owl:someValuesFrom rdf:resource="http://uri.neuinfo.org/nif/nifstd/nlx_152518"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000087"/>
+                <owl:someValuesFrom rdf:resource="http://uri.neuinfo.org/nif/nifstd/oen_0001312"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
     </owl:Class>
     
 
@@ -752,6 +997,18 @@
 
     <owl:Class rdf:about="http://uri.neuinfo.org/nif/nifstd/oen_0001001">
         <rdfs:subClassOf rdf:resource="http://uri.neuinfo.org/nif/nifstd/nlx_152523"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000087"/>
+                <owl:someValuesFrom rdf:resource="http://uri.neuinfo.org/nif/nifstd/nlx_152518"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000087"/>
+                <owl:someValuesFrom rdf:resource="http://uri.neuinfo.org/nif/nifstd/oen_0001312"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
     </owl:Class>
     
 
@@ -760,6 +1017,18 @@
 
     <owl:Class rdf:about="http://uri.neuinfo.org/nif/nifstd/oen_0001002">
         <rdfs:subClassOf rdf:resource="http://uri.neuinfo.org/nif/nifstd/nlx_152523"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000087"/>
+                <owl:someValuesFrom rdf:resource="http://uri.neuinfo.org/nif/nifstd/nlx_152518"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000087"/>
+                <owl:someValuesFrom rdf:resource="http://uri.neuinfo.org/nif/nifstd/oen_0001312"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
     </owl:Class>
     
 
@@ -768,6 +1037,18 @@
 
     <owl:Class rdf:about="http://uri.neuinfo.org/nif/nifstd/oen_0001003">
         <rdfs:subClassOf rdf:resource="http://uri.neuinfo.org/nif/nifstd/nlx_152523"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000087"/>
+                <owl:someValuesFrom rdf:resource="http://uri.neuinfo.org/nif/nifstd/oen_0001312"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000087"/>
+                <owl:someValuesFrom rdf:resource="http://uri.neuinfo.org/nif/nifstd/nlx_152518"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
     </owl:Class>
     
 
@@ -776,6 +1057,18 @@
 
     <owl:Class rdf:about="http://uri.neuinfo.org/nif/nifstd/oen_0001004">
         <rdfs:subClassOf rdf:resource="http://uri.neuinfo.org/nif/nifstd/nlx_152523"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000087"/>
+                <owl:someValuesFrom rdf:resource="http://uri.neuinfo.org/nif/nifstd/nlx_152518"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000087"/>
+                <owl:someValuesFrom rdf:resource="http://uri.neuinfo.org/nif/nifstd/oen_0001312"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
     </owl:Class>
     
 
@@ -800,6 +1093,18 @@
 
     <owl:Class rdf:about="http://uri.neuinfo.org/nif/nifstd/oen_0001007">
         <rdfs:subClassOf rdf:resource="http://uri.neuinfo.org/nif/nifstd/nlx_152523"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000087"/>
+                <owl:someValuesFrom rdf:resource="http://uri.neuinfo.org/nif/nifstd/oen_0001312"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000087"/>
+                <owl:someValuesFrom rdf:resource="http://uri.neuinfo.org/nif/nifstd/nlx_152518"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
     </owl:Class>
     
 
@@ -816,6 +1121,18 @@
 
     <owl:Class rdf:about="http://uri.neuinfo.org/nif/nifstd/oen_0001010">
         <rdfs:subClassOf rdf:resource="http://uri.neuinfo.org/nif/nifstd/nlx_152523"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000087"/>
+                <owl:someValuesFrom rdf:resource="http://uri.neuinfo.org/nif/nifstd/oen_0001312"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000087"/>
+                <owl:someValuesFrom rdf:resource="http://uri.neuinfo.org/nif/nifstd/nlx_152518"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
     </owl:Class>
     
 
@@ -840,6 +1157,18 @@
 
     <owl:Class rdf:about="http://uri.neuinfo.org/nif/nifstd/oen_0001013">
         <rdfs:subClassOf rdf:resource="http://uri.neuinfo.org/nif/nifstd/nlx_155517"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000087"/>
+                <owl:someValuesFrom rdf:resource="http://uri.neuinfo.org/nif/nifstd/oen_0001312"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000087"/>
+                <owl:someValuesFrom rdf:resource="http://uri.neuinfo.org/nif/nifstd/nlx_152518"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
     </owl:Class>
     
 
@@ -848,6 +1177,18 @@
 
     <owl:Class rdf:about="http://uri.neuinfo.org/nif/nifstd/oen_0001014">
         <rdfs:subClassOf rdf:resource="http://uri.neuinfo.org/nif/nifstd/nlx_152523"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000087"/>
+                <owl:someValuesFrom rdf:resource="http://uri.neuinfo.org/nif/nifstd/nlx_152518"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000087"/>
+                <owl:someValuesFrom rdf:resource="http://uri.neuinfo.org/nif/nifstd/oen_0001312"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
     </owl:Class>
     
 
@@ -896,6 +1237,12 @@
 
     <owl:Class rdf:about="http://uri.neuinfo.org/nif/nifstd/oen_0001022">
         <rdfs:subClassOf rdf:resource="http://uri.neuinfo.org/nif/nifstd/oen_0001312"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000087"/>
+                <owl:someValuesFrom rdf:resource="http://uri.neuinfo.org/nif/nifstd/nlx_152518"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
     </owl:Class>
     
 
@@ -904,6 +1251,24 @@
 
     <owl:Class rdf:about="http://uri.neuinfo.org/nif/nifstd/oen_0001023">
         <rdfs:subClassOf rdf:resource="http://uri.neuinfo.org/nif/nifstd/nlx_155521"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000087"/>
+                <owl:someValuesFrom rdf:resource="http://uri.neuinfo.org/nif/nifstd/nlx_152518"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000087"/>
+                <owl:someValuesFrom rdf:resource="http://uri.neuinfo.org/nif/nifstd/Passive_membrane_property"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000087"/>
+                <owl:someValuesFrom rdf:resource="http://uri.neuinfo.org/nif/nifstd/oen_0001312"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
     </owl:Class>
     
 
@@ -912,6 +1277,24 @@
 
     <owl:Class rdf:about="http://uri.neuinfo.org/nif/nifstd/oen_0001024">
         <rdfs:subClassOf rdf:resource="http://uri.neuinfo.org/nif/nifstd/nlx_155521"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000087"/>
+                <owl:someValuesFrom rdf:resource="http://uri.neuinfo.org/nif/nifstd/Passive_membrane_property"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000087"/>
+                <owl:someValuesFrom rdf:resource="http://uri.neuinfo.org/nif/nifstd/oen_0001312"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000087"/>
+                <owl:someValuesFrom rdf:resource="http://uri.neuinfo.org/nif/nifstd/nlx_152518"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
     </owl:Class>
     
 
@@ -920,6 +1303,18 @@
 
     <owl:Class rdf:about="http://uri.neuinfo.org/nif/nifstd/oen_0001025">
         <rdfs:subClassOf rdf:resource="http://uri.neuinfo.org/nif/nifstd/oen_0001182"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000087"/>
+                <owl:someValuesFrom rdf:resource="http://uri.neuinfo.org/nif/nifstd/nlx_func_090801"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000087"/>
+                <owl:someValuesFrom rdf:resource="http://uri.neuinfo.org/nif/nifstd/oen_0001312"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
     </owl:Class>
     
 
@@ -928,6 +1323,12 @@
 
     <owl:Class rdf:about="http://uri.neuinfo.org/nif/nifstd/oen_0001026">
         <rdfs:subClassOf rdf:resource="http://uri.neuinfo.org/nif/nifstd/nlx_func_090801"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000087"/>
+                <owl:someValuesFrom rdf:resource="http://uri.neuinfo.org/nif/nifstd/oen_0001312"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
     </owl:Class>
     
 
@@ -936,6 +1337,12 @@
 
     <owl:Class rdf:about="http://uri.neuinfo.org/nif/nifstd/oen_0001027">
         <rdfs:subClassOf rdf:resource="http://uri.neuinfo.org/nif/nifstd/birnlex_11013"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000087"/>
+                <owl:someValuesFrom rdf:resource="http://uri.neuinfo.org/nif/nifstd/oen_0001312"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
     </owl:Class>
     
 
@@ -944,6 +1351,12 @@
 
     <owl:Class rdf:about="http://uri.neuinfo.org/nif/nifstd/oen_0001028">
         <rdfs:subClassOf rdf:resource="http://uri.neuinfo.org/nif/nifstd/nlx_56487"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000087"/>
+                <owl:someValuesFrom rdf:resource="http://uri.neuinfo.org/nif/nifstd/oen_0001312"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
     </owl:Class>
     
 
@@ -1008,6 +1421,12 @@
 
     <owl:Class rdf:about="http://uri.neuinfo.org/nif/nifstd/oen_0001036">
         <rdfs:subClassOf rdf:resource="http://uri.neuinfo.org/nif/nifstd/nlx_152523"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000087"/>
+                <owl:someValuesFrom rdf:resource="http://uri.neuinfo.org/nif/nifstd/oen_0001312"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
     </owl:Class>
     
 
@@ -1024,6 +1443,12 @@
 
     <owl:Class rdf:about="http://uri.neuinfo.org/nif/nifstd/oen_0001038">
         <rdfs:subClassOf rdf:resource="http://uri.neuinfo.org/nif/nifstd/nlx_79070"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000087"/>
+                <owl:someValuesFrom rdf:resource="http://uri.neuinfo.org/nif/nifstd/oen_0001312"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
     </owl:Class>
     
 
@@ -1032,6 +1457,12 @@
 
     <owl:Class rdf:about="http://uri.neuinfo.org/nif/nifstd/oen_0001041">
         <rdfs:subClassOf rdf:resource="http://uri.neuinfo.org/nif/nifstd/Pathway"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000087"/>
+                <owl:someValuesFrom rdf:resource="http://uri.neuinfo.org/nif/nifstd/oen_0001312"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
     </owl:Class>
     
 
@@ -1072,6 +1503,12 @@
 
     <owl:Class rdf:about="http://uri.neuinfo.org/nif/nifstd/oen_0001048">
         <rdfs:subClassOf rdf:resource="http://uri.neuinfo.org/nif/nifstd/nlx_55759"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000087"/>
+                <owl:someValuesFrom rdf:resource="http://uri.neuinfo.org/nif/nifstd/oen_0001312"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
     </owl:Class>
     
 
@@ -1080,6 +1517,12 @@
 
     <owl:Class rdf:about="http://uri.neuinfo.org/nif/nifstd/oen_0001049">
         <rdfs:subClassOf rdf:resource="http://uri.neuinfo.org/nif/nifstd/birnlex_1825"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000087"/>
+                <owl:someValuesFrom rdf:resource="http://uri.neuinfo.org/nif/nifstd/oen_0001312"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
     </owl:Class>
     
 
@@ -1088,6 +1531,12 @@
 
     <owl:Class rdf:about="http://uri.neuinfo.org/nif/nifstd/oen_0001050">
         <rdfs:subClassOf rdf:resource="http://uri.neuinfo.org/nif/nifstd/birnlex_1883"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000087"/>
+                <owl:someValuesFrom rdf:resource="http://uri.neuinfo.org/nif/nifstd/oen_0001312"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
     </owl:Class>
     
 
@@ -1136,6 +1585,12 @@
 
     <owl:Class rdf:about="http://uri.neuinfo.org/nif/nifstd/oen_0001063">
         <rdfs:subClassOf rdf:resource="http://uri.neuinfo.org/nif/nifstd/birnlex_12779"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000087"/>
+                <owl:someValuesFrom rdf:resource="http://uri.neuinfo.org/nif/nifstd/oen_0001312"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
     </owl:Class>
     
 
@@ -1168,6 +1623,12 @@
 
     <owl:Class rdf:about="http://uri.neuinfo.org/nif/nifstd/oen_0001070">
         <rdfs:subClassOf rdf:resource="http://uri.neuinfo.org/nif/nifstd/birnlex_2269"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000087"/>
+                <owl:someValuesFrom rdf:resource="http://uri.neuinfo.org/nif/nifstd/oen_0001312"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
     </owl:Class>
     
 
@@ -1176,6 +1637,12 @@
 
     <owl:Class rdf:about="http://uri.neuinfo.org/nif/nifstd/oen_0001072">
         <rdfs:subClassOf rdf:resource="http://uri.neuinfo.org/nif/nifstd/PATO_0001758"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000087"/>
+                <owl:someValuesFrom rdf:resource="http://uri.neuinfo.org/nif/nifstd/oen_0001312"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
     </owl:Class>
     
 
@@ -1224,6 +1691,12 @@
 
     <owl:Class rdf:about="http://uri.neuinfo.org/nif/nifstd/oen_0001080">
         <rdfs:subClassOf rdf:resource="http://uri.neuinfo.org/nif/nifstd/PATO_0001758"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000087"/>
+                <owl:someValuesFrom rdf:resource="http://uri.neuinfo.org/nif/nifstd/oen_0001312"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
     </owl:Class>
     
 
@@ -1248,6 +1721,12 @@
 
     <owl:Class rdf:about="http://uri.neuinfo.org/nif/nifstd/oen_0001086">
         <rdfs:subClassOf rdf:resource="http://uri.neuinfo.org/nif/nifstd/OBI_0000272"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000087"/>
+                <owl:someValuesFrom rdf:resource="http://uri.neuinfo.org/nif/nifstd/oen_0001312"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
     </owl:Class>
     
 
@@ -1272,6 +1751,12 @@
 
     <owl:Class rdf:about="http://uri.neuinfo.org/nif/nifstd/oen_0001092">
         <rdfs:subClassOf rdf:resource="http://uri.neuinfo.org/nif/nifstd/nlx_155517"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000087"/>
+                <owl:someValuesFrom rdf:resource="http://uri.neuinfo.org/nif/nifstd/oen_0001312"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
     </owl:Class>
     
 
@@ -1384,6 +1869,12 @@
 
     <owl:Class rdf:about="http://uri.neuinfo.org/nif/nifstd/oen_0001117">
         <rdfs:subClassOf rdf:resource="http://uri.neuinfo.org/nif/nifstd/sao914572699"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000087"/>
+                <owl:someValuesFrom rdf:resource="http://uri.neuinfo.org/nif/nifstd/oen_0001312"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
     </owl:Class>
     
 
@@ -1488,6 +1979,12 @@
 
     <owl:Class rdf:about="http://uri.neuinfo.org/nif/nifstd/oen_0001130">
         <rdfs:subClassOf rdf:resource="http://uri.neuinfo.org/nif/nifstd/birnlex_2300"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000087"/>
+                <owl:someValuesFrom rdf:resource="http://uri.neuinfo.org/nif/nifstd/oen_0001312"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
     </owl:Class>
     
 
@@ -1520,6 +2017,12 @@
 
     <owl:Class rdf:about="http://uri.neuinfo.org/nif/nifstd/oen_0001134">
         <rdfs:subClassOf rdf:resource="http://uri.neuinfo.org/nif/nifstd/birnlex_2123"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000087"/>
+                <owl:someValuesFrom rdf:resource="http://uri.neuinfo.org/nif/nifstd/oen_0001312"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
     </owl:Class>
     
 
@@ -1614,6 +2117,12 @@
 
     <owl:Class rdf:about="http://uri.neuinfo.org/nif/nifstd/oen_0001147">
         <rdfs:subClassOf rdf:resource="http://uri.neuinfo.org/nif/nifstd/oen_0001181"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000087"/>
+                <owl:someValuesFrom rdf:resource="http://uri.neuinfo.org/nif/nifstd/oen_0001312"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
     </owl:Class>
     
 
@@ -1622,6 +2131,12 @@
 
     <owl:Class rdf:about="http://uri.neuinfo.org/nif/nifstd/oen_0001148">
         <rdfs:subClassOf rdf:resource="http://uri.neuinfo.org/nif/nifstd/oen_0001181"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000087"/>
+                <owl:someValuesFrom rdf:resource="http://uri.neuinfo.org/nif/nifstd/oen_0001312"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
     </owl:Class>
     
 
@@ -1630,6 +2145,12 @@
 
     <owl:Class rdf:about="http://uri.neuinfo.org/nif/nifstd/oen_0001149">
         <rdfs:subClassOf rdf:resource="http://uri.neuinfo.org/nif/nifstd/oen_0001181"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000087"/>
+                <owl:someValuesFrom rdf:resource="http://uri.neuinfo.org/nif/nifstd/oen_0001312"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
     </owl:Class>
     
 
@@ -1638,6 +2159,12 @@
 
     <owl:Class rdf:about="http://uri.neuinfo.org/nif/nifstd/oen_0001150">
         <rdfs:subClassOf rdf:resource="http://uri.neuinfo.org/nif/nifstd/oen_0001181"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000087"/>
+                <owl:someValuesFrom rdf:resource="http://uri.neuinfo.org/nif/nifstd/oen_0001312"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
     </owl:Class>
     
 
@@ -1646,6 +2173,12 @@
 
     <owl:Class rdf:about="http://uri.neuinfo.org/nif/nifstd/oen_0001151">
         <rdfs:subClassOf rdf:resource="http://uri.neuinfo.org/nif/nifstd/oen_0001181"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000087"/>
+                <owl:someValuesFrom rdf:resource="http://uri.neuinfo.org/nif/nifstd/oen_0001312"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
     </owl:Class>
     
 
@@ -1694,6 +2227,12 @@
 
     <owl:Class rdf:about="http://uri.neuinfo.org/nif/nifstd/oen_0001158">
         <rdfs:subClassOf rdf:resource="http://uri.neuinfo.org/nif/nifstd/oen_0001031"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000087"/>
+                <owl:someValuesFrom rdf:resource="http://uri.neuinfo.org/nif/nifstd/oen_0001312"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
     </owl:Class>
     
 
@@ -1710,6 +2249,18 @@
 
     <owl:Class rdf:about="http://uri.neuinfo.org/nif/nifstd/oen_0001163">
         <rdfs:subClassOf rdf:resource="http://uri.neuinfo.org/nif/nifstd/sao3826089237"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000050"/>
+                <owl:someValuesFrom rdf:resource="http://uri.neuinfo.org/nif/nifstd/Motor_system"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000087"/>
+                <owl:someValuesFrom rdf:resource="http://uri.neuinfo.org/nif/nifstd/oen_0001312"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
     </owl:Class>
     
 
@@ -1758,6 +2309,12 @@
 
     <owl:Class rdf:about="http://uri.neuinfo.org/nif/nifstd/oen_0001171">
         <rdfs:subClassOf rdf:resource="http://uri.neuinfo.org/nif/nifstd/oen_0001173"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000087"/>
+                <owl:someValuesFrom rdf:resource="http://uri.neuinfo.org/nif/nifstd/oen_0001312"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
     </owl:Class>
     
 
@@ -1814,6 +2371,12 @@
 
     <owl:Class rdf:about="http://uri.neuinfo.org/nif/nifstd/oen_0001179">
         <rdfs:subClassOf rdf:resource="http://uri.neuinfo.org/nif/nifstd/birnlex_2269"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000087"/>
+                <owl:someValuesFrom rdf:resource="http://uri.neuinfo.org/nif/nifstd/oen_0001312"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
     </owl:Class>
     
 
@@ -1844,6 +2407,12 @@
 
     <owl:Class rdf:about="http://uri.neuinfo.org/nif/nifstd/oen_0001183">
         <rdfs:subClassOf rdf:resource="http://uri.neuinfo.org/nif/nifstd/PATO_0001758"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000087"/>
+                <owl:someValuesFrom rdf:resource="http://uri.neuinfo.org/nif/nifstd/oen_0001312"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
     </owl:Class>
     
 
@@ -1948,6 +2517,12 @@
 
     <owl:Class rdf:about="http://uri.neuinfo.org/nif/nifstd/oen_0001205">
         <rdfs:subClassOf rdf:resource="http://uri.neuinfo.org/nif/nifstd/nlx_152523"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000087"/>
+                <owl:someValuesFrom rdf:resource="http://uri.neuinfo.org/nif/nifstd/oen_0001312"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
     </owl:Class>
     
 
@@ -1980,6 +2555,12 @@
 
     <owl:Class rdf:about="http://uri.neuinfo.org/nif/nifstd/oen_0001212">
         <rdfs:subClassOf rdf:resource="http://uri.neuinfo.org/nif/nifstd/nlx_155510"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000087"/>
+                <owl:someValuesFrom rdf:resource="http://uri.neuinfo.org/nif/nifstd/oen_0001312"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
     </owl:Class>
     
 
@@ -1988,6 +2569,12 @@
 
     <owl:Class rdf:about="http://uri.neuinfo.org/nif/nifstd/oen_0001213">
         <rdfs:subClassOf rdf:resource="http://uri.neuinfo.org/nif/nifstd/nlx_155510"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000087"/>
+                <owl:someValuesFrom rdf:resource="http://uri.neuinfo.org/nif/nifstd/oen_0001312"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
     </owl:Class>
     
 
@@ -2020,6 +2607,12 @@
 
     <owl:Class rdf:about="http://uri.neuinfo.org/nif/nifstd/oen_0001218">
         <rdfs:subClassOf rdf:resource="http://uri.neuinfo.org/nif/nifstd/PATO_0001035"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000087"/>
+                <owl:someValuesFrom rdf:resource="http://uri.neuinfo.org/nif/nifstd/oen_0001312"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
     </owl:Class>
     
 
@@ -2028,6 +2621,12 @@
 
     <owl:Class rdf:about="http://uri.neuinfo.org/nif/nifstd/oen_0001219">
         <rdfs:subClassOf rdf:resource="http://uri.neuinfo.org/nif/nifstd/birnlex_2300"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000087"/>
+                <owl:someValuesFrom rdf:resource="http://uri.neuinfo.org/nif/nifstd/oen_0001312"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
     </owl:Class>
     
 
@@ -2052,6 +2651,12 @@
 
     <owl:Class rdf:about="http://uri.neuinfo.org/nif/nifstd/oen_0001228">
         <rdfs:subClassOf rdf:resource="http://uri.neuinfo.org/nif/nifstd/nlx_155510"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000087"/>
+                <owl:someValuesFrom rdf:resource="http://uri.neuinfo.org/nif/nifstd/oen_0001312"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
     </owl:Class>
     
 
@@ -2084,6 +2689,12 @@
 
     <owl:Class rdf:about="http://uri.neuinfo.org/nif/nifstd/oen_0001233">
         <rdfs:subClassOf rdf:resource="http://uri.neuinfo.org/nif/nifstd/nlx_155510"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000087"/>
+                <owl:someValuesFrom rdf:resource="http://uri.neuinfo.org/nif/nifstd/oen_0001312"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
     </owl:Class>
     
 
@@ -2092,6 +2703,12 @@
 
     <owl:Class rdf:about="http://uri.neuinfo.org/nif/nifstd/oen_0001234">
         <rdfs:subClassOf rdf:resource="http://uri.neuinfo.org/nif/nifstd/nlx_155510"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000087"/>
+                <owl:someValuesFrom rdf:resource="http://uri.neuinfo.org/nif/nifstd/oen_0001312"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
     </owl:Class>
     
 
@@ -2108,6 +2725,12 @@
 
     <owl:Class rdf:about="http://uri.neuinfo.org/nif/nifstd/oen_0001236">
         <rdfs:subClassOf rdf:resource="http://uri.neuinfo.org/nif/nifstd/oen_0001031"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000087"/>
+                <owl:someValuesFrom rdf:resource="http://uri.neuinfo.org/nif/nifstd/oen_0001312"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
     </owl:Class>
     
 
@@ -2132,6 +2755,12 @@
 
     <owl:Class rdf:about="http://uri.neuinfo.org/nif/nifstd/oen_0001279">
         <rdfs:subClassOf rdf:resource="http://uri.neuinfo.org/nif/nifstd/oen_0001042"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000087"/>
+                <owl:someValuesFrom rdf:resource="http://uri.neuinfo.org/nif/nifstd/oen_0001312"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
     </owl:Class>
     
 
@@ -2156,6 +2785,12 @@
 
     <owl:Class rdf:about="http://uri.neuinfo.org/nif/nifstd/oen_0001310">
         <rdfs:subClassOf rdf:resource="http://uri.neuinfo.org/nif/nifstd/nifext_8057"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000087"/>
+                <owl:someValuesFrom rdf:resource="http://uri.neuinfo.org/nif/nifstd/oen_0001312"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
     </owl:Class>
     
 

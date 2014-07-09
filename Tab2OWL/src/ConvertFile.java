@@ -82,7 +82,7 @@ public class ConvertFile {
 		File owlFile = createOWLFile();
 		buildClassTree(termsAndProperties, owlFile, classIDHashtable);
 
-		//addClassRestrictions(termsAndProperties, owlFile);
+		addClassRestrictions(termsAndProperties, owlFile, classIDHashtable);
 		//addAnnotations(termsAndProperties, owlFile);
 	}
 
@@ -154,8 +154,12 @@ public class ConvertFile {
 		return terms;
 	}
 
-
-	private static Hashtable createClassIDLabelHash(Map<String, ArrayList> termsAndProperties) {
+	/**
+	 * Build Hashtable of term labels (key) and term Ids (value) 
+	 * in order to swap out label for Id in term IRI 
+	 */
+	private static Hashtable<String, String> createClassIDLabelHash(Map<String, ArrayList> termsAndProperties) {
+		System.out.println("\n** createClassIDLabelHash method **");
 		// Populate hashtable from termsAndProperies using the label (values[1]) as the key and ID (values[5]) as the value
 		Hashtable<String,String> hashtable = new Hashtable<String,String>();
 
@@ -163,6 +167,30 @@ public class ConvertFile {
 			String key = entry.getKey(); //Label
 			String value = entry.getValue().get(5).toString(); //ID
 			hashtable.put(key, value);
+		}
+		
+		// Loop through termsAndProperties to find root terms based on
+		// that every Parent label should exist as a key in the hashtable
+		System.out.println("** Find Root terms ");
+		for (Entry<String, ArrayList> entry : termsAndProperties.entrySet()) {
+			String key = entry.getKey(); // Label
+			String parentLabel = entry.getValue().get(2).toString(); //Parent label
+			System.out.println("\n** TermLabel: "+key+" ParentLabel: "+parentLabel);
+			
+			//Check if hashtable contains parentLabel as a key
+			if (!hashtable.containsKey(parentLabel)) {
+				// Format parent label for use in query to Wiki 
+				String newParentLabel = parentLabel.replaceAll(" ", "_");
+				newParentLabel = "Category:"+parentLabel;
+				System.out.println("Null ID Found. Use \""+newParentLabel+"\" to query NeuroLex for ID.");
+				// Use WikiAPI to get ID for Parent
+				String parentIDFromWiki = getParentIdFromWikiAPI(newParentLabel);
+				// Trim whitespace from value
+				parentIDFromWiki = parentIDFromWiki.trim();
+				System.out.println("** ParentIDFromWiki: "+parentIDFromWiki);
+				System.out.println("ParentLabel: "+parentLabel+" ParentID"+parentIDFromWiki);
+				hashtable.put(parentLabel, parentIDFromWiki);
+			}	
 		}
 		return hashtable;
 	}
@@ -270,13 +298,15 @@ public class ConvertFile {
 			System.out.println("** ParentID: "+parentId
 					+"\t** Parent Label: "+parent);
 
+			
+			// TODO Remove after more testing that moving this test to createClassIDLabelHash is working
 			if (parentId == null) {
 				parentId = parent.replaceAll(" ", "_");
 				parentId = "Category:"+parentId;
 				System.out.println("Null ID Found. Use \""+parentId+"\" to query NeuroLex for ID.");
 				// Use WikiAPI to get ID for Parent
 				String parentIDFromWiki = getParentIdFromWikiAPI(parentId);
-				// Trim whitespace from value
+				// Trim whitespace from value 
 				parentId = parentIDFromWiki.trim();
 				System.out.println("** ParentIDFromWiki: "+parentId);
 				// Update null value in hashtable
@@ -314,21 +344,31 @@ public class ConvertFile {
 
 		// Print only line with Term ID (|Id=)
 		String[] contentLines = content.split("\\r?\\n");
-
-		String termIDPattern = "|Id=";
+		System.out.println("ContentLines:\""+contentLines[0]+"\"");
+		
 		String parentId = null;
+		// Account for pages with no content 
+		if (contentLines[0] == null | contentLines[0].length() == 0) {
+			String parentIdValues[] = newParent.split(":");
+			parentId = parentIdValues[1];
+		}
+		else {
+		String termIDPattern = "|Id=";
 		for (String line : contentLines) {
-			//System.out.println("Line: "+line);
+			System.out.println("Line: "+line);
+			
 			if (line.contains(termIDPattern)) {
-				//System.out.println("TermId: "+line);
+				System.out.println("TermId: "+line);
 				String [] idLine = line.split("=");
 				parentId = idLine[1];
-				//System.out.println("** TermID: "+parentId);
+				System.out.println("** TermID: "+parentId);
 			}
+		}
 		}
 		return parentId;
 	}
 
+	@SuppressWarnings("unchecked")
 	public static String getPageContent(String title) {
 		String content = null;
 		String[] listOfTitleStrings = { title }; 
@@ -339,11 +379,17 @@ public class ConvertFile {
 		List<Page> listOfPages =  user.queryContent(listOfTitleStrings);  //user.queryCategories(listOfTitleStrings);
 
 		for (Page page : listOfPages) {
-			//System.out.println("PageTitle: "+page.getTitle());
+			System.out.println("PageTitle: "+page.getTitle());
 			content = page.getCurrentContent();
-			//System.out.println("------------------"+content+"-----------------");
+			System.out.println("------------------"+content+"-----------------");
 			if(content != null)
 				break;
+			// Account for pages that do not exist .. this doesn't seem to be called?
+			else  {
+				System.out.println("Content1: "+content);
+				content = "|Id="+page.getTitle();
+				System.out.println("Content2: "+content);
+			}
 		}
 		return content;
 	}
@@ -354,11 +400,12 @@ public class ConvertFile {
 	 * 
 	 * @param termsAndProperties
 	 * @param owlFile
+	 * @param classIDHashtable 
 	 * @throws OWLOntologyCreationException 
 	 * @throws OWLOntologyStorageException 
 	 */
 	private static void addClassRestrictions(
-			Map<String, ArrayList> termsAndProperties, File owlFile) throws OWLOntologyCreationException, OWLOntologyStorageException {
+			Map<String, ArrayList> termsAndProperties, File owlFile, Hashtable<String, String> classIDHashtable) throws OWLOntologyCreationException, OWLOntologyStorageException {
 		System.out.println("\n** addClassRestrictions method **");
 
 		// Open ontology file
@@ -378,11 +425,6 @@ public class ConvertFile {
 				+ "BFO_0000050"));
 		//System.err.println("hasRoleProperty: "+hasRoleProperty);
 
-		// Has Role -> http://purl.obolibrary.org/obo/BFO_0000087 (object property)
-		// Is Part Of -> http://purl.obolibrary.org/obo/BFO_0000050 (object property, transitive Has Part), see Brain in Uberon for example usage 
-		// Has Part -> http://purl.obolibrary.org/obo/BFO_0000051 (object property, transitive Is Part Of)
-
-
 		// Iterate through termsAndProperties AND get parent from hashtable 
 		for (Entry<String, ArrayList> entry : termsAndProperties.entrySet()) {
 			String key = entry.getKey();	
@@ -390,8 +432,10 @@ public class ConvertFile {
 
 			//PrefixManager pm = new DefaultPrefixManager("http://neurolex.org/wiki/Special:ExportRDF/Category:");
 			PrefixManager pm = new DefaultPrefixManager("http://uri.neuinfo.org/nif/nifstd/");
-			String newKey = key.replaceAll(" ", "_");
-			OWLClass clsAMethodB = factory.getOWLClass(newKey, pm);
+			//String newKey = key.replaceAll(" ", "_");
+			// Get ID from hashtable
+			String classId = classIDHashtable.get(key);
+			OWLClass clsAMethodB = factory.getOWLClass(classId, pm);
 			System.err.println("classAMethodB: "+clsAMethodB);
 
 
@@ -403,7 +447,7 @@ public class ConvertFile {
 			System.err.println("HasRoleObject: "+hasRoleObject);
 			String newHasRoleObject = hasRoleObject.replace(":Category:","");
 			newHasRoleObject = newHasRoleObject.replaceAll("\"", "");
-			//System.err.println("HasRoleObject-MOD: "+newHasRoleObject);
+			System.err.println("HasRoleObject: "+newHasRoleObject);
 
 			if (!newHasRoleObject.equals("NO VALUE")) {
 				//System.err.println("VALUE FOUND: "+newHasRoleObject);
@@ -411,10 +455,24 @@ public class ConvertFile {
 				String[] hasRoleObjectValues = newHasRoleObject.split(",");
 				// Add each hasRoleObect value as a property restriction
 				for (String s : hasRoleObjectValues ) {
-					s = s.replaceAll(" ", "_");
-					System.err.println("hasRoleObjectValues: "+s);
+					String sId = classIDHashtable.get(s);
+					
+					if (sId == null) {
+						s = s.replaceAll(" ", "_");
+						s = "Category:"+s;
+						System.out.println("Null ID Found. Use \""+s+"\" to query NeuroLex for ID.");
+						// Use WikiAPI to get ID for Parent
+						String parentIDFromWiki = getParentIdFromWikiAPI(s);
+						System.out.println(parentIDFromWiki);
+						// Trim whitespace from value 
+						sId = parentIDFromWiki.trim();
+						System.out.println("** ParentIDFromWiki: "+sId);
+						// Update null value in hashtable
+						classIDHashtable.put(s, sId);  //Then add key and value back to hashtable 
+					}
+					System.err.println("hasRoleObjectValue: "+s+" Id: "+sId);
 
-					OWLClass roleObject = factory.getOWLClass(s, pm); 
+					OWLClass roleObject = factory.getOWLClass(sId, pm); 
 					OWLClassExpression hasPartSomeRole = factory.getOWLObjectSomeValuesFrom(hasRoleProperty,
 							roleObject); 
 					OWLSubClassOfAxiom ax = factory.getOWLSubClassOfAxiom(clsAMethodB, hasPartSomeRole);	

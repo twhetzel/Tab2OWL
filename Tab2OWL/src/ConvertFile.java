@@ -142,15 +142,15 @@ public class ConvertFile {
 					//System.out.println("Skipping header line....");
 				}
 			}
-			} catch (IOException e) {
-				e.printStackTrace();
-			} finally {
-				try {
-					if (br != null)br.close();
-				} catch (IOException ex) {
-					ex.printStackTrace();
-				}
+		} catch (IOException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if (br != null)br.close();
+			} catch (IOException ex) {
+				ex.printStackTrace();
 			}
+		}
 		return terms;
 	}
 
@@ -168,7 +168,7 @@ public class ConvertFile {
 			String value = entry.getValue().get(5).toString(); //ID
 			hashtable.put(key, value);
 		}
-		
+
 		// Loop through termsAndProperties to find root terms based on
 		// that every Parent label should exist as a key in the hashtable
 		System.out.println("** Find Root terms ");
@@ -176,7 +176,7 @@ public class ConvertFile {
 			String key = entry.getKey(); // Label
 			String parentLabel = entry.getValue().get(2).toString(); //Parent label
 			System.out.println("\n** TermLabel: "+key+" ParentLabel: "+parentLabel);
-			
+
 			//Check if hashtable contains parentLabel as a key
 			if (!hashtable.containsKey(parentLabel)) {
 				// Format parent label for use in query to Wiki 
@@ -298,7 +298,7 @@ public class ConvertFile {
 			System.out.println("** ParentID: "+parentId
 					+"\t** Parent Label: "+parent);
 
-			
+
 			// TODO Remove after more testing that moving this test to createClassIDLabelHash is working
 			if (parentId == null) {
 				parentId = parent.replaceAll(" ", "_");
@@ -325,7 +325,7 @@ public class ConvertFile {
 			OWLDeclarationAxiom declarationAxiom = factory
 					.getOWLDeclarationAxiom(clsAMethodA);
 			manager.addAxiom(ontology, declarationAxiom);
-			
+
 			// Save ontology 
 			manager.saveOntology(ontology);	
 		}		
@@ -345,7 +345,7 @@ public class ConvertFile {
 		// Print only line with Term ID (|Id=)
 		String[] contentLines = content.split("\\r?\\n");
 		System.out.println("ContentLines:\""+contentLines[0]+"\"");
-		
+
 		String parentId = null;
 		// Account for pages with no content 
 		if (contentLines[0] == null | contentLines[0].length() == 0) {
@@ -455,7 +455,8 @@ public class ConvertFile {
 				// Add each hasRoleObect value as a property restriction
 				for (String s : hasRoleObjectValues ) {
 					String sId = classIDHashtable.get(s);
-					
+
+					// If class Id not in Hashtable, call Wiki API to get ID
 					if (sId == null) {
 						s = s.replaceAll(" ", "_");
 						s = "Category:"+s;
@@ -501,10 +502,25 @@ public class ConvertFile {
 				String[] isPartOfPropertyObjectValues = newIsPartOfPropertyObject.split(",");
 				// Add each hasRoleObect value as a property restriction
 				for (String s : isPartOfPropertyObjectValues ) {
-					s = s.replaceAll(" ", "_");
-					System.err.println("isPartOfPropertyObjectValues: "+s);
+					String sId = classIDHashtable.get(s);
 
-					OWLClass propertyObject = factory.getOWLClass(s, pm); 
+					if (sId == null) {
+						s = s.replaceAll(" ", "_");
+						s = "Category:"+s;
+						System.out.println("Null ID Found. Use \""+s+"\" to query NeuroLex for ID.");
+						// Use WikiAPI to get ID for Parent
+						String parentIDFromWiki = getParentIdFromWikiAPI(s);
+						System.out.println(parentIDFromWiki);
+						// Trim whitespace from value 
+						sId = parentIDFromWiki.trim();
+						System.out.println("** ParentIDFromWiki: "+sId);
+						// Update null value in hashtable
+						classIDHashtable.put(s, sId);  //Then add key and value back to hashtable 
+
+					}
+					System.err.println("isPartOfPropertyObjectValue: "+s+"Id: "+sId);
+
+					OWLClass propertyObject = factory.getOWLClass(sId, pm); 
 					OWLClassExpression isPartOfSomeRole = factory.getOWLObjectSomeValuesFrom(isPartOfProperty,
 							propertyObject); 
 					OWLSubClassOfAxiom ax = factory.getOWLSubClassOfAxiom(clsAMethodB, isPartOfSomeRole);	

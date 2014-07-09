@@ -32,6 +32,12 @@
     
 
 
+    <!-- http://uri.neuinfo.org/nif/nifstd/NEMO_2878000 -->
+
+    <owl:Class rdf:about="http://uri.neuinfo.org/nif/nifstd/NEMO_2878000"/>
+    
+
+
     <!-- http://uri.neuinfo.org/nif/nifstd/OBI_0000272 -->
 
     <owl:Class rdf:about="http://uri.neuinfo.org/nif/nifstd/OBI_0000272"/>
@@ -41,7 +47,7 @@
     <!-- http://uri.neuinfo.org/nif/nifstd/PATO_0000152 -->
 
     <owl:Class rdf:about="http://uri.neuinfo.org/nif/nifstd/PATO_0000152">
-        <rdfs:subClassOf rdf:resource="http://uri.neuinfo.org/nif/nifstd/null"/>
+        <rdfs:subClassOf rdf:resource="http://uri.neuinfo.org/nif/nifstd/PATO_0001237"/>
     </owl:Class>
     
 
@@ -62,9 +68,27 @@
     
 
 
+    <!-- http://uri.neuinfo.org/nif/nifstd/PATO_0001035 -->
+
+    <owl:Class rdf:about="http://uri.neuinfo.org/nif/nifstd/PATO_0001035"/>
+    
+
+
+    <!-- http://uri.neuinfo.org/nif/nifstd/PATO_0001237 -->
+
+    <owl:Class rdf:about="http://uri.neuinfo.org/nif/nifstd/PATO_0001237"/>
+    
+
+
     <!-- http://uri.neuinfo.org/nif/nifstd/PATO_0001238 -->
 
     <owl:Class rdf:about="http://uri.neuinfo.org/nif/nifstd/PATO_0001238"/>
+    
+
+
+    <!-- http://uri.neuinfo.org/nif/nifstd/PATO_0001396 -->
+
+    <owl:Class rdf:about="http://uri.neuinfo.org/nif/nifstd/PATO_0001396"/>
     
 
 
@@ -74,17 +98,53 @@
     
 
 
+    <!-- http://uri.neuinfo.org/nif/nifstd/Pathway -->
+
+    <owl:Class rdf:about="http://uri.neuinfo.org/nif/nifstd/Pathway"/>
+    
+
+
+    <!-- http://uri.neuinfo.org/nif/nifstd/Role -->
+
+    <owl:Class rdf:about="http://uri.neuinfo.org/nif/nifstd/Role"/>
+    
+
+
     <!-- http://uri.neuinfo.org/nif/nifstd/birnlex_11009 -->
 
     <owl:Class rdf:about="http://uri.neuinfo.org/nif/nifstd/birnlex_11009"/>
     
 
 
+    <!-- http://uri.neuinfo.org/nif/nifstd/birnlex_11013 -->
+
+    <owl:Class rdf:about="http://uri.neuinfo.org/nif/nifstd/birnlex_11013"/>
+    
+
+
+    <!-- http://uri.neuinfo.org/nif/nifstd/birnlex_11034 -->
+
+    <owl:Class rdf:about="http://uri.neuinfo.org/nif/nifstd/birnlex_11034"/>
+    
+
+
     <!-- http://uri.neuinfo.org/nif/nifstd/birnlex_12718 -->
 
     <owl:Class rdf:about="http://uri.neuinfo.org/nif/nifstd/birnlex_12718">
-        <rdfs:subClassOf rdf:resource="http://uri.neuinfo.org/nif/nifstd/null"/>
+        <rdfs:subClassOf rdf:resource="http://uri.neuinfo.org/nif/nifstd/birnlex_12796"/>
     </owl:Class>
+    
+
+
+    <!-- http://uri.neuinfo.org/nif/nifstd/birnlex_12779 -->
+
+    <owl:Class rdf:about="http://uri.neuinfo.org/nif/nifstd/birnlex_12779"/>
+    
+
+
+    <!-- http://uri.neuinfo.org/nif/nifstd/birnlex_12796 -->
+
+    <owl:Class rdf:about="http://uri.neuinfo.org/nif/nifstd/birnlex_12796"/>
     
 
 
@@ -227,14 +287,38 @@
     <!-- http://uri.neuinfo.org/nif/nifstd/birnlex_1814 -->
 
     <owl:Class rdf:about="http://uri.neuinfo.org/nif/nifstd/birnlex_1814">
-        <rdfs:subClassOf rdf:resource="http://uri.neuinfo.org/nif/nifstd/null"/>
+        <rdfs:subClassOf rdf:resource="http://uri.neuinfo.org/nif/nifstd/birnlex_1822"/>
     </owl:Class>
+    
+
+
+    <!-- http://uri.neuinfo.org/nif/nifstd/birnlex_1822 -->
+
+    <owl:Class rdf:about="http://uri.neuinfo.org/nif/nifstd/birnlex_1822"/>
+    
+
+
+    <!-- http://uri.neuinfo.org/nif/nifstd/birnlex_1825 -->
+
+    <owl:Class rdf:about="http://uri.neuinfo.org/nif/nifstd/birnlex_1825"/>
+    
+
+
+    <!-- http://uri.neuinfo.org/nif/nifstd/birnlex_1883 -->
+
+    <owl:Class rdf:about="http://uri.neuinfo.org/nif/nifstd/birnlex_1883"/>
     
 
 
     <!-- http://uri.neuinfo.org/nif/nifstd/birnlex_2123 -->
 
     <owl:Class rdf:about="http://uri.neuinfo.org/nif/nifstd/birnlex_2123"/>
+    
+
+
+    <!-- http://uri.neuinfo.org/nif/nifstd/birnlex_2180 -->
+
+    <owl:Class rdf:about="http://uri.neuinfo.org/nif/nifstd/birnlex_2180"/>
     
 
 
@@ -441,7 +525,7 @@
     <!-- http://uri.neuinfo.org/nif/nifstd/birnlex_2300 -->
 
     <owl:Class rdf:about="http://uri.neuinfo.org/nif/nifstd/birnlex_2300">
-        <rdfs:subClassOf rdf:resource="http://uri.neuinfo.org/nif/nifstd/null"/>
+        <rdfs:subClassOf rdf:resource="http://uri.neuinfo.org/nif/nifstd/birnlex_11009"/>
     </owl:Class>
     
 
@@ -490,11 +574,23 @@
     
 
 
+    <!-- http://uri.neuinfo.org/nif/nifstd/nlx_151698 -->
+
+    <owl:Class rdf:about="http://uri.neuinfo.org/nif/nifstd/nlx_151698"/>
+    
+
+
     <!-- http://uri.neuinfo.org/nif/nifstd/nlx_151760 -->
 
     <owl:Class rdf:about="http://uri.neuinfo.org/nif/nifstd/nlx_151760">
-        <rdfs:subClassOf rdf:resource="http://uri.neuinfo.org/nif/nifstd/null"/>
+        <rdfs:subClassOf rdf:resource="http://uri.neuinfo.org/nif/nifstd/birnlex_11034"/>
     </owl:Class>
+    
+
+
+    <!-- http://uri.neuinfo.org/nif/nifstd/nlx_151921 -->
+
+    <owl:Class rdf:about="http://uri.neuinfo.org/nif/nifstd/nlx_151921"/>
     
 
 
@@ -529,7 +625,7 @@
     <!-- http://uri.neuinfo.org/nif/nifstd/nlx_155521 -->
 
     <owl:Class rdf:about="http://uri.neuinfo.org/nif/nifstd/nlx_155521">
-        <rdfs:subClassOf rdf:resource="http://uri.neuinfo.org/nif/nifstd/null"/>
+        <rdfs:subClassOf rdf:resource="http://uri.neuinfo.org/nif/nifstd/PATO_0001396"/>
     </owl:Class>
     
 
@@ -539,6 +635,12 @@
     <owl:Class rdf:about="http://uri.neuinfo.org/nif/nifstd/nlx_32915">
         <rdfs:subClassOf rdf:resource="http://uri.neuinfo.org/nif/nifstd/OBI_0000272"/>
     </owl:Class>
+    
+
+
+    <!-- http://uri.neuinfo.org/nif/nifstd/nlx_35730 -->
+
+    <owl:Class rdf:about="http://uri.neuinfo.org/nif/nifstd/nlx_35730"/>
     
 
 
@@ -566,11 +668,29 @@
     
 
 
+    <!-- http://uri.neuinfo.org/nif/nifstd/nlx_55759 -->
+
+    <owl:Class rdf:about="http://uri.neuinfo.org/nif/nifstd/nlx_55759"/>
+    
+
+
+    <!-- http://uri.neuinfo.org/nif/nifstd/nlx_56487 -->
+
+    <owl:Class rdf:about="http://uri.neuinfo.org/nif/nifstd/nlx_56487"/>
+    
+
+
     <!-- http://uri.neuinfo.org/nif/nifstd/nlx_64003 -->
 
     <owl:Class rdf:about="http://uri.neuinfo.org/nif/nifstd/nlx_64003">
-        <rdfs:subClassOf rdf:resource="http://uri.neuinfo.org/nif/nifstd/null"/>
+        <rdfs:subClassOf rdf:resource="http://uri.neuinfo.org/nif/nifstd/sao3826089237"/>
     </owl:Class>
+    
+
+
+    <!-- http://uri.neuinfo.org/nif/nifstd/nlx_79070 -->
+
+    <owl:Class rdf:about="http://uri.neuinfo.org/nif/nifstd/nlx_79070"/>
     
 
 
@@ -583,7 +703,7 @@
     <!-- http://uri.neuinfo.org/nif/nifstd/nlx_inv_090908 -->
 
     <owl:Class rdf:about="http://uri.neuinfo.org/nif/nifstd/nlx_inv_090908">
-        <rdfs:subClassOf rdf:resource="http://uri.neuinfo.org/nif/nifstd/null"/>
+        <rdfs:subClassOf rdf:resource="http://uri.neuinfo.org/nif/nifstd/nlx_151921"/>
     </owl:Class>
     
 
@@ -617,12 +737,6 @@
     <owl:Class rdf:about="http://uri.neuinfo.org/nif/nifstd/nlx_inv_20090501">
         <rdfs:subClassOf rdf:resource="http://uri.neuinfo.org/nif/nifstd/birnlex_2271"/>
     </owl:Class>
-    
-
-
-    <!-- http://uri.neuinfo.org/nif/nifstd/null -->
-
-    <owl:Class rdf:about="http://uri.neuinfo.org/nif/nifstd/null"/>
     
 
 
@@ -725,7 +839,7 @@
     <!-- http://uri.neuinfo.org/nif/nifstd/oen_0001013 -->
 
     <owl:Class rdf:about="http://uri.neuinfo.org/nif/nifstd/oen_0001013">
-        <rdfs:subClassOf rdf:resource="http://uri.neuinfo.org/nif/nifstd/null"/>
+        <rdfs:subClassOf rdf:resource="http://uri.neuinfo.org/nif/nifstd/nlx_155517"/>
     </owl:Class>
     
 
@@ -741,7 +855,7 @@
     <!-- http://uri.neuinfo.org/nif/nifstd/oen_0001015 -->
 
     <owl:Class rdf:about="http://uri.neuinfo.org/nif/nifstd/oen_0001015">
-        <rdfs:subClassOf rdf:resource="http://uri.neuinfo.org/nif/nifstd/null"/>
+        <rdfs:subClassOf rdf:resource="http://uri.neuinfo.org/nif/nifstd/nlx_151698"/>
     </owl:Class>
     
 
@@ -813,7 +927,7 @@
     <!-- http://uri.neuinfo.org/nif/nifstd/oen_0001026 -->
 
     <owl:Class rdf:about="http://uri.neuinfo.org/nif/nifstd/oen_0001026">
-        <rdfs:subClassOf rdf:resource="http://uri.neuinfo.org/nif/nifstd/null"/>
+        <rdfs:subClassOf rdf:resource="http://uri.neuinfo.org/nif/nifstd/nlx_func_090801"/>
     </owl:Class>
     
 
@@ -821,7 +935,7 @@
     <!-- http://uri.neuinfo.org/nif/nifstd/oen_0001027 -->
 
     <owl:Class rdf:about="http://uri.neuinfo.org/nif/nifstd/oen_0001027">
-        <rdfs:subClassOf rdf:resource="http://uri.neuinfo.org/nif/nifstd/null"/>
+        <rdfs:subClassOf rdf:resource="http://uri.neuinfo.org/nif/nifstd/birnlex_11013"/>
     </owl:Class>
     
 
@@ -829,7 +943,7 @@
     <!-- http://uri.neuinfo.org/nif/nifstd/oen_0001028 -->
 
     <owl:Class rdf:about="http://uri.neuinfo.org/nif/nifstd/oen_0001028">
-        <rdfs:subClassOf rdf:resource="http://uri.neuinfo.org/nif/nifstd/null"/>
+        <rdfs:subClassOf rdf:resource="http://uri.neuinfo.org/nif/nifstd/nlx_56487"/>
     </owl:Class>
     
 
@@ -909,7 +1023,7 @@
     <!-- http://uri.neuinfo.org/nif/nifstd/oen_0001038 -->
 
     <owl:Class rdf:about="http://uri.neuinfo.org/nif/nifstd/oen_0001038">
-        <rdfs:subClassOf rdf:resource="http://uri.neuinfo.org/nif/nifstd/null"/>
+        <rdfs:subClassOf rdf:resource="http://uri.neuinfo.org/nif/nifstd/nlx_79070"/>
     </owl:Class>
     
 
@@ -917,7 +1031,7 @@
     <!-- http://uri.neuinfo.org/nif/nifstd/oen_0001041 -->
 
     <owl:Class rdf:about="http://uri.neuinfo.org/nif/nifstd/oen_0001041">
-        <rdfs:subClassOf rdf:resource="http://uri.neuinfo.org/nif/nifstd/null"/>
+        <rdfs:subClassOf rdf:resource="http://uri.neuinfo.org/nif/nifstd/Pathway"/>
     </owl:Class>
     
 
@@ -957,7 +1071,7 @@
     <!-- http://uri.neuinfo.org/nif/nifstd/oen_0001048 -->
 
     <owl:Class rdf:about="http://uri.neuinfo.org/nif/nifstd/oen_0001048">
-        <rdfs:subClassOf rdf:resource="http://uri.neuinfo.org/nif/nifstd/null"/>
+        <rdfs:subClassOf rdf:resource="http://uri.neuinfo.org/nif/nifstd/nlx_55759"/>
     </owl:Class>
     
 
@@ -965,7 +1079,7 @@
     <!-- http://uri.neuinfo.org/nif/nifstd/oen_0001049 -->
 
     <owl:Class rdf:about="http://uri.neuinfo.org/nif/nifstd/oen_0001049">
-        <rdfs:subClassOf rdf:resource="http://uri.neuinfo.org/nif/nifstd/null"/>
+        <rdfs:subClassOf rdf:resource="http://uri.neuinfo.org/nif/nifstd/birnlex_1825"/>
     </owl:Class>
     
 
@@ -973,7 +1087,7 @@
     <!-- http://uri.neuinfo.org/nif/nifstd/oen_0001050 -->
 
     <owl:Class rdf:about="http://uri.neuinfo.org/nif/nifstd/oen_0001050">
-        <rdfs:subClassOf rdf:resource="http://uri.neuinfo.org/nif/nifstd/null"/>
+        <rdfs:subClassOf rdf:resource="http://uri.neuinfo.org/nif/nifstd/birnlex_1883"/>
     </owl:Class>
     
 
@@ -981,7 +1095,7 @@
     <!-- http://uri.neuinfo.org/nif/nifstd/oen_0001051 -->
 
     <owl:Class rdf:about="http://uri.neuinfo.org/nif/nifstd/oen_0001051">
-        <rdfs:subClassOf rdf:resource="http://uri.neuinfo.org/nif/nifstd/null"/>
+        <rdfs:subClassOf rdf:resource="http://uri.neuinfo.org/nif/nifstd/birnlex_2180"/>
     </owl:Class>
     
 
@@ -1021,7 +1135,7 @@
     <!-- http://uri.neuinfo.org/nif/nifstd/oen_0001063 -->
 
     <owl:Class rdf:about="http://uri.neuinfo.org/nif/nifstd/oen_0001063">
-        <rdfs:subClassOf rdf:resource="http://uri.neuinfo.org/nif/nifstd/null"/>
+        <rdfs:subClassOf rdf:resource="http://uri.neuinfo.org/nif/nifstd/birnlex_12779"/>
     </owl:Class>
     
 
@@ -1061,7 +1175,7 @@
     <!-- http://uri.neuinfo.org/nif/nifstd/oen_0001072 -->
 
     <owl:Class rdf:about="http://uri.neuinfo.org/nif/nifstd/oen_0001072">
-        <rdfs:subClassOf rdf:resource="http://uri.neuinfo.org/nif/nifstd/null"/>
+        <rdfs:subClassOf rdf:resource="http://uri.neuinfo.org/nif/nifstd/PATO_0001758"/>
     </owl:Class>
     
 
@@ -1133,7 +1247,7 @@
     <!-- http://uri.neuinfo.org/nif/nifstd/oen_0001086 -->
 
     <owl:Class rdf:about="http://uri.neuinfo.org/nif/nifstd/oen_0001086">
-        <rdfs:subClassOf rdf:resource="http://uri.neuinfo.org/nif/nifstd/null"/>
+        <rdfs:subClassOf rdf:resource="http://uri.neuinfo.org/nif/nifstd/OBI_0000272"/>
     </owl:Class>
     
 
@@ -1269,7 +1383,7 @@
     <!-- http://uri.neuinfo.org/nif/nifstd/oen_0001117 -->
 
     <owl:Class rdf:about="http://uri.neuinfo.org/nif/nifstd/oen_0001117">
-        <rdfs:subClassOf rdf:resource="http://uri.neuinfo.org/nif/nifstd/null"/>
+        <rdfs:subClassOf rdf:resource="http://uri.neuinfo.org/nif/nifstd/sao914572699"/>
     </owl:Class>
     
 
@@ -1301,7 +1415,7 @@
     <!-- http://uri.neuinfo.org/nif/nifstd/oen_0001121 -->
 
     <owl:Class rdf:about="http://uri.neuinfo.org/nif/nifstd/oen_0001121">
-        <rdfs:subClassOf rdf:resource="http://uri.neuinfo.org/nif/nifstd/null"/>
+        <rdfs:subClassOf rdf:resource="http://uri.neuinfo.org/nif/nifstd/NEMO_2878000"/>
     </owl:Class>
     
 
@@ -1405,7 +1519,7 @@
     <!-- http://uri.neuinfo.org/nif/nifstd/oen_0001134 -->
 
     <owl:Class rdf:about="http://uri.neuinfo.org/nif/nifstd/oen_0001134">
-        <rdfs:subClassOf rdf:resource="http://uri.neuinfo.org/nif/nifstd/null"/>
+        <rdfs:subClassOf rdf:resource="http://uri.neuinfo.org/nif/nifstd/birnlex_2123"/>
     </owl:Class>
     
 
@@ -1458,6 +1572,12 @@
     
 
 
+    <!-- http://uri.neuinfo.org/nif/nifstd/oen_0001142 -->
+
+    <owl:Class rdf:about="http://uri.neuinfo.org/nif/nifstd/oen_0001142"/>
+    
+
+
     <!-- http://uri.neuinfo.org/nif/nifstd/oen_0001143 -->
 
     <owl:Class rdf:about="http://uri.neuinfo.org/nif/nifstd/oen_0001143">
@@ -1469,7 +1589,7 @@
     <!-- http://uri.neuinfo.org/nif/nifstd/oen_0001144 -->
 
     <owl:Class rdf:about="http://uri.neuinfo.org/nif/nifstd/oen_0001144">
-        <rdfs:subClassOf rdf:resource="http://uri.neuinfo.org/nif/nifstd/null"/>
+        <rdfs:subClassOf rdf:resource="http://uri.neuinfo.org/nif/nifstd/nlx_145311"/>
     </owl:Class>
     
 
@@ -1493,7 +1613,7 @@
     <!-- http://uri.neuinfo.org/nif/nifstd/oen_0001147 -->
 
     <owl:Class rdf:about="http://uri.neuinfo.org/nif/nifstd/oen_0001147">
-        <rdfs:subClassOf rdf:resource="http://uri.neuinfo.org/nif/nifstd/ oen_0001181"/>
+        <rdfs:subClassOf rdf:resource="http://uri.neuinfo.org/nif/nifstd/oen_0001181"/>
     </owl:Class>
     
 
@@ -1501,7 +1621,7 @@
     <!-- http://uri.neuinfo.org/nif/nifstd/oen_0001148 -->
 
     <owl:Class rdf:about="http://uri.neuinfo.org/nif/nifstd/oen_0001148">
-        <rdfs:subClassOf rdf:resource="http://uri.neuinfo.org/nif/nifstd/ oen_0001181"/>
+        <rdfs:subClassOf rdf:resource="http://uri.neuinfo.org/nif/nifstd/oen_0001181"/>
     </owl:Class>
     
 
@@ -1509,7 +1629,7 @@
     <!-- http://uri.neuinfo.org/nif/nifstd/oen_0001149 -->
 
     <owl:Class rdf:about="http://uri.neuinfo.org/nif/nifstd/oen_0001149">
-        <rdfs:subClassOf rdf:resource="http://uri.neuinfo.org/nif/nifstd/ oen_0001181"/>
+        <rdfs:subClassOf rdf:resource="http://uri.neuinfo.org/nif/nifstd/oen_0001181"/>
     </owl:Class>
     
 
@@ -1517,7 +1637,7 @@
     <!-- http://uri.neuinfo.org/nif/nifstd/oen_0001150 -->
 
     <owl:Class rdf:about="http://uri.neuinfo.org/nif/nifstd/oen_0001150">
-        <rdfs:subClassOf rdf:resource="http://uri.neuinfo.org/nif/nifstd/ oen_0001181"/>
+        <rdfs:subClassOf rdf:resource="http://uri.neuinfo.org/nif/nifstd/oen_0001181"/>
     </owl:Class>
     
 
@@ -1525,7 +1645,7 @@
     <!-- http://uri.neuinfo.org/nif/nifstd/oen_0001151 -->
 
     <owl:Class rdf:about="http://uri.neuinfo.org/nif/nifstd/oen_0001151">
-        <rdfs:subClassOf rdf:resource="http://uri.neuinfo.org/nif/nifstd/null"/>
+        <rdfs:subClassOf rdf:resource="http://uri.neuinfo.org/nif/nifstd/oen_0001181"/>
     </owl:Class>
     
 
@@ -1557,7 +1677,7 @@
     <!-- http://uri.neuinfo.org/nif/nifstd/oen_0001156 -->
 
     <owl:Class rdf:about="http://uri.neuinfo.org/nif/nifstd/oen_0001156">
-        <rdfs:subClassOf rdf:resource="http://uri.neuinfo.org/nif/nifstd/null"/>
+        <rdfs:subClassOf rdf:resource="http://uri.neuinfo.org/nif/nifstd/oen_0001142"/>
     </owl:Class>
     
 
@@ -1589,7 +1709,7 @@
     <!-- http://uri.neuinfo.org/nif/nifstd/oen_0001163 -->
 
     <owl:Class rdf:about="http://uri.neuinfo.org/nif/nifstd/oen_0001163">
-        <rdfs:subClassOf rdf:resource="http://uri.neuinfo.org/nif/nifstd/null"/>
+        <rdfs:subClassOf rdf:resource="http://uri.neuinfo.org/nif/nifstd/sao3826089237"/>
     </owl:Class>
     
 
@@ -1669,7 +1789,7 @@
     <!-- http://uri.neuinfo.org/nif/nifstd/oen_0001175 -->
 
     <owl:Class rdf:about="http://uri.neuinfo.org/nif/nifstd/oen_0001175">
-        <rdfs:subClassOf rdf:resource="http://uri.neuinfo.org/nif/nifstd/null"/>
+        <rdfs:subClassOf rdf:resource="http://uri.neuinfo.org/nif/nifstd/Role"/>
     </owl:Class>
     
 
@@ -1701,8 +1821,14 @@
     <!-- http://uri.neuinfo.org/nif/nifstd/oen_0001180 -->
 
     <owl:Class rdf:about="http://uri.neuinfo.org/nif/nifstd/oen_0001180">
-        <rdfs:subClassOf rdf:resource="http://uri.neuinfo.org/nif/nifstd/null"/>
+        <rdfs:subClassOf rdf:resource="http://uri.neuinfo.org/nif/nifstd/oen_0001312"/>
     </owl:Class>
+    
+
+
+    <!-- http://uri.neuinfo.org/nif/nifstd/oen_0001181 -->
+
+    <owl:Class rdf:about="http://uri.neuinfo.org/nif/nifstd/oen_0001181"/>
     
 
 
@@ -1741,7 +1867,7 @@
     <!-- http://uri.neuinfo.org/nif/nifstd/oen_0001186 -->
 
     <owl:Class rdf:about="http://uri.neuinfo.org/nif/nifstd/oen_0001186">
-        <rdfs:subClassOf rdf:resource="http://uri.neuinfo.org/nif/nifstd/null"/>
+        <rdfs:subClassOf rdf:resource="http://uri.neuinfo.org/nif/nifstd/nlx_35730"/>
     </owl:Class>
     
 
@@ -1749,7 +1875,7 @@
     <!-- http://uri.neuinfo.org/nif/nifstd/oen_0001187 -->
 
     <owl:Class rdf:about="http://uri.neuinfo.org/nif/nifstd/oen_0001187">
-        <rdfs:subClassOf rdf:resource="http://uri.neuinfo.org/nif/nifstd/null"/>
+        <rdfs:subClassOf rdf:resource="http://uri.neuinfo.org/nif/nifstd/sao280355188"/>
     </owl:Class>
     
 
@@ -1861,7 +1987,7 @@
     <!-- http://uri.neuinfo.org/nif/nifstd/oen_0001213 -->
 
     <owl:Class rdf:about="http://uri.neuinfo.org/nif/nifstd/oen_0001213">
-        <rdfs:subClassOf rdf:resource="http://uri.neuinfo.org/nif/nifstd/null"/>
+        <rdfs:subClassOf rdf:resource="http://uri.neuinfo.org/nif/nifstd/nlx_155510"/>
     </owl:Class>
     
 
@@ -1893,7 +2019,7 @@
     <!-- http://uri.neuinfo.org/nif/nifstd/oen_0001218 -->
 
     <owl:Class rdf:about="http://uri.neuinfo.org/nif/nifstd/oen_0001218">
-        <rdfs:subClassOf rdf:resource="http://uri.neuinfo.org/nif/nifstd/null"/>
+        <rdfs:subClassOf rdf:resource="http://uri.neuinfo.org/nif/nifstd/PATO_0001035"/>
     </owl:Class>
     
 
@@ -1917,7 +2043,7 @@
     <!-- http://uri.neuinfo.org/nif/nifstd/oen_0001224 -->
 
     <owl:Class rdf:about="http://uri.neuinfo.org/nif/nifstd/oen_0001224">
-        <rdfs:subClassOf rdf:resource="http://uri.neuinfo.org/nif/nifstd/null"/>
+        <rdfs:subClassOf rdf:resource="http://uri.neuinfo.org/nif/nifstd/PATO_0001238"/>
     </owl:Class>
     
 
@@ -2029,7 +2155,7 @@
     <!-- http://uri.neuinfo.org/nif/nifstd/oen_0001310 -->
 
     <owl:Class rdf:about="http://uri.neuinfo.org/nif/nifstd/oen_0001310">
-        <rdfs:subClassOf rdf:resource="http://uri.neuinfo.org/nif/nifstd/null"/>
+        <rdfs:subClassOf rdf:resource="http://uri.neuinfo.org/nif/nifstd/nifext_8057"/>
     </owl:Class>
     
 
@@ -2056,15 +2182,21 @@
     
 
 
-    <!-- http://uri.neuinfo.org/nif/nifstd/sao914572699 -->
+    <!-- http://uri.neuinfo.org/nif/nifstd/sao280355188 -->
 
-    <owl:Class rdf:about="http://uri.neuinfo.org/nif/nifstd/sao914572699"/>
+    <owl:Class rdf:about="http://uri.neuinfo.org/nif/nifstd/sao280355188"/>
     
 
 
-    <!-- http://uri.neuinfo.org/nif/nifstd/ oen_0001181 -->
+    <!-- http://uri.neuinfo.org/nif/nifstd/sao3826089237 -->
 
-    <owl:Class rdf:about="http://uri.neuinfo.org/nif/nifstd/ oen_0001181"/>
+    <owl:Class rdf:about="http://uri.neuinfo.org/nif/nifstd/sao3826089237"/>
+    
+
+
+    <!-- http://uri.neuinfo.org/nif/nifstd/sao914572699 -->
+
+    <owl:Class rdf:about="http://uri.neuinfo.org/nif/nifstd/sao914572699"/>
     
 
 

@@ -250,14 +250,14 @@ public class ConvertFile {
 			String key = entry.getKey();	
 			System.out.println("\nK:"+key+"\tV:"+entry.getValue());
 
-			//String prefix = "http://neurolex.org/wiki/Special:ExportRDF/Category:";
+			//String prefix = "http://neurolex.org/wiki/Special:ExportRDF/Category:";  // Prefix if using Term Label 
 			String prefix = "http://uri.neuinfo.org/nif/nifstd/";
 			//String newKey = key.replaceAll(" ", "_"); // Remove since using ID in IRI 
 
 			//Use classIDHashtable to get ID instead of label to create Class IRI
 			String id = classIDHashtable.get(key);
 			System.out.println("** ID: "+id
-					+"\n** Label: "+key);
+					+"\t** Label: "+key);
 
 			IRI iri = IRI.create(prefix+id);
 			// Now we create the Class, NOTE: this does not add the Class to the ontology, but creates the Class object
@@ -268,26 +268,25 @@ public class ConvertFile {
 			// Get ID for parent from hashtable
 			String parentId = classIDHashtable.get(parent);
 			System.out.println("** ParentID: "+parentId
-					+"\n** Parent Label: "+parent);
+					+"\t** Parent Label: "+parent);
 
 			if (parentId == null) {
-				String newParent = parent.replaceAll(" ", "_");
-				newParent = "Category:"+newParent;
-				System.out.println("Null ID Found. Use \""+newParent+"\" to query NeuroLex for ID.");
+				parentId = parent.replaceAll(" ", "_");
+				parentId = "Category:"+parentId;
+				System.out.println("Null ID Found. Use \""+parentId+"\" to query NeuroLex for ID.");
 				// Use WikiAPI to get ID for Parent
-				String parentIDFromWiki = getParentIdFromWikiAPI(newParent);
-				// Add Id back to hashtable
-				System.out.println("** ParentIDFromWiki: "+parentIDFromWiki);
-
+				String parentIDFromWiki = getParentIdFromWikiAPI(parentId);
+				// Trim whitespace from value
+				parentId = parentIDFromWiki.trim();
+				System.out.println("** ParentIDFromWiki: "+parentId);
 				// Update null value in hashtable
-				//classIDHashtable.remove(parent);  // Remove key and value first 
-				classIDHashtable.put(parent, parentIDFromWiki);  //Then add key and value back to hashtable 
+				classIDHashtable.put(parent, parentId);  //Then add key and value back to hashtable 
 			}
-
 
 			OWLClass clsB = factory.getOWLClass(IRI.create(prefix + parentId));
 			OWLAxiom axiom = factory.getOWLSubClassOfAxiom(clsAMethodA, clsB);
 			AddAxiom addAxiom = new AddAxiom(ontology, axiom);
+			System.out.println(addAxiom);
 			// We now use the manager to apply the change
 			manager.applyChange(addAxiom);
 
@@ -296,7 +295,7 @@ public class ConvertFile {
 			OWLDeclarationAxiom declarationAxiom = factory
 					.getOWLDeclarationAxiom(clsAMethodA);
 			manager.addAxiom(ontology, declarationAxiom);
-
+			
 			// Save ontology 
 			manager.saveOntology(ontology);	
 		}		
@@ -324,7 +323,7 @@ public class ConvertFile {
 				//System.out.println("TermId: "+line);
 				String [] idLine = line.split("=");
 				parentId = idLine[1];
-				System.out.println("** TermID: "+parentId);
+				//System.out.println("** TermID: "+parentId);
 			}
 		}
 		return parentId;

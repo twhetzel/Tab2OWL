@@ -79,11 +79,11 @@ public class ConvertFile {
 		Hashtable<String,String> classIDHashtable = new Hashtable<String,String>();
 		classIDHashtable = createClassIDLabelHash(termsAndProperties);
 
-		File owlFile = createOWLFile();
-		buildClassTree(termsAndProperties, owlFile, classIDHashtable);
+		//File owlFile = createOWLFile();
+		//buildClassTree(termsAndProperties, owlFile, classIDHashtable);
 
-		addClassRestrictions(termsAndProperties, owlFile, classIDHashtable);
-		addAnnotations(termsAndProperties, owlFile, classIDHashtable);
+		//addClassRestrictions(termsAndProperties, owlFile, classIDHashtable);
+		//addAnnotations(termsAndProperties, owlFile, classIDHashtable);
 	}
 
 
@@ -177,18 +177,18 @@ public class ConvertFile {
 			String parentLabel = entry.getValue().get(2).toString(); //Parent label
 			System.out.println("\n** TermLabel: "+key+" ParentLabel: "+parentLabel);
 
-			//Check if hashtable contains parentLabel as a key
+			//Check if hashtable contains parentLabel as a key, if not use Wiki API to get it
 			if (!hashtable.containsKey(parentLabel)) {
 				// Format parent label for use in query to Wiki 
 				String newParentLabel = parentLabel.replaceAll(" ", "_");
 				newParentLabel = "Category:"+parentLabel;
-				System.out.println("Null ID Found. Use \""+newParentLabel+"\" to query NeuroLex for ID.");
+				//System.out.println("Null ID Found. Use \""+newParentLabel+"\" to query NeuroLex for ID.");
 				// Use WikiAPI to get ID for Parent
 				String parentIDFromWiki = getParentIdFromWikiAPI(newParentLabel);
 				// Trim whitespace from value
 				parentIDFromWiki = parentIDFromWiki.trim();
-				System.out.println("** ParentIDFromWiki: "+parentIDFromWiki);
-				System.out.println("ParentLabel: "+parentLabel+" ParentID"+parentIDFromWiki);
+				//System.out.println("** ParentIDFromWiki: "+parentIDFromWiki);
+				System.out.println("ParentLabel: "+parentLabel+" ParentID: "+parentIDFromWiki);
 				hashtable.put(parentLabel, parentIDFromWiki);
 			}	
 		}
@@ -367,7 +367,7 @@ public class ConvertFile {
 		return parentId;
 	}
 
-	@SuppressWarnings("unchecked")
+	
 	public static String getPageContent(String title) {
 		String content = null;
 		String[] listOfTitleStrings = { title }; 

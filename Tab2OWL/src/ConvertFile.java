@@ -61,6 +61,8 @@ import javax.security.auth.login.*;
 public class ConvertFile {
 
 	/**
+	 * Converts Tab file to OWL
+	 * 
 	 * @param args
 	 * @throws OWLOntologyStorageException 
 	 * @throws IOException 
@@ -68,9 +70,7 @@ public class ConvertFile {
 	 */
 	public static void main(String[] args) throws OWLOntologyStorageException, IOException, OWLOntologyCreationException {
 		/**
-		 * Read in tab delimited file and convert 
-		 * to stand-alone OWL file 
-		 * 
+		 * Read in tab delimited file and convert to OWL file 
 		 */
 
 		Map<String, ArrayList> termsAndProperties = processTermFile();	
@@ -81,8 +81,8 @@ public class ConvertFile {
 		File owlFile = createOWLFile();
 		buildClassTree(termsAndProperties, owlFile, classIDHashtable);
 
-		/*addClassRestrictions(termsAndProperties, owlFile, classIDHashtable);
-		addAnnotations(termsAndProperties, owlFile, classIDHashtable);*/
+		//addClassRestrictions(termsAndProperties, owlFile, classIDHashtable);
+		//addAnnotations(termsAndProperties, owlFile, classIDHashtable);
 	}
 
 
@@ -182,8 +182,7 @@ public class ConvertFile {
 		// Loop through termsAndProperties to find root terms based on
 		// that every Parent label should exist as a key in the hashtable 	
 		
-		//IF resource_type should be parent term, then it's easy since parent exists for all terms in file
-		//TODO Confirming is-part-of and resource_type with others 
+		//Column resource_type should be parent term, limit to only university OR government granting agency
 		Map<String, ArrayList> termsAndPropertiesRootTerms = new HashMap<String,ArrayList>();
 		
 		System.out.println("** Find Root terms ");
@@ -221,6 +220,7 @@ public class ConvertFile {
 				// Also, try adding parent Term Label and Id to termsAndProperties Map
 				String thingIRI = "http://www.w3.org/2002/07/owl#Thing";
 				String thing = "Thing";
+				hashtable.put(thing, thing); //new code 02/02/2015
 				
 				//TODO Check order of items added in ArrayList since data input file is different
 				ArrayList<String> parentMetadata = new ArrayList<String>(Arrays.asList(parentIDFromWiki,parentLabel,"NO VALUE",
@@ -345,6 +345,7 @@ public class ConvertFile {
 
 
 	/**
+	 * Build Class tree hierarchy 
 	 * 
 	 * @param termsAndProperties
 	 * @param owlFile
@@ -379,23 +380,27 @@ public class ConvertFile {
 			IRI iri = IRI.create(prefix+id);
 			// Now we create the Class, NOTE: this does not add the Class to the ontology, but creates the Class object
 			OWLClass clsAMethodA = factory.getOWLClass(iri);
-
+			System.out.println("clsA: "+clsAMethodA);
+			
+			
 			// Add Parent to Class, value[2orig] from termsAndProperties Map object
-			String parent = entry.getValue().get(6).toString();
+			String parentLabel = entry.getValue().get(6).toString();
+			//Normalize parent label to only convert to only university OR government granting agency 
+			if (parentLabel.contains("university")) {
+				parentLabel = "university";
+				System.out.println("ParTest:"+parentLabel);
+			}
+			if (parentLabel.contains("government granting agency")) {
+				parentLabel = "government granting agency";
+				System.out.println("ParTest:"+parentLabel);
+			}
 			String childKey = entry.getKey();
-			System.out.println("ParentLabel:"+parent+" ChildKey:"+childKey);
+			System.out.println("ParentLabel:"+parentLabel+" ChildKey:"+childKey);
+			
 			
 			// Get ID for parent from hashtable
-			//Normalize parent label
-			if (parent.contains("university")) {
-				parent = "university";
-			}
-			else {
-				parent = "government granting agency";
-			}
-			String parentId = classIDHashtable.get(parent); //classIDHashtable.get(parent); //classIDHashtable is now key=termLabel, value-e_uid
-			System.out.println("** ParentID: "+parentId+"\t** Parent Label: "+parent);
-
+			String parentId = classIDHashtable.get(parentLabel); //classIDHashtable.get(parent); //classIDHashtable is now key=termLabel, value-e_uid
+			System.out.println("** ParentID: "+parentId+"\t** Parent Label: "+parentLabel);
 
 			// TODO Remove after more testing that moving this test to createClassIDLabelHash is working
 			/*if (parentId == null) {
@@ -415,8 +420,9 @@ public class ConvertFile {
 			// Check if Parent is owl:Thing
 			String thing = "Thing";
 			if (parentId.equals(thing)) {
-				System.out.println("Parent is owl:Thing");
+				System.out.println("Parent is owl:Thing for this term");
 				clsB = factory.getOWLClass(IRI.create(thingPrefix + parentId));
+				
 			}
 			else {
 				clsB = factory.getOWLClass(IRI.create(prefix + parentId));
@@ -484,9 +490,7 @@ public class ConvertFile {
 							System.out.println("** TermID: "+parentId);
 						}
 					}
-				}
-				
-				
+				}			
 				if (line.contains(termIDPattern)) {
 					//System.out.println("TermId: "+line);
 					String [] idLine = line.split("=");
@@ -498,7 +502,7 @@ public class ConvertFile {
 		return parentId;
 	}
 
-	
+
 	public static String getPageContent(String title) {
 		String content = null;
 		String[] listOfTitleStrings = { title }; 
@@ -527,6 +531,7 @@ public class ConvertFile {
 
 
 	/**
+	 * Add Class restrictions/Object Properties  
 	 * 
 	 * @param termsAndProperties
 	 * @param owlFile
@@ -564,7 +569,9 @@ public class ConvertFile {
 			PrefixManager pm = new DefaultPrefixManager("http://uri.neuinfo.org/nif/nifstd/");
 			//String newKey = key.replaceAll(" ", "_");
 			// Get ID from hashtable
-			String classId = classIDHashtable.get(key);
+			//String classId = classIDHashtable.get(key);
+			String parentLabel = entry.getValue().get(6).toString();
+			String classId = classIDHashtable.get(parentLabel);
 			OWLClass clsAMethodB = factory.getOWLClass(classId, pm);
 			System.err.println("classAMethodB: "+clsAMethodB);
 
@@ -663,8 +670,6 @@ public class ConvertFile {
 				}
 				System.out.println();
 			}
-
-
 			// Save ontology 
 			manager.saveOntology(ontology);
 		}
@@ -698,14 +703,39 @@ public class ConvertFile {
 			//String prefix = "http://neurolex.org/wiki/Special:ExportRDF/Category:";
 			PrefixManager pm = new DefaultPrefixManager("http://uri.neuinfo.org/nif/nifstd/");
 			//String newKey = key.replaceAll(" ", "_");
+			
 			// Get ID from hashtable
-			String classId = classIDHashtable.get(key);
+			String parentLabel = entry.getValue().get(6).toString();
+			if (parentLabel.contains("university")) {
+				parentLabel = "university";
+			}
+			if (parentLabel.contains("government granting agency")) {
+				parentLabel = "government granting agency";
+			}
+			if (parentLabel.contains("Thing")) {
+				parentLabel = "Thing";
+			}
+			
+			/*
+			 * TEST - Get owl:Thing Class from ontology file
+			 */
+			String owlId = "Thing";
+			PrefixManager thingPrefix = new DefaultPrefixManager("http://www.w3.org/2002/07/owl#");
+			OWLClass clsAMethodBOWL = factory.getOWLClass(owlId, thingPrefix);
+			System.out.println("*** classAMethodBOWLThing: "+clsAMethodBOWL);
+			
+			
+			String classId = classIDHashtable.get(parentLabel);
+			//String classId = classIDHashtable.get(key);
+			System.out.println("ParentLabel-"+parentLabel+"classId:"+classId);
 			OWLClass clsAMethodB = factory.getOWLClass(classId, pm);
 			System.out.println("classAMethodB: "+clsAMethodB);
 			//String newKey = key.replaceAll(" ", "_");
 			//OWLClass clsAMethodB = factory.getOWLClass(newKey, pm);
 			//System.err.println("classAMethodB: "+clsAMethodB);
 
+			
+			
 			
 			/**
 			 * Add annotations -> Label, Definition, Synonym, Defining Citation
@@ -732,8 +762,8 @@ public class ConvertFile {
 			}
 
 
-			// Get values for Synonym from text file, values[6] 
-			String synonym = entry.getValue().get(6).toString();
+			// Get values for Synonym from text file, values[10] 
+			String synonym = entry.getValue().get(10).toString();
 			synonym = synonym.replaceAll("\"", "");
 			//System.err.println("Synonym: "+synonym);
 			if (!synonym.equals("NO VALUE")) {
@@ -748,20 +778,20 @@ public class ConvertFile {
 			}
 
 			
-			// Get values for Defining Citation from text file, values[7] 
-			String citation = entry.getValue().get(7).toString();
+			// Get values for Defining Citation from text file, values[5] 
+			String citation = entry.getValue().get(5).toString();
 			//System.err.println("Citation: "+citation);
 			if (!citation.equals("NO VALUE")) {
 				System.out.println("Citation Values: "+citation);
 				OWLAnnotation citationAnnotation = factory.getOWLAnnotation(citationProperty,factory.getOWLLiteral(citation));
 				OWLAxiom citationAxiom = factory.getOWLAnnotationAssertionAxiom(clsAMethodB.getIRI(), citationAnnotation);
-				System.out.println("Synonym Axiom: "+citationAxiom);
+				System.out.println("Citation Axiom: "+citationAxiom);
 				manager.applyChange(new AddAxiom(ontology, citationAxiom)); 
 			}
 
 			
-			// Get values for Definition from text file, values[8]
-			String definition = entry.getValue().get(8).toString();
+			// Get values for Definition from text file, values[3]
+			String definition = entry.getValue().get(3).toString();
 			//System.err.println("Definition: "+definition);	
 			if (!definition.equals("NO VALUE")) {
 				System.out.println("Definition Values: "+definition);
@@ -771,7 +801,6 @@ public class ConvertFile {
 			}
 			System.out.println();
 		}
-
 		// Save ontology 
 		manager.saveOntology(ontology);
 	}

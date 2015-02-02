@@ -74,7 +74,6 @@ public class ConvertFile {
 		 */
 
 		Map<String, ArrayList> termsAndProperties = processTermFile();	
-
 		// Create Hashtable for label->ID for classes
 		Hashtable<String,String> classIDHashtable = new Hashtable<String,String>();
 		classIDHashtable = createClassIDLabelHash(termsAndProperties);
@@ -82,8 +81,8 @@ public class ConvertFile {
 		File owlFile = createOWLFile();
 		buildClassTree(termsAndProperties, owlFile, classIDHashtable);
 
-		addClassRestrictions(termsAndProperties, owlFile, classIDHashtable);
-		addAnnotations(termsAndProperties, owlFile, classIDHashtable);
+		/*addClassRestrictions(termsAndProperties, owlFile, classIDHashtable);
+		addAnnotations(termsAndProperties, owlFile, classIDHashtable);*/
 	}
 
 
@@ -100,20 +99,23 @@ public class ConvertFile {
 
 
 		try {
+			File file = new File("/Users/whetzel/Documents/workspace/neurolex-institutions/NLex-DBVis.txt");
 			String sCurrentLine;
-			br = new BufferedReader(new FileReader("/Users/whetzel/Documents/UCSD/NeuroLex/NeuroLex-ElectrophysiologyCategories.txt"));
-
+			//br = new BufferedReader(new FileReader("/Users/whetzel/Documents/UCSD/NeuroLex/NeuroLex-ElectrophysiologyCategories.txt"));
+			br = new BufferedReader(new FileReader(file));
+			
 			while ((sCurrentLine = br.readLine()) != null) {
 				lineCount++;
-				if (lineCount > 1 ) {
-					//System.out.println("**NEW-LINE: "+sCurrentLine);
+				if (lineCount > 1 ) { //skip header line
+					System.out.println("**NEW-LINE("+lineCount+"): "+sCurrentLine);
 					// Parse file columns
 					String[] values = sCurrentLine.split("\t", -1); // Do not truncate line on empty values
 
-					// Handle null values in spreadsheet
+					// Handle null(empty cells) values in spreadsheet
 					for (int index = 0; index < values.length; index++) {		
 						if (values[index].length() > 0) { // Check that the array index contains a value
 							//System.out.print("\'"+values[index]+"\'"+"\n");
+							//might want to change value of (null) to something else... 
 							list.add(values[index]);
 						}
 						else {
@@ -121,24 +123,28 @@ public class ConvertFile {
 							//System.out.print("NULL-"+values[index]+"\t");
 							list.add(values[index]);
 						}
-						// Create a copy of the ArrayList to keep values, but not references so it can be cleared before reading the next line 
+						// Create a copy of the ArrayList to keep values, but not references so it can be cleared before reading the next line in while loop 
 						ArrayList<String> copy = new ArrayList<String>();
 						copy.addAll(list);
-						// Put values in a HashMap keyed on the ID, value[5] OR label, value[1]
-						terms.put(values[1], copy );
+						// Put values in a HashMap keyed on the ID, value[0] OR    label, value[1]
+						terms.put(values[0], copy );
 
 					}		
-					//System.out.println("ARR-SIZE: "+list.size());
-					//System.out.println("MAP: "+values[1]+"\tLIST: "+list);
+					if (list.size() != 11) { //confirm that all rows have expected number of columns
+						System.err.println("ARR-SIZE: "+list.size());
+						System.out.println("MAP: "+values[0]+"\tLIST: "+list);
+						break;
+					}
+					System.out.println("MAP: "+values[0]+"\tLIST: "+list);
 
 					// Clear initial ArrayList to prepare for next line in file
 					list.clear();
 
 					//System.out.println("TERMS:"+terms); //Values are null because they were cleared
-					//System.out.println();
+					System.out.println();
 				}
 				else {
-					//System.out.println("Skipping header line....");
+					System.out.println("Skipping header line....");
 				}
 			}
 		} catch (IOException e) {
@@ -155,39 +161,83 @@ public class ConvertFile {
 
 	
 	/**
-	 * Build Hashtable of term labels (key) and term Ids (value) 
+	 * Build Hashtable of term labels (hash key) and term Ids (hash value) 
 	 * in order to swap out label for Id in term IRI 
 	 */
 	private static Hashtable<String, String> createClassIDLabelHash(Map<String, ArrayList> termsAndProperties) {
 		System.out.println("\n** createClassIDLabelHash method **");
-		// Populate hashtable from termsAndProperies using the label (values[1]) as the key and ID (values[5]) as the value
+		// Populate hashtable from termsAndProperies using the label (values[1]) as the key and ID (values[0]) as the value
 		Hashtable<String,String> hashtable = new Hashtable<String,String>();
 		int count = 0;
 
 		for (Entry<String, ArrayList> entry : termsAndProperties.entrySet()) {
-			String key = entry.getKey(); //Label
-			String value = entry.getValue().get(5).toString(); //ID
+			//String key = entry.getKey(); //Label - old data file
+			//String value = entry.getValue().get(5).toString(); //ID - old data file 
+			String key = entry.getValue().get(1).toString(); //add term label as key
+			String value = entry.getKey(); //e_uid as value
+			//System.out.println("ParentLookupHash KEY:"+key+" VALUE:"+value);
 			hashtable.put(key, value);
 		}
 
 		// Loop through termsAndProperties to find root terms based on
-		// that every Parent label should exist as a key in the hashtable 
+		// that every Parent label should exist as a key in the hashtable 	
 		
+		//IF resource_type should be parent term, then it's easy since parent exists for all terms in file
+		//TODO Confirming is-part-of and resource_type with others 
 		Map<String, ArrayList> termsAndPropertiesRootTerms = new HashMap<String,ArrayList>();
 		
 		System.out.println("** Find Root terms ");
 		for (Entry<String, ArrayList> entry : termsAndProperties.entrySet()) {
-			String key = entry.getKey(); // Label
+			/*String key = entry.getKey(); // Label
 			String parentLabel = entry.getValue().get(2).toString(); //Parent label
-			System.out.println("\n** TermLabel: "+key+" ParentLabel: "+parentLabel);
-
-			//Check if hashtable contains parentLabel as a key, if not use Wiki API to get it
+			System.out.println("\n** TermLabel: "+key+" ParentLabel: "+parentLabel);*/
+			
+			//TODO Re-do variable mapping for Institution data file
+			String key =  entry.getValue().get(1).toString(); // Label
+			String parentLabel = entry.getValue().get(6).toString();  //Parent label -> resource_type column from DISCO, may contain multiple values, but university and gov. granting are disjoint
+			if (parentLabel.contains("university")) {
+				parentLabel = "university";
+			}
+			if (parentLabel.contains("government granting agency")) {
+				parentLabel = "government granting agency";
+			}
+			//System.out.println("\n** TermLabel: "+key+" - ParentLabel: "+parentLabel);
+			
 			if (!hashtable.containsKey(parentLabel)) {
 				count++;
 				// Format parent label for use in query to Wiki 
-				String newParentLabel = parentLabel.replaceAll(" ", "_");
-				newParentLabel = "Category:"+parentLabel;
-				//System.out.println("Null ID Found. Use \""+newParentLabel+"\" to query NeuroLex for ID.");
+				String newParentLabel = "Category:"+parentLabel.replaceAll(" ", "_");
+				System.out.println("Parent label is Not in Hash. Use \""+newParentLabel+"\" to query NeuroLex for ID.");
+				// Use WikiAPI to get ID for Parent
+				String parentIDFromWiki = getParentIdFromWikiAPI(newParentLabel); //Since data was queried with parents known to be in NLex, a value is always returned
+				// Trim whitespace from value
+				parentIDFromWiki = parentIDFromWiki.trim();
+				System.out.println("** ParentIDFromWiki: "+parentIDFromWiki);
+				System.out.println("ParentLabel: "+parentLabel+" ParentID: "+parentIDFromWiki+" RootTermCount: "+count);
+				
+				hashtable.put(parentLabel, parentIDFromWiki);
+				//hashtable.put(parentIDFromWiki, parentLabel);
+				
+				// Also, try adding parent Term Label and Id to termsAndProperties Map
+				String thingIRI = "http://www.w3.org/2002/07/owl#Thing";
+				String thing = "Thing";
+				
+				//TODO Check order of items added in ArrayList since data input file is different
+				ArrayList<String> parentMetadata = new ArrayList<String>(Arrays.asList(parentIDFromWiki,parentLabel,"NO VALUE",
+						"NO VALUE","NO VALUE","NO VALUE",thing,"NO VALUE", "NO VALUE","NO VALUE","NO VALUE")); 
+				System.out.println("PID: "+parentMetadata); //parentMetadata.get(6));
+				termsAndPropertiesRootTerms.put(parentIDFromWiki, parentMetadata);   
+			}
+			
+			
+			//Check if hashtable contains parentLabel as a key, if not && parentLabel is not null use Wiki API to get it
+			//IF parentLabel is null then...
+			/*if ((!hashtable.containsKey(parentLabel)) && (!parentLabel.equals("(null)"))) {
+				System.out.println("Parent label is Not Null");
+				count++;
+				// Format parent label for use in query to Wiki 
+				String newParentLabel = "Category:"+parentLabel.replaceAll(" ", "_");
+				System.out.println("Null/No ID Found. Use \""+newParentLabel+"\" to query NeuroLex for ID.");
 				// Use WikiAPI to get ID for Parent
 				String parentIDFromWiki = getParentIdFromWikiAPI(newParentLabel);
 				// Trim whitespace from value
@@ -199,15 +249,37 @@ public class ConvertFile {
 				// Also, try adding parent Term Label and Id to termsAndProperties Map
 				String thingIRI = "http://www.w3.org/2002/07/owl#Thing";
 				String thing = "Thing";
+				
+				//TODO Check order of items added in ArrayList since data input file is different
 				ArrayList<String> parentMetadata = new ArrayList<String>(Arrays.asList("NO VALUE",parentLabel,thing
 							,"NO VALUE","NO VALUE",parentIDFromWiki,"NO VALUE","NO VALUE","NO VALUE")); 
 				System.out.println("PID: "+parentMetadata.get(5));
 				termsAndPropertiesRootTerms.put(parentLabel, parentMetadata);   
-			}	
+			}
+			//Handle case where parentLabel is not in the hashtable AND parentLabel is null -> use resource_type(6) as parentLabel
+			else {
+				count++;
+				String resourceType = entry.getValue().get(6).toString();
+				String resourceTypeWikiTerm = "Category:"+entry.getValue().get(6).toString();
+				System.out.println("RT:"+resourceType);
+				// Use WikiAPI to get ID for Parent
+				String resourceTypeIDFromWiki = getParentIdFromWikiAPI(resourceTypeWikiTerm); //OR Hardcode if/else statemnet for University or Government granting agency as 2 possible parent options
+				System.out.println("ParentLabel-RT:"+resourceType+" ParentID:"+resourceTypeIDFromWiki+" RootTermCount: "+count);
+				hashtable.put(entry.getValue().get(6).toString(), resourceTypeIDFromWiki);
+				
+				// Also, try adding parent Term Label and Id to termsAndProperties Map ... as above
+				
+				//TODO Check order of items added in ArrayList since data input file is different
+				ArrayList<String> parentMetadata = new ArrayList<String>(Arrays.asList("NO VALUE",resourceType,resourceType
+							,"NO VALUE","NO VALUE",resourceTypeIDFromWiki,"NO VALUE","NO VALUE","NO VALUE")); 
+				System.out.println("PID: "+parentMetadata.get(5));
+				termsAndPropertiesRootTerms.put(parentLabel, parentMetadata); 
+			}*/		
 		}
 		// Add contents of "RootTerms" HashMap to all terms HashMap
-		termsAndProperties.putAll(termsAndPropertiesRootTerms);
-		
+		System.out.println("termsAndPropertiesRootTerms "+termsAndPropertiesRootTerms);
+		termsAndProperties.putAll(termsAndPropertiesRootTerms);	
+		System.out.println("hashtable"+hashtable);
 		return hashtable;
 	}
 
@@ -243,7 +315,7 @@ public class ConvertFile {
 			System.out.println("Created ontology: " + ontology);
 
 			// Set version IRI, use the date the file contents were exported from NeuroLex
-			IRI versionIRI = IRI.create(ontologyIRI + "NeuroLexExport06302014");
+			IRI versionIRI = IRI.create(ontologyIRI + "NeuroLexExport01302015");
 			OWLOntologyID newOntologyID = new OWLOntologyID(ontologyIRI, versionIRI);
 			// Create the change that will set our version IRI
 			SetOntologyID setOntologyID = new SetOntologyID(ontology, newOntologyID);
@@ -292,35 +364,44 @@ public class ConvertFile {
 		// Populate ontology with class hierarchy from termsAndProperties 
 		for (Entry<String, ArrayList> entry : termsAndProperties.entrySet()) {
 			String key = entry.getKey();	
-			System.out.println("\nK:"+key+"\tV:"+entry.getValue());
-
-			//String prefix = "http://neurolex.org/wiki/Special:ExportRDF/Category:";  // Prefix if using Term Label 
+			String termLabel = entry.getValue().get(1).toString();
+			System.out.println("\nKey:"+key+"\tValues:"+entry.getValue());
+ 
 			String prefix = "http://uri.neuinfo.org/nif/nifstd/";
 			String thingPrefix ="http://www.w3.org/2002/07/owl#";
 			//String newKey = key.replaceAll(" ", "_"); // Remove since using ID in IRI 
 
 			//Use classIDHashtable to get ID instead of label to create Class IRI
-			String id = classIDHashtable.get(key);
+			String id = classIDHashtable.get(termLabel); 
 			System.out.println("** ID: "+id
-					+"\t** Label: "+key);
+					+"\t** Label: "+termLabel);
 
 			IRI iri = IRI.create(prefix+id);
 			// Now we create the Class, NOTE: this does not add the Class to the ontology, but creates the Class object
 			OWLClass clsAMethodA = factory.getOWLClass(iri);
 
-			// Add Parent to Class, value[2] from termsAndProperties Map object
-			String parent = entry.getValue().get(2).toString();
+			// Add Parent to Class, value[2orig] from termsAndProperties Map object
+			String parent = entry.getValue().get(6).toString();
+			String childKey = entry.getKey();
+			System.out.println("ParentLabel:"+parent+" ChildKey:"+childKey);
+			
 			// Get ID for parent from hashtable
-			String parentId = classIDHashtable.get(parent);
-			System.out.println("** ParentID: "+parentId
-					+"\t** Parent Label: "+parent);
+			//Normalize parent label
+			if (parent.contains("university")) {
+				parent = "university";
+			}
+			else {
+				parent = "government granting agency";
+			}
+			String parentId = classIDHashtable.get(parent); //classIDHashtable.get(parent); //classIDHashtable is now key=termLabel, value-e_uid
+			System.out.println("** ParentID: "+parentId+"\t** Parent Label: "+parent);
 
 
 			// TODO Remove after more testing that moving this test to createClassIDLabelHash is working
-			if (parentId == null) {
+			/*if (parentId == null) {
 				parentId = parent.replaceAll(" ", "_");
 				parentId = "Category:"+parentId;
-				System.out.println("Null ID Found. Use \""+parentId+"\" to query NeuroLex for ID.");
+				System.out.println("Null/No ID Found. Use \""+parentId+"\" to query NeuroLex for ID.");
 				// Use WikiAPI to get ID for Parent
 				String parentIDFromWiki = getParentIdFromWikiAPI(parentId);
 				// Trim whitespace from value 
@@ -328,7 +409,7 @@ public class ConvertFile {
 				System.out.println("** ParentIDFromWiki: "+parentId);
 				// Update null value in hashtable
 				classIDHashtable.put(parent, parentId);  //Then add key and value back to hashtable 
-			}
+			}*/
 			
 			OWLClass clsB;
 			// Check if Parent is owl:Thing
@@ -367,7 +448,7 @@ public class ConvertFile {
 		//Tester test = new Tester();
 		//System.out.println("** Query term: "+newParent);
 		String content = getPageContent(newParent);  //test.getPageContent(newParent); 
-		//System.out.println(content);
+		//System.out.println("Wiki page content:"+content);
 
 		// Print only line with Term ID (|Id=)
 		String[] contentLines = content.split("\\r?\\n");
@@ -375,7 +456,8 @@ public class ConvertFile {
 
 		String parentId = null;
 		// Account for pages with no content 
-		if (contentLines[0] == null | contentLines[0].length() == 0) {
+		//System.out.println(contentLines[0]);
+		if (contentLines[0] == null || contentLines[0].length() == 0) { //Add condition to detect a redirect page
 			String parentIdValues[] = newParent.split(":");
 			parentId = parentIdValues[1];
 		}
@@ -383,6 +465,28 @@ public class ConvertFile {
 			String termIDPattern = "|Id=";
 			for (String line : contentLines) {
 				//System.out.println("Line: "+line);
+				
+				// Handle pages that have a Redirect 
+				if (line.contains("#REDIRECT")) {
+					System.out.println("-> Page was redirected");
+					//parse redirect page name and make call again
+					String newPageTitle = line.replaceAll("#REDIRECT\\[\\[\\:", "").replaceAll("]]", ""); 
+					String contentRedirect = getPageContent(newPageTitle);
+					String[] contentLinesRedirect = contentRedirect.split("\\r?\\n");
+					for (String lineRedirect : contentLinesRedirect) {
+						//System.out.println("LineRedirect: "+lineRedirect);
+						
+						if (lineRedirect.contains(termIDPattern)) {
+							//System.out.println("TermId: "+lineRedirect);
+							String[] idLineRedirect = lineRedirect.split("=");
+							//System.out.println("TermID:\""+idLineRedirect[1]+"\"");
+							parentId = idLineRedirect[1];
+							System.out.println("** TermID: "+parentId);
+						}
+					}
+				}
+				
+				
 				if (line.contains(termIDPattern)) {
 					//System.out.println("TermId: "+line);
 					String [] idLine = line.split("=");

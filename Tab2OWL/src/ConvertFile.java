@@ -82,7 +82,7 @@ public class ConvertFile {
 		buildClassTree(termsAndProperties, owlFile, classIDHashtable);
 
 		//addClassRestrictions(termsAndProperties, owlFile, classIDHashtable);
-		//addAnnotations(termsAndProperties, owlFile, classIDHashtable);
+		addAnnotations(termsAndProperties, owlFile, classIDHashtable);
 	}
 
 
@@ -705,38 +705,33 @@ public class ConvertFile {
 			//String newKey = key.replaceAll(" ", "_");
 			
 			// Get ID from hashtable
-			String parentLabel = entry.getValue().get(6).toString();
-			if (parentLabel.contains("university")) {
-				parentLabel = "university";
+			String termLabel = entry.getValue().get(1).toString();
+			if (termLabel.contains("university")) {
+				termLabel = "university";
 			}
-			if (parentLabel.contains("government granting agency")) {
-				parentLabel = "government granting agency";
+			if (termLabel.contains("government granting agency")) {
+				termLabel = "government granting agency";
 			}
-			if (parentLabel.contains("Thing")) {
-				parentLabel = "Thing";
+			if (termLabel.contains("Thing")) {
+				termLabel = "Thing";
 			}
 			
-			/*
-			 * TEST - Get owl:Thing Class from ontology file
-			 */
+			// TEST - Get owl:Thing Class from ontology file
 			String owlId = "Thing";
 			PrefixManager thingPrefix = new DefaultPrefixManager("http://www.w3.org/2002/07/owl#");
 			OWLClass clsAMethodBOWL = factory.getOWLClass(owlId, thingPrefix);
-			System.out.println("*** classAMethodBOWLThing: "+clsAMethodBOWL);
+			//System.out.println("*** classAMethodBOWLThing: "+clsAMethodBOWL);
 			
-			
-			String classId = classIDHashtable.get(parentLabel);
+			String classId = classIDHashtable.get(termLabel);
 			//String classId = classIDHashtable.get(key);
-			System.out.println("ParentLabel-"+parentLabel+"classId:"+classId);
+			System.out.println("ParentLabel-"+termLabel+" classId:"+classId);
 			OWLClass clsAMethodB = factory.getOWLClass(classId, pm);
 			System.out.println("classAMethodB: "+clsAMethodB);
 			//String newKey = key.replaceAll(" ", "_");
 			//OWLClass clsAMethodB = factory.getOWLClass(newKey, pm);
 			//System.err.println("classAMethodB: "+clsAMethodB);
 
-			
-			
-			
+					
 			/**
 			 * Add annotations -> Label, Definition, Synonym, Defining Citation
 			 */

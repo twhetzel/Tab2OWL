@@ -223,8 +223,8 @@ public class ConvertFile {
 				hashtable.put(thing, thing); //new code 02/02/2015
 				
 				//TODO Check order of items added in ArrayList since data input file is different
-				ArrayList<String> parentMetadata = new ArrayList<String>(Arrays.asList(parentIDFromWiki,parentLabel,"NO VALUE",
-						"NO VALUE","NO VALUE","NO VALUE",thing,"NO VALUE", "NO VALUE","NO VALUE","NO VALUE")); 
+				ArrayList<String> parentMetadata = new ArrayList<String>(Arrays.asList(parentIDFromWiki,parentLabel,"null",
+						"null","null","null",thing,"null", "null","null","null")); 
 				System.out.println("PID: "+parentMetadata); //parentMetadata.get(6));
 				termsAndPropertiesRootTerms.put(parentIDFromWiki, parentMetadata);   
 			}
@@ -735,14 +735,22 @@ public class ConvertFile {
 			/**
 			 * Add annotations -> Label, Definition, Synonym, Defining Citation
 			 */
-			String IAO = "http://purl.obolibrary.org/obo/";  
+			String IAO = "http://purl.obolibrary.org/obo/"; 
+			String oboInOwl = "http://www.geneontology.org/formats/oboInOwl#";
+			String OBO_annotation_properties = "http://ontology.neuinfo.org/NIF/Backend/OBO_annotation_properties.owl#";
+			//oboInOwl:xref
+			
 			// Create Annotation Properties
 			OWLAnnotationProperty definitionProperty = factory.getOWLAnnotationProperty((IRI.create(IAO
 					+ "IAO_0000115")));
-			OWLAnnotationProperty synonymProperty = factory.getOWLAnnotationProperty((IRI.create(IAO
-					+ "IAO_0000118")));
+			//OWLAnnotationProperty synonymProperty = factory.getOWLAnnotationProperty((IRI.create(IAO+ "IAO_0000118")));
+			OWLAnnotationProperty synonymProperty = factory.getOWLAnnotationProperty((IRI.create(oboInOwl
+					+ "hasExactSynonym")));
+			OWLAnnotationProperty abbrevProperty = factory.getOWLAnnotationProperty((IRI.create(OBO_annotation_properties + "abbrev")));
+			OWLAnnotationProperty curationStatusProperty = factory.getOWLAnnotationProperty(IRI.create(IAO + "IAO_0000114"));
+			OWLAnnotationProperty urlProperty = factory.getOWLAnnotationProperty(IRI.create(oboInOwl + "xref"));
 			OWLAnnotationProperty citationProperty = factory.getOWLAnnotationProperty((IRI.create(IAO
-					+ "IAO_0000301")));
+					+ "IAO_0000301")));		
 			//System.err.println("Annotation Properties (D,S,C): \n"+definitionProperty+"\n"+synonymProperty+"\n"+citationProperty);
 
 
@@ -756,12 +764,56 @@ public class ConvertFile {
 				manager.applyChange(new AddAxiom(ontology, labelAxiom));
 			}
 
-
+			//Get values for abbreviation 
+			String abbrev = entry.getValue().get(2).toString();
+			if (!abbrev.contains("null")) {
+				System.out.println("Abbrev Values: "+abbrev);
+				OWLAnnotation abbrevAnnotation = factory.getOWLAnnotation(abbrevProperty,factory.getOWLLiteral(abbrev));
+				OWLAxiom abbrevAxiom = factory.getOWLAnnotationAssertionAxiom(clsAMethodB.getIRI(), abbrevAnnotation);
+				System.out.println("Abbrev Axiom: "+abbrevAxiom);
+				manager.applyChange(new AddAxiom(ontology, abbrevAxiom));
+			}
+			
+			// Get values for Definition from text file, values[3]
+			String definition = entry.getValue().get(3).toString();
+			//System.err.println("Definition: "+definition);	
+			if (!definition.contains("null")) {
+				System.out.println("Definition Values: "+definition);
+				OWLAnnotation definitionAnnotation = factory.getOWLAnnotation(definitionProperty,factory.getOWLLiteral(definition));
+				OWLAxiom definitionAxiom = factory.getOWLAnnotationAssertionAxiom(clsAMethodB.getIRI(), definitionAnnotation);
+				System.out.println("Definition Axiom: "+definitionAxiom);
+				manager.applyChange(new AddAxiom(ontology, definitionAxiom));
+			}
+			
+			//Get values for curation status
+			String curationStatus = entry.getValue().get(4).toString();
+			if (!curationStatus.contains("null")) {
+				System.out.println("Curation status Values: "+curationStatus);
+				OWLAnnotation curationStatusAnnotation = factory.getOWLAnnotation(curationStatusProperty, factory.getOWLLiteral(curationStatus));
+				OWLAxiom curationStatusAxiom = factory.getOWLAnnotationAssertionAxiom(clsAMethodB.getIRI(), curationStatusAnnotation);
+				System.out.println("CurationStatus Axiom: "+curationStatusAxiom);
+				manager.applyChange(new AddAxiom(ontology, curationStatusAxiom));
+			}
+			
+			// Get values for URL from text file, values[5]
+			String url = entry.getValue().get(5).toString();
+			if (!url.contains("null")) {
+				System.out.println("URL Values: "+url);
+				OWLAnnotation urlAnnotation = factory.getOWLAnnotation(urlProperty,factory.getOWLLiteral(url));
+				OWLAxiom urlAxiom = factory.getOWLAnnotationAssertionAxiom(clsAMethodB.getIRI(), urlAnnotation);
+				System.out.println("Definition Axiom: "+urlAxiom);
+				manager.applyChange(new AddAxiom(ontology, urlAxiom));
+			}
+			
+			// Get values for Date Updated 
+			//TODO Check how this should be represented, e.g. annotation property or some data property 
+		
+			
 			// Get values for Synonym from text file, values[10] 
 			String synonym = entry.getValue().get(10).toString();
 			synonym = synonym.replaceAll("\"", "");
 			//System.err.println("Synonym: "+synonym);
-			if (!synonym.equals("NO VALUE")) {
+			if (!synonym.contains("null")) {
 				String[] synonymValues = synonym.split(",");
 				System.out.println("Synonym Values: "+synonymValues);
 				for (String syn : synonymValues ) {
@@ -773,27 +825,19 @@ public class ConvertFile {
 			}
 
 			
-			// Get values for Defining Citation from text file, values[5] 
+			/*// Get values for Defining Citation from text file, values[5] 
 			String citation = entry.getValue().get(5).toString();
 			//System.err.println("Citation: "+citation);
-			if (!citation.equals("NO VALUE")) {
+			if (!citation.contains("null")) {
 				System.out.println("Citation Values: "+citation);
 				OWLAnnotation citationAnnotation = factory.getOWLAnnotation(citationProperty,factory.getOWLLiteral(citation));
 				OWLAxiom citationAxiom = factory.getOWLAnnotationAssertionAxiom(clsAMethodB.getIRI(), citationAnnotation);
 				System.out.println("Citation Axiom: "+citationAxiom);
 				manager.applyChange(new AddAxiom(ontology, citationAxiom)); 
-			}
+			}*/
 
 			
-			// Get values for Definition from text file, values[3]
-			String definition = entry.getValue().get(3).toString();
-			//System.err.println("Definition: "+definition);	
-			if (!definition.equals("NO VALUE")) {
-				System.out.println("Definition Values: "+definition);
-				OWLAnnotation definitionAnnotation = factory.getOWLAnnotation(definitionProperty,factory.getOWLLiteral(definition));
-				OWLAxiom definitionAxiom = factory.getOWLAnnotationAssertionAxiom(clsAMethodB.getIRI(), definitionAnnotation);
-				manager.applyChange(new AddAxiom(ontology, definitionAxiom));
-			}
+			
 			System.out.println();
 		}
 		// Save ontology 

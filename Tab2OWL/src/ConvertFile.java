@@ -2,6 +2,7 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Hashtable;
@@ -73,16 +74,20 @@ public class ConvertFile {
 		 * Read in tab delimited file and convert to OWL file 
 		 */
 
-		Map<String, ArrayList> termsAndProperties = processTermFile();	
-		// Create Hashtable for label->ID for classes
-		Hashtable<String,String> classIDHashtable = new Hashtable<String,String>();
-		classIDHashtable = createClassIDLabelHash(termsAndProperties);
+		String timeStamp = new SimpleDateFormat("MM-dd-yyyy_HHmmssms").format(new Date());
+		String inputFile = "/Users/whetzel/Documents/workspace/neurolex-institutions/allSciCrunchRegistryInfo.txt"; //location and name of input file of data to convert to OWL 
+		String ontologyFileName = "scicrunch-registry_"+timeStamp+".owl";
+		
+		Map<String, ArrayList> termsAndProperties = processTermFile(inputFile);	
+		// Create Hashtable of label->ID for classes
+		//Hashtable<String,String> classIDHashtable = new Hashtable<String,String>();
+		//classIDHashtable = createClassIDLabelHash(termsAndProperties);
 
-		File owlFile = createOWLFile();
-		buildClassTree(termsAndProperties, owlFile, classIDHashtable);
+		//File owlFile = createOWLFile(ontologyFileName);
+		//buildClassTree(termsAndProperties, owlFile, classIDHashtable);
 
 		//addClassRestrictions(termsAndProperties, owlFile, classIDHashtable);
-		addAnnotations(termsAndProperties, owlFile, classIDHashtable);
+		//addAnnotations(termsAndProperties, owlFile, classIDHashtable);
 	}
 
 
@@ -90,7 +95,7 @@ public class ConvertFile {
 	 * Read in file and generate data structure of terms and their properties 
 	 * @return
 	 */
-	private static Map<String, ArrayList> processTermFile() {
+	private static Map<String, ArrayList> processTermFile(String inputFile) {
 		System.out.println("\n** processTermFile method **");
 		int lineCount = 0;
 		BufferedReader br = null;
@@ -99,11 +104,11 @@ public class ConvertFile {
 
 
 		try {
-			File file = new File("/Users/whetzel/Documents/workspace/neurolex-institutions/NLex-DBVis.txt");
+			File file = new File(inputFile);
 			String sCurrentLine;
-			//br = new BufferedReader(new FileReader("/Users/whetzel/Documents/UCSD/NeuroLex/NeuroLex-ElectrophysiologyCategories.txt"));
 			br = new BufferedReader(new FileReader(file));
 			
+			whileloop:
 			while ((sCurrentLine = br.readLine()) != null) {
 				lineCount++;
 				if (lineCount > 1 ) { //skip header line
@@ -133,7 +138,7 @@ public class ConvertFile {
 					if (list.size() != 11) { //confirm that all rows have expected number of columns
 						System.err.println("ARR-SIZE: "+list.size());
 						System.out.println("MAP: "+values[0]+"\tLIST: "+list);
-						break;
+						break whileloop;
 					}
 					System.out.println("MAP: "+values[0]+"\tLIST: "+list);
 
@@ -291,11 +296,12 @@ public class ConvertFile {
 	 * @throws OWLOntologyStorageException 
 	 * @throws IOException 
 	 */
-	private static File createOWLFile() throws OWLOntologyStorageException, IOException {
+	private static File createOWLFile(String ontologyFileName) throws OWLOntologyStorageException, IOException {
 		System.out.println("\n** createOWLFile method **");
 		//Create empty ontology 
 		OWLOntology ontology = null;
-		File file = new File("owlfiletest.owl"); //ontology file to write to
+		//File file = new File("owlfile_allSciCrunch-TESTING.owl"); //ontology file to write to
+		File file = new File(ontologyFileName);
 		OWLOntologyManager manager = OWLManager.createOWLOntologyManager();
 		//IRI ontologyIRI = IRI.create("http://neurolex.org/wiki/");
 		IRI ontologyIRI = IRI.create("http://uri.neuinfo.org/nif/nifstd/");
@@ -315,6 +321,7 @@ public class ConvertFile {
 			System.out.println("Created ontology: " + ontology);
 
 			// Set version IRI, use the date the file contents were exported from NeuroLex
+			//TODO Consider passing version IRI tag (NeuroLexExport01302015) as a variable to this method
 			IRI versionIRI = IRI.create(ontologyIRI + "NeuroLexExport01302015");
 			OWLOntologyID newOntologyID = new OWLOntologyID(ontologyIRI, versionIRI);
 			// Create the change that will set our version IRI
@@ -565,12 +572,11 @@ public class ConvertFile {
 			String key = entry.getKey();	
 			System.out.println("\nK:"+key+"\tV:"+entry.getValue());
 
-			//PrefixManager pm = new DefaultPrefixManager("http://neurolex.org/wiki/Special:ExportRDF/Category:");
 			PrefixManager pm = new DefaultPrefixManager("http://uri.neuinfo.org/nif/nifstd/");
 			//String newKey = key.replaceAll(" ", "_");
 			// Get ID from hashtable
 			//String classId = classIDHashtable.get(key);
-			String parentLabel = entry.getValue().get(6).toString();
+			String parentLabel = entry.getValue().get(1).toString();
 			String classId = classIDHashtable.get(parentLabel);
 			OWLClass clsAMethodB = factory.getOWLClass(classId, pm);
 			System.err.println("classAMethodB: "+clsAMethodB);
@@ -580,7 +586,7 @@ public class ConvertFile {
 			 * Add hasRoleProperty to Class
 			 */
 			// Obtain a reference to values for Has Role, values[3]
-			String hasRoleObject = entry.getValue().get(3).toString();
+			/*String hasRoleObject = entry.getValue().get(3).toString();
 			//System.err.println("HasRoleObject: "+hasRoleObject);
 			String newHasRoleObject = hasRoleObject.replace(":Category:","");
 			newHasRoleObject = newHasRoleObject.replaceAll("\"", "");
@@ -621,31 +627,32 @@ public class ConvertFile {
 					manager.applyChange(addAx);
 				}
 				System.out.println();
-			}
+			}*/
 
 
 			/*
 			 * Add isPartOfProperty to Class
 			 */
-			// Obtain a reference to values for Has Role, values[4]
-			String isPartOfPropertyObject = entry.getValue().get(4).toString();
-			//System.err.println("IsPartOfPropertyObject: "+isPartOfPropertyObject);
+			// Obtain a reference to values for Parent Organization, values[7]
+			String isPartOfPropertyObject = entry.getValue().get(7).toString();
+			System.err.println("IsPartOfPropertyObject: "+isPartOfPropertyObject);
 			String newIsPartOfPropertyObject = isPartOfPropertyObject.replace(":Category:","");
 			newIsPartOfPropertyObject = newIsPartOfPropertyObject.replaceAll("\"", "");
 			System.err.println("newIsPartOfPropertyObject-MOD: "+newIsPartOfPropertyObject);
 
-			if (!newIsPartOfPropertyObject.equals("NO VALUE")) {
+			if (!newIsPartOfPropertyObject.contains("null")) {
 				//System.err.println("VALUE FOUND: "+newIsPartOfPropertyObject);
 				//NOTE: newIsPartOfPropertyObject may have more than 1 object value
-				String[] isPartOfPropertyObjectValues = newIsPartOfPropertyObject.split(",");
+				String[] isPartOfPropertyObjectValues = newIsPartOfPropertyObject.split(","); //Need to trim whitespace
 				// Add each hasRoleObect value as a property restriction
 				for (String s : isPartOfPropertyObjectValues ) {
-					String sId = classIDHashtable.get(s);
+					String trimmedS = s.trim();
+					String sId = classIDHashtable.get(trimmedS);
 
 					if (sId == null) {
-						s = s.replaceAll(" ", "_");
+						s = trimmedS.replaceAll(" ", "_");
 						s = "Category:"+s;
-						System.out.println("Null ID Found. Use \""+s+"\" to query NeuroLex for ID.");
+						System.out.println("Null/No ID Found. Use \""+s+"\" to query NeuroLex for ID.");
 						// Use WikiAPI to get ID for Parent
 						String parentIDFromWiki = getParentIdFromWikiAPI(s);
 						System.out.println(parentIDFromWiki);
@@ -662,7 +669,7 @@ public class ConvertFile {
 					OWLClassExpression isPartOfSomeRole = factory.getOWLObjectSomeValuesFrom(isPartOfProperty,
 							propertyObject); 
 					OWLSubClassOfAxiom ax = factory.getOWLSubClassOfAxiom(clsAMethodB, isPartOfSomeRole);	
-					System.err.println("RoleObject: "+propertyObject+"\nAxiom: "+ax);
+					System.err.println("Parent Organization: "+propertyObject+"\nAxiom: "+ax);
 
 					// Add the axiom to our ontology 
 					AddAxiom addAx = new AddAxiom(ontology, ax);
@@ -676,7 +683,14 @@ public class ConvertFile {
 	}
 
 
-
+/**
+ * Add Annotation Properties 
+ * @param termsAndProperties
+ * @param owlFile
+ * @param classIDHashtable
+ * @throws OWLOntologyCreationException
+ * @throws OWLOntologyStorageException
+ */
 	private static void addAnnotations(
 			Map<String, ArrayList> termsAndProperties, File owlFile, Hashtable<String, String> classIDHashtable) throws OWLOntologyCreationException, OWLOntologyStorageException {
 		System.out.println("\n** addAnnotations method **");
@@ -722,6 +736,7 @@ public class ConvertFile {
 			OWLClass clsAMethodBOWL = factory.getOWLClass(owlId, thingPrefix);
 			//System.out.println("*** classAMethodBOWLThing: "+clsAMethodBOWL);
 			
+			
 			String classId = classIDHashtable.get(termLabel);
 			//String classId = classIDHashtable.get(key);
 			System.out.println("ParentLabel-"+termLabel+" classId:"+classId);
@@ -737,8 +752,7 @@ public class ConvertFile {
 			 */
 			String IAO = "http://purl.obolibrary.org/obo/"; 
 			String oboInOwl = "http://www.geneontology.org/formats/oboInOwl#";
-			String OBO_annotation_properties = "http://ontology.neuinfo.org/NIF/Backend/OBO_annotation_properties.owl#";
-			//oboInOwl:xref
+			String OBO_annotation_properties = "http://ontology.neuinfo.org/NIF/Backend/OBO_annotation_properties.owl#"; 
 			
 			// Create Annotation Properties
 			OWLAnnotationProperty definitionProperty = factory.getOWLAnnotationProperty((IRI.create(IAO

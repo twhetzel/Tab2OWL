@@ -1,6 +1,8 @@
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -11,6 +13,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 
+import org.apache.commons.logging.Log;
 import org.semanticweb.owlapi.apibinding.OWLManager;
 import org.semanticweb.owlapi.io.OWLXMLOntologyFormat;
 import org.semanticweb.owlapi.io.StreamDocumentTarget;
@@ -70,15 +73,23 @@ public class ConvertFile {
 	 * @throws OWLOntologyCreationException 
 	 */
 	public static void main(String[] args) throws OWLOntologyStorageException, IOException, OWLOntologyCreationException {
+		final Logger LOGGER = Logger.getLogger(ConvertFile.class.getName()); 
+		
 		/**
 		 * Read in tab delimited file and convert to OWL file 
 		 */
-
 		String timeStamp = new SimpleDateFormat("MM-dd-yyyy_HHmmssms").format(new Date());
-		String inputFile = "/Users/whetzel/Documents/workspace/neurolex-institutions/allSciCrunchRegistryInfo.txt"; //location and name of input file of data to convert to OWL 
-		String ontologyFileName = "scicrunch-registry_"+timeStamp+".owl";
+		String inputFile = "/Users/whetzel/git/tab2owl/Tab2OWL/datafile/registry_02262015.tsv"; //location and name of input file of data to convert to OWL 
+		String ontologyFileName = "scicrunch-registry_"+timeStamp+".owl"; //name of ontology file to create
 		
-		Map<String, ArrayList> termsAndProperties = processTermFile(inputFile);	
+		Map<String, ArrayList<String>> termsAndProperties = processTermFile(inputFile, timeStamp);	
+		//DEBUG - print out HashMap
+		/*for (Entry<String, ArrayList<String>> entry : termsAndProperties.entrySet()) {
+	        String key = entry.getKey().toString();;
+	        ArrayList<String> value = entry.getValue();
+	        System.out.println("ArrayList Size: "+ value.size() +" Key: " + key + " Value: " + value );
+	    }*/
+		
 		// Create Hashtable of label->ID for classes
 		//Hashtable<String,String> classIDHashtable = new Hashtable<String,String>();
 		//classIDHashtable = createClassIDLabelHash(termsAndProperties);
@@ -94,59 +105,69 @@ public class ConvertFile {
 	/**
 	 * Read in file and generate data structure of terms and their properties 
 	 * @return
+	 * @throws IOException 
 	 */
-	private static Map<String, ArrayList> processTermFile(String inputFile) {
-		System.out.println("\n** processTermFile method **");
+	private static Map<String, ArrayList<String>> processTermFile(String inputFile, String timeStamp) throws IOException {
+		System.out.println("\n** processTermFile method **");		
 		int lineCount = 0;
 		BufferedReader br = null;
-		Map<String, ArrayList> terms = new HashMap<String, ArrayList>();
 		ArrayList<String> list = new ArrayList<String>();
-
-
+		Map<String, ArrayList<String>> terms = new HashMap<String, ArrayList<String>>();
+		
+		//Create error log file
+		String errorFileName = "./errorlogs/errorlog_"+timeStamp+".txt";
+		File errorFile = new File(errorFileName);
+		if (!errorFile.exists()) {
+			errorFile.createNewFile();
+		}
+		FileWriter fw = new FileWriter(errorFile.getAbsoluteFile());
+		BufferedWriter bw = new BufferedWriter(fw);
+				
+		// Process data file 
 		try {
 			File file = new File(inputFile);
 			String sCurrentLine;
 			br = new BufferedReader(new FileReader(file));
 			
-			whileloop:
 			while ((sCurrentLine = br.readLine()) != null) {
 				lineCount++;
 				if (lineCount > 1 ) { //skip header line
 					System.out.println("**NEW-LINE("+lineCount+"): "+sCurrentLine);
-					// Parse file columns
-					String[] values = sCurrentLine.split("\t", -1); // Do not truncate line on empty values
+					//Replace any newline breaks so that correct number of columns are found
+					sCurrentLine = sCurrentLine.replaceAll("\r\n", "").replaceAll("<br></br>", "");
+					
+					// Split line on tab separator between columns in spreadsheet
+					String[] values = sCurrentLine.split("\t", -1); // The -1 indicates to not truncate line on empty values
 
-					// Handle null(empty cells) values in spreadsheet
-					for (int index = 0; index < values.length; index++) {		
-						if (values[index].length() > 0) { // Check that the array index contains a value
-							//System.out.print("\'"+values[index]+"\'"+"\n");
-							//might want to change value of (null) to something else... 
-							list.add(values[index]);
+					// Check for valid e_uid
+					if (checkValues(values)) {
+						//Next, check proper number of column
+						if (checkColumnCount(values)) {
+							//System.out.println("checking columns for: "+values[0]);
+							//Now add values from properly formatted lines to ArrayList
+							for (int index = 0; index < values.length; index++) {
+								list.add(values[index]);
+						
+								// Create a copy of the ArrayList to keep values, but not references so it can be cleared before reading the next line in while loop 
+								ArrayList<String> copy = new ArrayList<String>();
+								copy.addAll(list);
+								// Put values in a HashMap keyed on the ID, value[0] OR    label, value[1]
+								terms.put(values[0], copy ); //was copy instead of list 
+							}	
 						}
 						else {
-							values[index] = "NO VALUE"; // use this later to decide whether to add a class restriction/annotation to a class
-							//System.out.print("NULL-"+values[index]+"\t");
-							list.add(values[index]);
+							bw.write("LINECOUNT: "+lineCount+" Incorrect column count for: "+values[0]+" Total columns: "+values.length+"\n");
+							/*for (int col = 0; col<values.length; col++) {
+								bw.write("Column value("+col+"): "+values[col]+"\n");
+							}
+							bw.write("\n");*/
 						}
-						// Create a copy of the ArrayList to keep values, but not references so it can be cleared before reading the next line in while loop 
-						ArrayList<String> copy = new ArrayList<String>();
-						copy.addAll(list);
-						// Put values in a HashMap keyed on the ID, value[0] OR    label, value[1]
-						terms.put(values[0], copy );
-
-					}		
-					if (list.size() != 11) { //confirm that all rows have expected number of columns
-						System.err.println("ARR-SIZE: "+list.size());
-						System.out.println("MAP: "+values[0]+"\tLIST: "+list);
-						break whileloop;
 					}
-					System.out.println("MAP: "+values[0]+"\tLIST: "+list);
-
-					// Clear initial ArrayList to prepare for next line in file
+					else {
+						bw.write("LINECOUNT: "+lineCount+" Invalid e_uid for: "+values[0]+"\n");
+					}
+					// Clear initial ArrayList to prepare for next line in file within while loop
 					list.clear();
-
-					//System.out.println("TERMS:"+terms); //Values are null because they were cleared
-					System.out.println();
 				}
 				else {
 					System.out.println("Skipping header line....");
@@ -156,15 +177,70 @@ public class ConvertFile {
 			e.printStackTrace();
 		} finally {
 			try {
-				if (br != null)br.close();
+				if (br != null) br.close();
 			} catch (IOException ex) {
 				ex.printStackTrace();
 			}
 		}
+		bw.close();
 		return terms;
 	}
 
 	
+	/**
+	 * Check that the line starts with a valid e_uid
+	 * @param values
+	 * @return
+	 */
+	private static boolean checkValues(String[] values) {
+		boolean isValidEUID = false;
+		if ((values[0].contains("nif")) || (values[0].contains("nlx")) || (values[0].contains("OMICS"))
+				|| (values[0].contains("SciEx")) || (values[0].contains("SciRes")) || (values[0].contains("rid"))
+				|| (values[0].contains("birnlex")) || (values[0].contains("GAZ")) || (values[0].contains("scr"))
+				|| (values[0].contains("Nif"))) { 			
+			//System.out.println("Valid Resource ID Found");
+			isValidEUID = true;
+		}
+		else {
+			System.err.println("Valid ResourceID not found");
+		}	
+		return isValidEUID;
+	}
+	
+	/**
+	 * Check that line has correct number of columns
+	 * @param values
+	 * @return
+	 * @throws IOException 
+	 */
+	private static boolean checkColumnCount(String[] values) {
+		boolean isCorrectColumnCount = false;	
+		ArrayList<String> list = new ArrayList<String>();
+
+		for (int index = 0; index < values.length; index++) {
+			if (values[index].length() > 0) { // Check that the array index contains a value
+				list.add(values[index]);	
+			}
+			else {
+				System.err.print("No values for: "+values[index]+"\n");
+			}
+		}
+
+		// Confirm that all rows have expected number of columns
+		if (list.size() == 11) { 
+			//System.err.println("ARR-SIZE: "+list.size());
+			System.out.println("RESOURCE-ID: "+values[0]+"\tLIST: "+list);
+			isCorrectColumnCount = true;	
+		}
+		else {
+			System.out.println("INCORRECT COLUMN COUNT FOR RESOURCE-ID: "+values[0]+"\tLIST: "+list);
+			isCorrectColumnCount = false;
+		}
+
+		return isCorrectColumnCount;
+	}
+
+
 	/**
 	 * Build Hashtable of term labels (hash key) and term Ids (hash value) 
 	 * in order to swap out label for Id in term IRI 

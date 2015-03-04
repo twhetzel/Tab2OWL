@@ -82,17 +82,17 @@ public class ConvertFile {
 		String inputFile = "/Users/whetzel/git/tab2owl/Tab2OWL/datafile/registry_02262015.tsv"; //location and name of input file of data to convert to OWL 
 		String ontologyFileName = "scicrunch-registry_"+timeStamp+".owl"; //name of ontology file to create
 		
-		Map<String, ArrayList<String>> termsAndProperties = processTermFile(inputFile, timeStamp);	
+		Map<String, ArrayList> termsAndProperties = processTermFile(inputFile, timeStamp);	
 		//DEBUG - print out HashMap
 		/*for (Entry<String, ArrayList<String>> entry : termsAndProperties.entrySet()) {
-	        String key = entry.getKey().toString();;
+	        String key = entry.getKey().toString();
 	        ArrayList<String> value = entry.getValue();
 	        System.out.println("ArrayList Size: "+ value.size() +" Key: " + key + " Value: " + value );
 	    }*/
 		
 		// Create Hashtable of label->ID for classes
-		//Hashtable<String,String> classIDHashtable = new Hashtable<String,String>();
-		//classIDHashtable = createClassIDLabelHash(termsAndProperties);
+		Hashtable<String,String> classIDHashtable = new Hashtable<String,String>();
+		classIDHashtable = createClassIDLabelHash(termsAndProperties);
 
 		//File owlFile = createOWLFile(ontologyFileName);
 		//buildClassTree(termsAndProperties, owlFile, classIDHashtable);
@@ -107,12 +107,12 @@ public class ConvertFile {
 	 * @return
 	 * @throws IOException 
 	 */
-	private static Map<String, ArrayList<String>> processTermFile(String inputFile, String timeStamp) throws IOException {
+	private static Map<String, ArrayList> processTermFile(String inputFile, String timeStamp) throws IOException {
 		System.out.println("\n** processTermFile method **");		
 		int lineCount = 0;
 		BufferedReader br = null;
 		ArrayList<String> list = new ArrayList<String>();
-		Map<String, ArrayList<String>> terms = new HashMap<String, ArrayList<String>>();
+		Map<String, ArrayList> terms = new HashMap<String, ArrayList>();
 		
 		//Create error log file
 		String errorFileName = "./errorlogs/errorlog_"+timeStamp+".txt";
@@ -143,7 +143,6 @@ public class ConvertFile {
 					if (checkValues(values)) {
 						//Next, check proper number of column
 						if (checkColumnCount(values)) {
-							//System.out.println("checking columns for: "+values[0]);
 							//Now add values from properly formatted lines to ArrayList
 							for (int index = 0; index < values.length; index++) {
 								list.add(values[index]);
@@ -247,34 +246,32 @@ public class ConvertFile {
 	 */
 	private static Hashtable<String, String> createClassIDLabelHash(Map<String, ArrayList> termsAndProperties) {
 		System.out.println("\n** createClassIDLabelHash method **");
-		// Populate hashtable from termsAndProperies using the label (values[1]) as the key and ID (values[0]) as the value
+		// Populate Term label<->ID hashtable from termsAndProperies using the term label (values[1]) as the key and ID (values[0]) as the value
 		Hashtable<String,String> hashtable = new Hashtable<String,String>();
 		int count = 0;
 
 		for (Entry<String, ArrayList> entry : termsAndProperties.entrySet()) {
-			//String key = entry.getKey(); //Label - old data file
-			//String value = entry.getValue().get(5).toString(); //ID - old data file 
 			String key = entry.getValue().get(1).toString(); //add term label as key
 			String value = entry.getKey(); //e_uid as value
-			//System.out.println("ParentLookupHash KEY:"+key+" VALUE:"+value);
 			hashtable.put(key, value);
 		}
-
-		// Loop through termsAndProperties to find root terms based on
+		System.out.println("Size of ClassIDLabel Hash with only values from data file: "+hashtable.size());
+		
+		
+		// Loop through termsAndProperties to find root terms based on assumption
 		// that every Parent label should exist as a key in the hashtable 	
 		
-		//Column resource_type should be parent term, limit to only university OR government granting agency
-		Map<String, ArrayList> termsAndPropertiesRootTerms = new HashMap<String,ArrayList>();
-		
+		//Column resource_type should be parent term, limit to only university OR government granting agency - use entire Registry information now
+		Map<String, ArrayList> termsAndPropertiesRootTerms = new HashMap<String,ArrayList>();	
 		System.out.println("** Find Root terms ");
 		for (Entry<String, ArrayList> entry : termsAndProperties.entrySet()) {
-			/*String key = entry.getKey(); // Label
-			String parentLabel = entry.getValue().get(2).toString(); //Parent label
-			System.out.println("\n** TermLabel: "+key+" ParentLabel: "+parentLabel);*/
+			//TODO Re-do variable mapping for Institution data file???
+			String key =  entry.getValue().get(1).toString(); // Term label
+			//TODO This assignment parentLabel=get(6) does not work for entries where supercategory=Resource
+			//String parentLabel = entry.getValue().get(6).toString();  //Parent label -> resource_type column from DISCO, may contain multiple values, but university and gov. granting are disjoint
+			String parentLabel = entry.getValue().get(9).toString(); //Use Supercategory value instead 
 			
-			//TODO Re-do variable mapping for Institution data file
-			String key =  entry.getValue().get(1).toString(); // Label
-			String parentLabel = entry.getValue().get(6).toString();  //Parent label -> resource_type column from DISCO, may contain multiple values, but university and gov. granting are disjoint
+			//TODO Check if this is still needed since now using entire registry information
 			if (parentLabel.contains("university")) {
 				parentLabel = "university";
 			}
@@ -283,31 +280,37 @@ public class ConvertFile {
 			}
 			//System.out.println("\n** TermLabel: "+key+" - ParentLabel: "+parentLabel);
 			
+			
 			if (!hashtable.containsKey(parentLabel)) {
 				count++;
 				// Format parent label for use in query to Wiki 
 				String newParentLabel = "Category:"+parentLabel.replaceAll(" ", "_");
-				System.out.println("Parent label is Not in Hash. Use \""+newParentLabel+"\" to query NeuroLex for ID.");
+				//System.out.println("Parent label is Not in Hash. Use \""+newParentLabel+"\" to query NeuroLex for ID.");
+				
 				// Use WikiAPI to get ID for Parent
 				String parentIDFromWiki = getParentIdFromWikiAPI(newParentLabel); //Since data was queried with parents known to be in NLex, a value is always returned
 				// Trim whitespace from value
 				parentIDFromWiki = parentIDFromWiki.trim();
-				System.out.println("** ParentIDFromWiki: "+parentIDFromWiki);
-				System.out.println("ParentLabel: "+parentLabel+" ParentID: "+parentIDFromWiki+" RootTermCount: "+count);
-				
+				//System.out.println("** ParentIDFromWiki: "+parentIDFromWiki);
+				//System.out.println("ParentLabel: "+parentLabel+" ParentID: "+parentIDFromWiki+" RootTermCount: "+count);
 				hashtable.put(parentLabel, parentIDFromWiki);
-				//hashtable.put(parentIDFromWiki, parentLabel);
 				
-				// Also, try adding parent Term Label and Id to termsAndProperties Map
+				// Add Thing to hashtable
 				String thingIRI = "http://www.w3.org/2002/07/owl#Thing";
 				String thing = "Thing";
 				hashtable.put(thing, thing); //new code 02/02/2015
 				
-				//TODO Check order of items added in ArrayList since data input file is different
-				ArrayList<String> parentMetadata = new ArrayList<String>(Arrays.asList(parentIDFromWiki,parentLabel,"null",
-						"null","null","null",thing,"null", "null","null","null")); 
+				//TODO Since using all of Registry, need to get more values from Wiki than only parent ID and label!!!
+				ArrayList<String> parentMetadataFromWiki = getAllParentMetadataFromWiki(newParentLabel);
+				System.out.println("PID: "+parentMetadataFromWiki); 
+				termsAndPropertiesRootTerms.put(parentIDFromWiki, parentMetadataFromWiki);   
+				
+				
+				// Also, try adding parent Term Label and Id to termsAndProperties Map --> Replace with parentMetadataFromWiki 
+				/*ArrayList<String> parentMetadata = new ArrayList<String>(Arrays.asList(parentIDFromWiki,parentLabel,"null",
+						"null","null","null",thing,"null", "null",thing,"null")); //changed position9 to thing
 				System.out.println("PID: "+parentMetadata); //parentMetadata.get(6));
-				termsAndPropertiesRootTerms.put(parentIDFromWiki, parentMetadata);   
+				termsAndPropertiesRootTerms.put(parentIDFromWiki, parentMetadata);*/   
 			}
 			
 			
@@ -360,9 +363,11 @@ public class ConvertFile {
 		// Add contents of "RootTerms" HashMap to all terms HashMap
 		System.out.println("termsAndPropertiesRootTerms "+termsAndPropertiesRootTerms);
 		termsAndProperties.putAll(termsAndPropertiesRootTerms);	
-		System.out.println("hashtable"+hashtable);
+		System.out.println("Total size of Hashtable: "+hashtable.size());
 		return hashtable;
 	}
+	
+	
 
 
 	/**
@@ -389,7 +394,7 @@ public class ConvertFile {
 			ontology = manager.createOntology(ontologyIRI);
 			OWLDataFactory factory = manager.getOWLDataFactory();
 			// Create the document IRI for our ontology
-			IRI documentIRI = IRI.create("/Users/whetzel/git/tab2owl/Tab2OWL/");  //Local Git repo
+			IRI documentIRI = IRI.create("/Users/whetzel/git/tab2owl/Tab2OWL/owlfiles");  //Local Git repo
 
 			// Set up a mapping, which maps the ontology to the document IRI
 			SimpleIRIMapper mapper = new SimpleIRIMapper(ontologyIRI, documentIRI);
@@ -448,7 +453,8 @@ public class ConvertFile {
 		// Populate ontology with class hierarchy from termsAndProperties 
 		for (Entry<String, ArrayList> entry : termsAndProperties.entrySet()) {
 			String key = entry.getKey();	
-			String termLabel = entry.getValue().get(1).toString();
+			//String termLabel = entry.getValue().get(1).toString(); // get(1) is resource_type value
+			String termLabel = entry.getValue().get(9).toString(); // get(9) is supercategory value
 			System.out.println("\nKey:"+key+"\tValues:"+entry.getValue());
  
 			String prefix = "http://uri.neuinfo.org/nif/nifstd/";
@@ -467,8 +473,9 @@ public class ConvertFile {
 			
 			
 			// Add Parent to Class, value[2orig] from termsAndProperties Map object
-			String parentLabel = entry.getValue().get(6).toString();
-			//Normalize parent label to only convert to only university OR government granting agency 
+			String parentLabel = entry.getValue().get(9).toString(); //Change to use supercategory 
+			//Normalize parent label to only convert to only university OR government granting agency
+			//These entries are now in the file so might not be needed 
 			if (parentLabel.contains("university")) {
 				parentLabel = "university";
 				System.out.println("ParTest:"+parentLabel);
@@ -534,7 +541,6 @@ public class ConvertFile {
 	 * Use Wiki API to get additional content
 	 */
 	private static String getParentIdFromWikiAPI(String newParent) {
-		//Tester test = new Tester();
 		//System.out.println("** Query term: "+newParent);
 		String content = getPageContent(newParent);  //test.getPageContent(newParent); 
 		//System.out.println("Wiki page content:"+content);
@@ -585,7 +591,6 @@ public class ConvertFile {
 		return parentId;
 	}
 
-
 	public static String getPageContent(String title) {
 		String content = null;
 		String[] listOfTitleStrings = { title }; 
@@ -611,6 +616,199 @@ public class ConvertFile {
 		return content;
 	}
 
+	
+	/**
+	 * Get parent term metadata from neurolex wiki 
+	 * @param newParentLabel
+	 * @return
+	 */
+	private static ArrayList<String> getAllParentMetadataFromWiki(String newParentLabel) {
+		String[] attributes = {"parentId", "resource_name", "abbrev", "definition", "curationstatus", 
+				"url", "resource_type", "parent_organization", "date_updated", "supercategory", "synonym"};
+		Map<String,String> attributeValueMap = new HashMap<String,String>();		
+		ArrayList<String> allParentMetadata = new ArrayList<String>();	
+		
+		//List fields of interest to collect for parentMetadata -> see Excel data file 
+		String parentId = null;
+		String termIDPattern = "|Id=";
+		
+		// Get Neurolex page content
+		String content = getAllPageContent(newParentLabel);  
+		String[] contentLines = content.split("\\r?\\n");
+		
+		// Account for pages with no content 
+		if (contentLines[0] == null || contentLines[0].length() == 0) { //Add condition to detect a redirect page
+			String parentIdValues[] = newParentLabel.split(":");
+			parentId = parentIdValues[1]; //For getAllParentMetadata may have to re-think this logic
+		}
+		else {	
+			for (String line : contentLines) {
+				//System.out.println("Line: "+line);			
+				if (line.contains("#REDIRECT")) {  //Handle pages that have a Redirect 
+					//Parse redirect page name and query Neurolex again
+					String newPageTitle = line.replaceAll("#REDIRECT\\[\\[\\:", "").replaceAll("]]", ""); 
+					String contentRedirect = getAllPageContent(newPageTitle);
+					String[] contentLinesRedirect = contentRedirect.split("\\r?\\n");
+					
+					//TODO Add in matchContentLines() for redirected pages 
+					for (String lineRedirect : contentLinesRedirect) {
+						//System.out.println("LineRedirect: "+lineRedirect);
+						if (lineRedirect.contains(termIDPattern)) {
+							//System.out.println("TermId: "+lineRedirect);
+							String[] idLineRedirect = lineRedirect.split("=");
+							//System.out.println("TermID:\""+idLineRedirect[1]+"\"");
+							parentId = idLineRedirect[1];
+							//System.out.println("** getAll() TermID: "+parentId);
+						}
+					}
+				}
+				Map<String, String> tempMap = matchContentLines(line);
+				attributeValueMap.putAll(tempMap);	
+			} //EOL -> "for () (String line : contentLines) {" 
+			
+			// Add variables to proper place in ArrayList 
+			System.out.println("AttrValueMap Size: "+attributeValueMap.size());
+			for (int i = 0; i<attributes.length; i++) {
+				String value = null;
+				boolean valueExists = false;
+				//System.out.println("VarName: "+attributes[i]);
+				for (Entry<String, String> entry : attributeValueMap.entrySet()) {
+					if (attributes[i].equals(entry.getKey())) {
+						//System.out.println("VarName: "+attributes[i]+" *** Var From Map: "+entry.getKey() +" *** Value From Map: "+entry.getValue()+" ***");
+						value = entry.getValue();
+						valueExists = true;
+						break;
+					}
+				}
+				if (valueExists) {
+					allParentMetadata.add(value);
+				}
+				else {
+					allParentMetadata.add("null");
+				}
+			}
+			// DEBUG - Print all values 
+			for (String str : allParentMetadata) {
+				System.out.println("Values in allParentMetadata: "+str);
+			}
+		}
+		return allParentMetadata;
+	}
+	
+	
+	
+	
+	/**
+	 * Get Neurolex page information for query term
+	 * @param newParentLabel
+	 * @return
+	 */
+	private static String getAllPageContent(String newParentLabel) {
+		String content = null;
+		String[] listOfTitleStrings = { newParentLabel }; 
+		//System.out.println("Page Title for Query: "+listOfTitleStrings[0]);
+		String host =  "http://neurolex.org/w/api.php";
+
+		User user = new User("Whetzel", "neurolex", host);  
+		List<Page> listOfPages =  user.queryContent(listOfTitleStrings);  //user.queryCategories(listOfTitleStrings);
+
+		for (Page page : listOfPages) {
+			//System.out.println("PageTitle: "+page.getTitle());
+			content = page.getCurrentContent();
+			//System.out.println("------------------"+content+"-----------------");
+			if(content != null)
+				break;
+			// Account for pages that do not exist .. this doesn't seem to be called?
+			else  {
+				//System.out.println("Content1: "+content);
+				content = "|Id="+page.getTitle();
+				//System.out.println("Content2: "+content);
+			}
+		}
+		return content;
+	}
+	
+	
+	/**
+	 * Find what variable the line has a match for
+	 * @param line
+	 * @return
+	 */
+	private static Map<String,String> matchContentLines(String line) {
+		//System.out.println("** matchContentLines() **");
+		String match = null;
+		String termIDPattern = "|Id=";
+		String labelPattern = "|LABELPATTERN=";  //update with correct pattern
+		String abbrevPattern = "|ABBREVPATTERN=";  //update with correct pattern
+		String definitionPattern = "|Definition=";
+		String curationStatusPattern = "|CurationStatus=";
+		
+		String isPartOfPattern = "|Is part of=";
+		
+		String resourceTypePattern = "|RESOURCETYPE="; //update with correct pattern
+		String parentOrganizationPattern = "|PARENTORGPATTERN=";
+		String dateCreatedPattern = "|Created=";
+		String superCategoryPattern = "|SuperCategory=";
+		String synonymPattern = "|synonym=";
+		
+		//return map of variable name and value, then in calling method loop through all variable names and get hashtable value
+		//therefore can handle occurrences where variable/attribute does not exist in the page
+		Map<String, String> variableMap = new HashMap<String, String>();
+		//e_uid	resource_name	abbrev	description	curationstatus	url	resource_type	parent_organization	date_updated	supercategory	synonym
+		
+		if (line.contains(termIDPattern)) {
+			String [] idLine = line.split("=");
+			match = idLine[1];
+			variableMap.put("parentId", match);
+		}	
+		if (line.contains(labelPattern)) {
+			String [] idLine = line.split("=");
+			match = idLine[1];
+			variableMap.put("resource_name", match);
+		}
+		if (line.contains(abbrevPattern)) {
+			String [] idLine = line.split("=");
+			match = idLine[1];
+			variableMap.put("abbrev", match);
+		}
+		if (line.contains(definitionPattern)) {
+			String [] idLine = line.split("=");
+			match = idLine[1];
+			variableMap.put("definition", match);
+		}
+		if (line.contains(curationStatusPattern)) {
+			String [] idLine = line.split("=");
+			match = idLine[1];
+			variableMap.put("curationstatus", match);
+		}
+		if (line.contains(resourceTypePattern)) {
+			String [] idLine = line.split("=");
+			match = idLine[1];
+			variableMap.put("resource_type", match);
+		}
+		if (line.contains(parentOrganizationPattern)) {
+			String [] idLine = line.split("=");
+			match = idLine[1];
+			variableMap.put("parent_organization", match);
+		}
+		if (line.contains(dateCreatedPattern)) {
+			String [] idLine = line.split("=");
+			match = idLine[1];
+			variableMap.put("date_updated", match);
+		}
+		if (line.contains(superCategoryPattern)) {
+			String [] idLine = line.split("=");
+			match = idLine[1];
+			variableMap.put("supercategory", match);
+		}
+		if (line.contains(synonymPattern)) {
+			String [] idLine = line.split("=");
+			match = idLine[1];
+			variableMap.put("synonym", match);
+		}
+		//System.out.println("Match: "+match);
+		return variableMap;
+	}
 
 
 	/**

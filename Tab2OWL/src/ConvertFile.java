@@ -285,8 +285,13 @@ public class ConvertFile {
 				count++;
 				// Format parent label for use in query to Wiki 
 				String newParentLabel = "Category:"+parentLabel.replaceAll(" ", "_");
-				//System.out.println("Parent label is Not in Hash. Use \""+newParentLabel+"\" to query NeuroLex for ID.");
+				System.out.println("Parent label is Not in Hash. Use \""+newParentLabel+"\" to query NeuroLex for ID.");
 				
+				//Account for bad Neurolex pages with title Uncurated and NULL
+				if (newParentLabel.equals("Category:Uncurated") || newParentLabel.equals("Category:NULL")) {
+					System.out.println("Bad page name: "+newParentLabel);
+				}
+				else {
 				// Use WikiAPI to get ID for Parent
 				String parentIDFromWiki = getParentIdFromWikiAPI(newParentLabel); //Since data was queried with parents known to be in NLex, a value is always returned
 				// Trim whitespace from value
@@ -311,6 +316,7 @@ public class ConvertFile {
 						"null","null","null",thing,"null", "null",thing,"null")); //changed position9 to thing
 				System.out.println("PID: "+parentMetadata); //parentMetadata.get(6));
 				termsAndPropertiesRootTerms.put(parentIDFromWiki, parentMetadata);*/   
+			}
 			}
 			
 			
@@ -636,6 +642,7 @@ public class ConvertFile {
 		String content = getAllPageContent(newParentLabel);  
 		String[] contentLines = content.split("\\r?\\n");
 		
+		
 		// Account for pages with no content 
 		if (contentLines[0] == null || contentLines[0].length() == 0) { //Add condition to detect a redirect page
 			String parentIdValues[] = newParentLabel.split(":");
@@ -643,35 +650,39 @@ public class ConvertFile {
 		}
 		else {	
 			for (String line : contentLines) {
-				//System.out.println("Line: "+line);			
+				System.out.println("Line: "+line);			
 				if (line.contains("#REDIRECT")) {  //Handle pages that have a Redirect 
 					//Parse redirect page name and query Neurolex again
 					String newPageTitle = line.replaceAll("#REDIRECT\\[\\[\\:", "").replaceAll("]]", ""); 
 					String contentRedirect = getAllPageContent(newPageTitle);
 					String[] contentLinesRedirect = contentRedirect.split("\\r?\\n");
 					
-					//TODO Add in matchContentLines() for redirected pages 
 					for (String lineRedirect : contentLinesRedirect) {
 						//System.out.println("LineRedirect: "+lineRedirect);
-						if (lineRedirect.contains(termIDPattern)) {
+						Map<String, String> tempMap = matchContentLines(line);  //Added in matchContentLines() for redirected pages 
+						attributeValueMap.putAll(tempMap);	
+						/*if (lineRedirect.contains(termIDPattern)) {
 							//System.out.println("TermId: "+lineRedirect);
 							String[] idLineRedirect = lineRedirect.split("=");
 							//System.out.println("TermID:\""+idLineRedirect[1]+"\"");
 							parentId = idLineRedirect[1];
 							//System.out.println("** getAll() TermID: "+parentId);
-						}
+						}*/
 					}
 				}
-				Map<String, String> tempMap = matchContentLines(line);
-				attributeValueMap.putAll(tempMap);	
+				//if (!line.equals("Category:Uncurated") || !line.equals("Category:NULL")) {
+					Map<String, String> tempMap = matchContentLines(line);
+					attributeValueMap.putAll(tempMap);	
+				//}
 			} //EOL -> "for () (String line : contentLines) {" 
+		
 			
 			// Add variables to proper place in ArrayList 
 			System.out.println("AttrValueMap Size: "+attributeValueMap.size());
 			for (int i = 0; i<attributes.length; i++) {
 				String value = null;
 				boolean valueExists = false;
-				//System.out.println("VarName: "+attributes[i]);
+				System.out.println("VarName: "+attributes[i]);
 				for (Entry<String, String> entry : attributeValueMap.entrySet()) {
 					if (attributes[i].equals(entry.getKey())) {
 						//System.out.println("VarName: "+attributes[i]+" *** Var From Map: "+entry.getKey() +" *** Value From Map: "+entry.getValue()+" ***");
@@ -689,7 +700,7 @@ public class ConvertFile {
 			}
 			// DEBUG - Print all values 
 			for (String str : allParentMetadata) {
-				System.out.println("Values in allParentMetadata: "+str);
+				//System.out.println("Values in allParentMetadata: "+str);
 			}
 		}
 		return allParentMetadata;
@@ -713,17 +724,19 @@ public class ConvertFile {
 		List<Page> listOfPages =  user.queryContent(listOfTitleStrings);  //user.queryCategories(listOfTitleStrings);
 
 		for (Page page : listOfPages) {
-			//System.out.println("PageTitle: "+page.getTitle());
+			String pageTitle = page.getTitle();
+			System.out.println("PageTitle: "+pageTitle);
 			content = page.getCurrentContent();
+			content = pageTitle+"\n"+content;  //Preprend pageTitle to contents of page in order to use as term metadata 
 			//System.out.println("------------------"+content+"-----------------");
 			if(content != null)
 				break;
 			// Account for pages that do not exist .. this doesn't seem to be called?
-			else  {
+			//else  {
 				//System.out.println("Content1: "+content);
-				content = "|Id="+page.getTitle();
+				//content = "|Id="+page.getTitle();
 				//System.out.println("Content2: "+content);
-			}
+			//}
 		}
 		return content;
 	}
@@ -738,7 +751,7 @@ public class ConvertFile {
 		//System.out.println("** matchContentLines() **");
 		String match = null;
 		String termIDPattern = "|Id=";
-		String labelPattern = "|LABELPATTERN=";  //update with correct pattern
+		String labelPattern = "Category:";  
 		String abbrevPattern = "|ABBREVPATTERN=";  //update with correct pattern
 		String definitionPattern = "|Definition=";
 		String curationStatusPattern = "|CurationStatus=";
@@ -751,8 +764,6 @@ public class ConvertFile {
 		String superCategoryPattern = "|SuperCategory=";
 		String synonymPattern = "|synonym=";
 		
-		//return map of variable name and value, then in calling method loop through all variable names and get hashtable value
-		//therefore can handle occurrences where variable/attribute does not exist in the page
 		Map<String, String> variableMap = new HashMap<String, String>();
 		//e_uid	resource_name	abbrev	description	curationstatus	url	resource_type	parent_organization	date_updated	supercategory	synonym
 		
@@ -761,10 +772,10 @@ public class ConvertFile {
 			match = idLine[1];
 			variableMap.put("parentId", match);
 		}	
-		if (line.contains(labelPattern)) {
-			String [] idLine = line.split("=");
+		if (line.startsWith(labelPattern)) {  
+			String [] idLine = line.split(":");
 			match = idLine[1];
-			variableMap.put("resource_name", match);
+			variableMap.put("resource_name", match);	
 		}
 		if (line.contains(abbrevPattern)) {
 			String [] idLine = line.split("=");
@@ -806,7 +817,12 @@ public class ConvertFile {
 			match = idLine[1];
 			variableMap.put("synonym", match);
 		}
-		//System.out.println("Match: "+match);
+		//DEBUG Print out variableMap
+		for (Entry<String, String> entry : variableMap.entrySet()) {
+	        String key = entry.getKey().toString();
+	        String value = entry.getValue();
+	        //System.out.println("Key: " + key + " Value: " + value );
+	    }		
 		return variableMap;
 	}
 

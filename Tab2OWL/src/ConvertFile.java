@@ -74,28 +74,19 @@ public class ConvertFile {
 	 */
 	public static void main(String[] args) throws OWLOntologyStorageException, IOException, OWLOntologyCreationException {
 		final Logger LOGGER = Logger.getLogger(ConvertFile.class.getName()); 
-		
-		/**
-		 * Read in tab delimited file and convert to OWL file 
-		 */
+		 
 		String timeStamp = new SimpleDateFormat("MM-dd-yyyy_HHmmssms").format(new Date());
 		String inputFile = "/Users/whetzel/git/tab2owl/Tab2OWL/datafile/registry_02262015.tsv"; //location and name of input file of data to convert to OWL 
 		String ontologyFileName = "scicrunch-registry_"+timeStamp+".owl"; //name of ontology file to create
 		
-		Map<String, ArrayList> termsAndProperties = processTermFile(inputFile, timeStamp);	
-		//DEBUG - print out HashMap
-		/*for (Entry<String, ArrayList<String>> entry : termsAndProperties.entrySet()) {
-	        String key = entry.getKey().toString();
-	        ArrayList<String> value = entry.getValue();
-	        System.out.println("ArrayList Size: "+ value.size() +" Key: " + key + " Value: " + value );
-	    }*/
 		
+		Map<String, ArrayList> termsAndProperties = processTermFile(inputFile, timeStamp);	
 		// Create Hashtable of label->ID for classes
 		Hashtable<String,String> classIDHashtable = new Hashtable<String,String>();
 		classIDHashtable = createClassIDLabelHash(termsAndProperties);
 
-		//File owlFile = createOWLFile(ontologyFileName);
-		//buildClassTree(termsAndProperties, owlFile, classIDHashtable);
+		File owlFile = createOWLFile(ontologyFileName);
+		buildClassTree(termsAndProperties, owlFile, classIDHashtable);
 
 		//addClassRestrictions(termsAndProperties, owlFile, classIDHashtable);
 		//addAnnotations(termsAndProperties, owlFile, classIDHashtable);
@@ -253,15 +244,16 @@ public class ConvertFile {
 		for (Entry<String, ArrayList> entry : termsAndProperties.entrySet()) {
 			String key = entry.getValue().get(1).toString(); //add term label as key
 			String value = entry.getKey(); //e_uid as value
-			hashtable.put(key, value);
+			hashtable.put(key, value);  
 		}
 		System.out.println("Size of ClassIDLabel Hash with only values from data file: "+hashtable.size());
 		
 		
-		// Loop through termsAndProperties to find root terms based on assumption
-		// that every Parent label should exist as a key in the hashtable 	
+		/* Loop through termsAndProperties to find root terms based on assumption
+		 * that every Parent label should exist as a key in the hashtable ... but 'Granting agency' does not exist in data file, assumption is no longer correct 
+		 */
 		
-		//Column resource_type should be parent term, limit to only university OR government granting agency - use entire Registry information now
+		//Column resource_type should be parent term, (limit to only university OR government granting agency) -> use entire Registry information now
 		Map<String, ArrayList> termsAndPropertiesRootTerms = new HashMap<String,ArrayList>();	
 		System.out.println("** Find Root terms ");
 		for (Entry<String, ArrayList> entry : termsAndProperties.entrySet()) {
@@ -269,7 +261,7 @@ public class ConvertFile {
 			String key =  entry.getValue().get(1).toString(); // Term label
 			//TODO This assignment parentLabel=get(6) does not work for entries where supercategory=Resource
 			//String parentLabel = entry.getValue().get(6).toString();  //Parent label -> resource_type column from DISCO, may contain multiple values, but university and gov. granting are disjoint
-			String parentLabel = entry.getValue().get(9).toString(); //Use Supercategory value instead 
+			String parentLabel = entry.getValue().get(9).toString(); //Use Supercategory value instead as parent
 			
 			//TODO Check if this is still needed since now using entire registry information
 			if (parentLabel.contains("university")) {
@@ -297,7 +289,7 @@ public class ConvertFile {
 				// Trim whitespace from value
 				parentIDFromWiki = parentIDFromWiki.trim();
 				//System.out.println("** ParentIDFromWiki: "+parentIDFromWiki);
-				//System.out.println("ParentLabel: "+parentLabel+" ParentID: "+parentIDFromWiki+" RootTermCount: "+count);
+				System.out.println("ParentLabel: "+parentLabel+" ParentID From Neurolex Wiki: "+parentIDFromWiki+" RootTermCount: "+count);
 				hashtable.put(parentLabel, parentIDFromWiki);
 				
 				// Add Thing to hashtable
@@ -305,7 +297,7 @@ public class ConvertFile {
 				String thing = "Thing";
 				hashtable.put(thing, thing); //new code 02/02/2015
 				
-				//TODO Since using all of Registry, need to get more values from Wiki than only parent ID and label!!!
+				// Using all of Registry, need to get more values from Wiki than only parent ID and label
 				ArrayList<String> parentMetadataFromWiki = getAllParentMetadataFromWiki(newParentLabel);
 				System.out.println("PID: "+parentMetadataFromWiki); 
 				termsAndPropertiesRootTerms.put(parentIDFromWiki, parentMetadataFromWiki);   
@@ -455,13 +447,17 @@ public class ConvertFile {
 		OWLOntologyManager manager = OWLManager.createOWLOntologyManager();
 		OWLOntology ontology = manager.loadOntologyFromOntologyDocument(owlFile);
 		OWLDataFactory factory = manager.getOWLDataFactory();
+		int classCount = 0;
 
 		// Populate ontology with class hierarchy from termsAndProperties 
 		for (Entry<String, ArrayList> entry : termsAndProperties.entrySet()) {
+			classCount++;
+			System.out.println("Class count: "+classCount);
+			
 			String key = entry.getKey();	
-			//String termLabel = entry.getValue().get(1).toString(); // get(1) is resource_type value
-			String termLabel = entry.getValue().get(9).toString(); // get(9) is supercategory value
-			System.out.println("\nKey:"+key+"\tValues:"+entry.getValue());
+			String termLabel = entry.getValue().get(1).toString(); // get(1) is resource_name value
+			//String termLabel = entry.getValue().get(9).toString(); // get(9) is supercategory value, which is the parent
+			System.out.println("\nKey:"+key+"\tLabel:"+termLabel+"\tValues:"+entry.getValue());
  
 			String prefix = "http://uri.neuinfo.org/nif/nifstd/";
 			String thingPrefix ="http://www.w3.org/2002/07/owl#";
@@ -479,10 +475,11 @@ public class ConvertFile {
 			
 			
 			// Add Parent to Class, value[2orig] from termsAndProperties Map object
-			String parentLabel = entry.getValue().get(9).toString(); //Change to use supercategory 
+			String parentLabel = entry.getValue().get(9).toString(); //Change to use supercategory, which is the parent 
 			//Normalize parent label to only convert to only university OR government granting agency
+			
 			//These entries are now in the file so might not be needed 
-			if (parentLabel.contains("university")) {
+			/*if (parentLabel.contains("university")) {
 				parentLabel = "university";
 				System.out.println("ParTest:"+parentLabel);
 			}
@@ -491,16 +488,17 @@ public class ConvertFile {
 				System.out.println("ParTest:"+parentLabel);
 			}
 			String childKey = entry.getKey();
-			System.out.println("ParentLabel:"+parentLabel+" ChildKey:"+childKey);
+			System.out.println("ParentLabel:"+parentLabel+" ChildKey:"+childKey);*/
 			
 			
 			// Get ID for parent from hashtable
 			String parentId = classIDHashtable.get(parentLabel); //classIDHashtable.get(parent); //classIDHashtable is now key=termLabel, value-e_uid
 			System.out.println("** ParentID: "+parentId+"\t** Parent Label: "+parentLabel);
-
+			//IF parentID is null, then need to get ID ... if Null, then ID was not added to hashtable 
+					
 			// TODO Remove after more testing that moving this test to createClassIDLabelHash is working
-			/*if (parentId == null) {
-				parentId = parent.replaceAll(" ", "_");
+			if (parentId == null) {
+				parentId = parentLabel.replaceAll(" ", "_");
 				parentId = "Category:"+parentId;
 				System.out.println("Null/No ID Found. Use \""+parentId+"\" to query NeuroLex for ID.");
 				// Use WikiAPI to get ID for Parent
@@ -509,16 +507,15 @@ public class ConvertFile {
 				parentId = parentIDFromWiki.trim();
 				System.out.println("** ParentIDFromWiki: "+parentId);
 				// Update null value in hashtable
-				classIDHashtable.put(parent, parentId);  //Then add key and value back to hashtable 
-			}*/
+				classIDHashtable.put(parentLabel, parentId);  //Then add key and value back to hashtable 
+			}
 			
 			OWLClass clsB;
 			// Check if Parent is owl:Thing
 			String thing = "Thing";
 			if (parentId.equals(thing)) {
 				System.out.println("Parent is owl:Thing for this term");
-				clsB = factory.getOWLClass(IRI.create(thingPrefix + parentId));
-				
+				clsB = factory.getOWLClass(IRI.create(thingPrefix + parentId));	
 			}
 			else {
 				clsB = factory.getOWLClass(IRI.create(prefix + parentId));
@@ -526,7 +523,7 @@ public class ConvertFile {
 			
 			OWLAxiom axiom = factory.getOWLSubClassOfAxiom(clsAMethodA, clsB);
 			AddAxiom addAxiom = new AddAxiom(ontology, axiom);
-			System.out.println(addAxiom);
+			System.out.println(addAxiom); //TODO Sort out hierarchy error here 
 			// We now use the manager to apply the change
 			manager.applyChange(addAxiom);
 
@@ -641,8 +638,7 @@ public class ConvertFile {
 		// Get Neurolex page content
 		String content = getAllPageContent(newParentLabel);  
 		String[] contentLines = content.split("\\r?\\n");
-		
-		
+				
 		// Account for pages with no content 
 		if (contentLines[0] == null || contentLines[0].length() == 0) { //Add condition to detect a redirect page
 			String parentIdValues[] = newParentLabel.split(":");
@@ -661,22 +657,12 @@ public class ConvertFile {
 						//System.out.println("LineRedirect: "+lineRedirect);
 						Map<String, String> tempMap = matchContentLines(line);  //Added in matchContentLines() for redirected pages 
 						attributeValueMap.putAll(tempMap);	
-						/*if (lineRedirect.contains(termIDPattern)) {
-							//System.out.println("TermId: "+lineRedirect);
-							String[] idLineRedirect = lineRedirect.split("=");
-							//System.out.println("TermID:\""+idLineRedirect[1]+"\"");
-							parentId = idLineRedirect[1];
-							//System.out.println("** getAll() TermID: "+parentId);
-						}*/
 					}
 				}
-				//if (!line.equals("Category:Uncurated") || !line.equals("Category:NULL")) {
-					Map<String, String> tempMap = matchContentLines(line);
-					attributeValueMap.putAll(tempMap);	
-				//}
-			} //EOL -> "for () (String line : contentLines) {" 
-		
-			
+				Map<String, String> tempMap = matchContentLines(line);
+				attributeValueMap.putAll(tempMap);			
+			}  
+				
 			// Add variables to proper place in ArrayList 
 			System.out.println("AttrValueMap Size: "+attributeValueMap.size());
 			for (int i = 0; i<attributes.length; i++) {
@@ -1003,8 +989,6 @@ public class ConvertFile {
 			System.out.println("K:"+key+"\tV:"+entry.getValue());
 
 			// Use classIDHashtable to get ID for term IRI 
-			//PrefixManager pm = new DefaultPrefixManager("http://neurolex.org/wiki/Special:ExportRDF/Category:");
-			//String prefix = "http://neurolex.org/wiki/Special:ExportRDF/Category:";
 			PrefixManager pm = new DefaultPrefixManager("http://uri.neuinfo.org/nif/nifstd/");
 			//String newKey = key.replaceAll(" ", "_");
 			
@@ -1139,16 +1123,12 @@ public class ConvertFile {
 				System.out.println("Citation Axiom: "+citationAxiom);
 				manager.applyChange(new AddAxiom(ontology, citationAxiom)); 
 			}*/
-
-			
-			
+		
 			System.out.println();
 		}
 		// Save ontology 
 		manager.saveOntology(ontology);
 	}
-
-
 
 }
 

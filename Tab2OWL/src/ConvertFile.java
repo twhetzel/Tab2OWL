@@ -88,8 +88,8 @@ public class ConvertFile {
 		File owlFile = createOWLFile(ontologyFileName);
 		buildClassTree(termsAndProperties, owlFile, classIDHashtable);
 
-		//addClassRestrictions(termsAndProperties, owlFile, classIDHashtable);
-		//addAnnotations(termsAndProperties, owlFile, classIDHashtable);
+		addClassRestrictions(termsAndProperties, owlFile, classIDHashtable);
+		addAnnotations(termsAndProperties, owlFile, classIDHashtable);
 	}
 
 
@@ -544,9 +544,9 @@ public class ConvertFile {
 	 * Use Wiki API to get additional content
 	 */
 	private static String getParentIdFromWikiAPI(String newParent) {
-		//System.out.println("** Query term: "+newParent);
+		System.out.println("** Wiki Query term: "+newParent);
 		String content = getPageContent(newParent);  //test.getPageContent(newParent); 
-		//System.out.println("Wiki page content:"+content);
+		System.out.println("Wiki page content:"+content);
 
 		// Print only line with Term ID (|Id=)
 		String[] contentLines = content.split("\\r?\\n");
@@ -562,35 +562,60 @@ public class ConvertFile {
 		else {
 			String termIDPattern = "|Id=";
 			for (String line : contentLines) {
-				//System.out.println("Line: "+line);
+				System.out.println("Line: "+line);
 				
 				// Handle pages that have a Redirect 
 				if (line.contains("#REDIRECT")) {
 					System.out.println("-> Page was redirected");
 					//parse redirect page name and make call again
 					String newPageTitle = line.replaceAll("#REDIRECT\\[\\[\\:", "").replaceAll("]]", ""); 
+					System.out.println("New Page Title: "+newPageTitle);
+					
+					
 					String contentRedirect = getPageContent(newPageTitle);
+					//getParentIdFromWikiAPI(newPageTitle); //Does not work in all cases
 					String[] contentLinesRedirect = contentRedirect.split("\\r?\\n");
+					//Handle wiki queries that are re-directs > 1
+					if (contentRedirect.contains("#REDIRECT")) {
+						String contentRedirect2 = getPageContent(contentLinesRedirect[0].replaceAll("#REDIRECT\\[\\[\\:", "").replaceAll("]]", ""));
+						String[] contentLinesRedirect2 = contentRedirect2.split("\\r?\\n");
+						
+						for (String lineRedirect2 : contentLinesRedirect2) {
+							System.out.println("LineRedirect2: "+lineRedirect2);
+							
+							if (lineRedirect2.contains(termIDPattern)) {
+								System.out.println("TermId from Redirect: "+lineRedirect2);
+								String[] idLineRedirect = lineRedirect2.split("=");
+								System.out.println("TermID from Redirect2:\""+idLineRedirect[1]+"\"");
+								parentId = idLineRedirect[1];
+								System.out.println("** TermID from Redirect2: "+parentId);
+							}
+						}
+						
+					}
+					
+					
 					for (String lineRedirect : contentLinesRedirect) {
-						//System.out.println("LineRedirect: "+lineRedirect);
+						System.out.println("LineRedirect: "+lineRedirect);
 						
 						if (lineRedirect.contains(termIDPattern)) {
-							//System.out.println("TermId: "+lineRedirect);
+							System.out.println("TermId from Redirect: "+lineRedirect);
 							String[] idLineRedirect = lineRedirect.split("=");
-							//System.out.println("TermID:\""+idLineRedirect[1]+"\"");
+							System.out.println("TermID from Redirect:\""+idLineRedirect[1]+"\"");
 							parentId = idLineRedirect[1];
-							System.out.println("** TermID: "+parentId);
+							System.out.println("** TermID from Redirect: "+parentId);
 						}
 					}
 				}			
-				if (line.contains(termIDPattern)) {
-					//System.out.println("TermId: "+line);
+				if (line.startsWith(termIDPattern)) { //was contains() 
+					System.out.println("TermId: "+line);
 					String [] idLine = line.split("=");
 					parentId = idLine[1];
-					System.out.println("** TermID: "+parentId);
+					System.out.println("** TermID from wiki: "+parentId);
 				}
 			}
 		}
+		System.out.println("Parent ID from getParentIdFromWikiAPI(): "+parentId);
 		return parentId;
 	}
 
@@ -738,7 +763,7 @@ public class ConvertFile {
 		String match = null;
 		String termIDPattern = "|Id=";
 		String labelPattern = "Category:";  
-		String abbrevPattern = "|ABBREVPATTERN=";  //update with correct pattern
+		String abbrevPattern = "|Abbrev=";  
 		String definitionPattern = "|Definition=";
 		String curationStatusPattern = "|CurationStatus=";
 		
@@ -912,11 +937,12 @@ public class ConvertFile {
 			// Obtain a reference to values for Parent Organization, values[7]
 			String isPartOfPropertyObject = entry.getValue().get(7).toString();
 			System.err.println("IsPartOfPropertyObject: "+isPartOfPropertyObject);
+			//TODO Do not execute this code if isPartOfPropertyObject is NULL 
 			String newIsPartOfPropertyObject = isPartOfPropertyObject.replace(":Category:","");
 			newIsPartOfPropertyObject = newIsPartOfPropertyObject.replaceAll("\"", "");
 			System.err.println("newIsPartOfPropertyObject-MOD: "+newIsPartOfPropertyObject);
 
-			if (!newIsPartOfPropertyObject.contains("null")) {
+			if (!newIsPartOfPropertyObject.contains("null")) {  
 				//System.err.println("VALUE FOUND: "+newIsPartOfPropertyObject);
 				//NOTE: newIsPartOfPropertyObject may have more than 1 object value
 				String[] isPartOfPropertyObjectValues = newIsPartOfPropertyObject.split(","); //Need to trim whitespace
@@ -931,9 +957,9 @@ public class ConvertFile {
 						System.out.println("Null/No ID Found. Use \""+s+"\" to query NeuroLex for ID.");
 						// Use WikiAPI to get ID for Parent
 						String parentIDFromWiki = getParentIdFromWikiAPI(s);
-						System.out.println(parentIDFromWiki);
+						System.out.println("Parent ID from wiki: "+parentIDFromWiki);
 						// Trim whitespace from value 
-						sId = parentIDFromWiki.trim();
+						sId = parentIDFromWiki.trim(); 
 						System.out.println("** ParentIDFromWiki: "+sId);
 						// Update null value in hashtable
 						classIDHashtable.put(s, sId);  //Then add key and value back to hashtable 
@@ -947,9 +973,11 @@ public class ConvertFile {
 					OWLSubClassOfAxiom ax = factory.getOWLSubClassOfAxiom(clsAMethodB, isPartOfSomeRole);	
 					System.err.println("Parent Organization: "+propertyObject+"\nAxiom: "+ax);
 
+					if (!propertyObject.equals("<http://uri.neuinfo.org/nif/nifstd/NULL>")) {
 					// Add the axiom to our ontology 
-					AddAxiom addAx = new AddAxiom(ontology, ax);
-					manager.applyChange(addAx);
+						AddAxiom addAx = new AddAxiom(ontology, ax);
+						manager.applyChange(addAx);
+					}
 				}
 				System.out.println();
 			}
